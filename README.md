@@ -1,4 +1,4 @@
-![](https://media.xogrp.com/images/0e8d9768-0a08-406b-8e4d-07d9cb5c1898)
+![Beautiful Bozeman, Montana](https://media.xogrp.com/images/0e8d9768-0a08-406b-8e4d-07d9cb5c1898)
 
 # SWAPPLE
 
