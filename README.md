@@ -11,13 +11,13 @@ This project is designed to get people in similar areas together. The idea is to
 On the front end it is a lightweight social media type application that allows people to communicate. The concept of the code can be extrapolated to other applications of this type. The idea is to specify categories, such as heavy equipment, outdoor gear, sporting equipment, and so on.
 
 # The Team
-## Cackie |
+## Cackie
   The leagal writer turned professional programmer
 
 
-## Alex |
+## Alex
   The quiet thinker
 
 
-## Ricky |
+## Ricky
   Awkward third person bio . . .
