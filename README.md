@@ -2,7 +2,7 @@
 
 Beautiful Bozeman, Montana
 
-# SWAPPLE
+# NEIGHBORLY
 
 The neighbor project, to bring people together. Cohort 5, project 1
 
