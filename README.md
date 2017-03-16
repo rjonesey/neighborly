@@ -14,12 +14,12 @@ On the front end it is a lightweight social media type application that allows p
 
 # The Team
 ## Cackie
-  The leagal writer turned professional programmer
+ * The leagal writer turned professional programmer
 
 
 ## Alex
-  The quiet thinker
+ * The quiet thinker
 
 
 ## Ricky
-  Awkward third person bio . . .
+*  Awkward third person bio . . .
