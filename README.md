@@ -18,7 +18,7 @@ On the front end it is a lightweight social media type application that allows p
 
 
 ## Alex
- * The quiet thinker
+ * The strong silent type
 
 
 ## Ricky
