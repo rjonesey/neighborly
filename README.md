@@ -2,7 +2,7 @@
 
 Beautiful Bozeman, Montana
 
-# NEIGHBORLY
+# SWPL
 
 The neighbor project, to bring people together. Cohort 5, project 1
 
