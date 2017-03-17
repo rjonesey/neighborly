@@ -6,11 +6,11 @@ import path from 'path';
 import config from '../webpack.config.dev';
 import morgan from 'morgan';
 import open from 'open';
+import mongoose from 'mongoose';
 let app = express();
 /* eslint-disable no-console */
 let router = express.Router();
 
-let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 let mongodbUri = process.env.MONGODB_URI || 'mongodb://localhost/swapple';
@@ -19,10 +19,10 @@ let options = {
   server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
-// mongoose.connect(mongooseUri, options);
-// let Swapple = require('../models/swapple');
-// let NewUser = require('../models/user');
-// let giphyRoutes = require('../routes/giphys');
+mongoose.connect(mongooseUri, options);
+let Swapple = require('../models/itemSchema');
+let NewUser = require('../models/userSchema');
+let swplRoutes = require('../src/routes/routes');
 
 const port = 3000;
 const compiler = webpack(config);

@@ -1,15 +1,19 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
-import LoginCreateAccount from './components/LoginPage';
 import UserStore from './stores/userStore';
 import { Provider } from 'mobx-react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
+import Account from './components/account';
+import LoginCreateAccount from './components/loginCreateAccount';
+import Browse from './components/browse';
+import Activity from './components/activity';
+import Neighbors from './components/myNeighbors';
 
-const userStore = new UserStore () ;
+
 
 render((
   <Provider userStore = {userStore}>
