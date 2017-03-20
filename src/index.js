@@ -2,7 +2,8 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
-import UserStore from './stores/userStore';
+import UserStore from './stores/UserStore';
+import ItemStore from './stores/ItemStore';
 import { Provider } from 'mobx-react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
@@ -12,11 +13,12 @@ import LoginCreateAccount from './components/loginCreateAccount';
 import Browse from './components/browse';
 import Activity from './components/activity';
 import Neighbors from './components/myNeighbors';
+import Main from './components/main';
 
-
+let userStore = new UserStore();
 
 render((
-  <Provider userStore = {userStore}>
+  <Provider userStore={userStore}>
     <Router history={browserHistory}>
       <Route>
         <Route path="/Login" component={LoginCreateAccount}/>
@@ -28,5 +30,5 @@ render((
         </Route>
       </Route>
     </Router>
-    </Provider>
+  </Provider>
 ), document.getElementById('app'));

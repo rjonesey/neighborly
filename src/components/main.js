@@ -3,6 +3,9 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
+import { inject, observer } from 'mobx-react';
+import 'bootstrap/dist/css/bootstrap.css';
+import { render } from 'react-dom';
 
 
 class Main extends React.Component {
@@ -36,9 +39,14 @@ class Main extends React.Component {
     {this.props.children}
 
       </div>
-    )
+    );
   }
-
 }
 
-export default Main
+Main.propTypes = {
+  children: React.PropTypes.object,
+  userStore: React.PropTypes.object,
+  itemStore: React.PropTypes.object
+};
+
+export default inject('userStore')(observer(Main));
