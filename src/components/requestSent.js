@@ -6,4 +6,4 @@ class RequestSent extends React.Component {
 
 }
 
-export default RequestSent
+export default RequestSent;

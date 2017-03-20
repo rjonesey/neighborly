@@ -6,4 +6,4 @@ class Neighbors extends React.Component {
 
 }
 
-export default Neighbors
+export default Neighbors;

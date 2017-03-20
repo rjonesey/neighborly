@@ -1,9 +1,13 @@
 import express from 'express';
-import itemSchema from '../../models/itemSchema';
-import userSchema from '../../models/userSchema';
+let ItemSchema = ('../../models/itemSchema');
+let UserSchema = ('../../models/userSchema');
 
 let router = express.Router();
 
+// route.use(function(req, res, next){
+//   res.setHeader('Content-Type', 'application/json');
+//   next();
+// });
 
 router.route('/item')
   .post(function(req, res, next){
@@ -21,7 +25,7 @@ router.route('/item')
         res.json(item);
       }
     });
-  })
+  });
 
 
 router.route('/user')
@@ -42,4 +46,4 @@ router.route('/user')
     });
   });
 
-  module.exports = router;
+export default router;
