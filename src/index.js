@@ -22,12 +22,11 @@ render((
     <Router history={browserHistory}>
       <Route>
         <Route path="/Login" component={LoginCreateAccount}/>
-        <Route path="/" component={Main}>
-          <Route path="/Browse" component={Browse}/>
-          <Route path="/Activity" component={Activity}/>
-          <Route path="/MyNeighbors" component={Neighbors}/>
-          <Route path="/Account" component={Account}/>
-        </Route>
+        <Route path="/" component={Main}/>
+        <Route path="/Browse" component={Browse}/>
+        <Route path="/Activity" component={Activity}/>
+        <Route path="/MyNeighbors" component={Neighbors}/>
+        <Route path="/Account" component={Account}/>
       </Route>
     </Router>
   </Provider>
