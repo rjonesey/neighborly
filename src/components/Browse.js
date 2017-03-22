@@ -89,7 +89,7 @@ class Browse extends React.Component {
           {this.props.children}
           </div>
 
-        // <div className="container">
+        {/* <div className="container">
         //   <div className="row">
         //     <div className="col-sm-12">
         //       <form onSubmit={this.handleFormSubmit}>
@@ -99,6 +99,7 @@ class Browse extends React.Component {
         //     </div>
         //   </div>
         // </div>
+        */}
 
         <div className="row">
           <div className="Col-sm-6">
