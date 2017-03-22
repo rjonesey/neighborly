@@ -44,61 +44,63 @@ class LoginCreateAccount extends React.Component {
   render() {
     return (
       <div>
-      <div>
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-        <img src={"http://medicalboard.co.ke/images/collabo.png"} style={{width:100, marginTop: -7}} />
-          <Navbar.Brand>
-            <Link to="/"/>
-          </Navbar.Brand>
-          <Navbar.Toggle/>
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>
-          </Nav>
-          <Nav pullRight className="nav-bar-right"/>
-        </Navbar.Collapse>
-      </Navbar>
-      {this.props.children}
-  </div>
-  <Grid>
-    <Row className="show-grid">
-      <Col md={5} mdPush={5}>
-  <form method="" role="form">
-      <legend>{this.state.loginMsg == "" ? "Please Log In!": this.state.loginMsg}</legend>
+        <div>
+        <Navbar inverse collapseOnSelect>
+          <Navbar.Header>
+          <img src={"http://medicalboard.co.ke/images/collabo.png"} style={{width:100, marginTop: -7}} />
+            <Navbar.Brand>
+              <Link to="/"/>
+            </Navbar.Brand>
+            <Navbar.Toggle/>
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+              <LinkContainer to={{pathname: '/'}}><NavItem>Main</NavItem></LinkContainer>
+              <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
+              {/*<LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>*/}
+              {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>*/}
+            </Nav>
+            <Nav pullRight className="nav-bar-right"/>
+          </Navbar.Collapse>
+        </Navbar>
+        {this.props.children}
+    </div>
+    <Grid>
+      <Row className="show-grid">
+        <Col md={5} mdPush={5}>
+          <form method="" role="form">
+            <legend>{this.state.loginMsg == "" ? "Please Log In!": this.state.loginMsg}</legend>
 
-  <div className="form-group">
-    <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
-  </div>
+            <div className="form-group">
+              <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
+            </div>
 
-  <div className="form-group">
-    <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
-  </div>
+            <div className="form-group">
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+            </div>
 
-  <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
-    </form>
-      </Col>
+            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
+          </form>
+        </Col>
+
         <Col md={5} mdPull={5}>
-    <form method="" role="form">
-        <legend>{this.state.loginMsg == "" ? "Be Neighborly and Create an Account!": this.state.loginMsg}</legend>
+          <form method="" role="form">
+            <legend>{this.state.loginMsg == "" ? "Be Neighborly and Create an Account!": this.state.loginMsg}</legend>
 
-    <div className="form-group">
-      <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
-    </div>
+            <div className="form-group">
+              <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
+            </div>
 
-    <div className="form-group">
-      <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
-    </div>
+            <div className="form-group">
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+            </div>
 
-    <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
-      </form>
-      <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
-      </Col>
+            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
+          </form>
+          <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
+        </Col>
       </Row>
-      </Grid>
+    </Grid>
   </div>
     );
   }
