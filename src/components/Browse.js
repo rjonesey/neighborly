@@ -13,7 +13,9 @@ import PowerTools from './PowerTools';
 class Browse extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      category: ""
+    };
     this.componentWillMount = this.componentWillMount.bind(this);
     this.toggleCheckbox = this.toggleCheckbox.bind(this);
     this.createCheckbox = this.createCheckbox.bind(this);
@@ -62,6 +64,15 @@ class Browse extends React.Component {
     items.map(this.createCheckbox);
   } //look up map function
 
+  searchCategory () {
+    const categories = [
+      'Power Tools',
+      'Gardening',
+      'Hobby',
+      'Outdoor'
+    ];
+  }
+
   render() {
     return(
       <div>
@@ -94,7 +105,6 @@ class Browse extends React.Component {
             <form method="" role="form">
               <div className="form-group">
                 <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
-                <PowerTools/>
               </div>
             </form>
           </Col>
@@ -102,8 +112,8 @@ class Browse extends React.Component {
 
         <div className="container">
           <div className="row">
-            <Col md={5} mdPull={2}>
-              <form onSubmit={this.handleFormSubmit}>
+            <Col md={1} mdPull={2}>
+              <form onSubmit={this.searchCategory}>
                 {/*<div>
                   {this.createCheckboxes}
                 </div>*/}
@@ -120,12 +130,14 @@ class Browse extends React.Component {
                 <button className="btn btn-default" smPull={2} type="submit">Search</button>
               </form>
             </Col>
+            <PowerTools/>
           </div>
         </div>
       </div>
     );
   }
-}
+ }
+
 
 Browse.propTypes = {
   children: React.PropTypes.object,
