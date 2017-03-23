@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { Navbar, Nav, NavItem, Grid, Row, Col } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
+import CreateAccount from './CreateAccount';
 
 class LoginCreateAccount extends React.Component {
   constructor() {
@@ -15,39 +16,35 @@ class LoginCreateAccount extends React.Component {
       email: "",
       loginMsg: ""
     };
-    this.handleNameChange = this.handleNameChange.bind(this);
+
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleAdminChange = this.handleAdminChange.bind(this);
     this.handleLoginUser = this.handleLoginUser.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
-  handleNameChange(e) {
-    this.setState({name: e.target.value});
-  }
   handlePasswordChange(e) {
     this.setState({password: e.target.value});
   }
-  handleAdminChange(e) {
-    this.setState({admin: e.target.value});
-  }
+
   handleEmailChange(e) {
     this.setState({email: e.target.value});
   }
 
   handleLoginUser(event) {
     event.preventDefault();
-    this.props.userStore.LoginUser(this.state.name, this.state.password);
-    this.setState({name: "", password: ""});
+    this.props.userStore.LoginUser(this.state.email, this.state.password);
+    this.setState({email: "", password: ""});
   }
 
   render() {
     return (
       <div>
+      <h1>
+        <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} />
+      </h1>
         <div>
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
-          <img src={"http://medicalboard.co.ke/images/collabo.png"} style={{width:100, marginTop: -7}} />
             <Navbar.Brand>
               <Link to="/"/>
             </Navbar.Brand>
@@ -65,6 +62,7 @@ class LoginCreateAccount extends React.Component {
         </Navbar>
         {this.props.children}
     </div>
+
     <Grid>
       <Row className="show-grid">
         <Col md={5} mdPush={5}>
@@ -72,33 +70,17 @@ class LoginCreateAccount extends React.Component {
             <legend>{this.state.loginMsg == "" ? "Please Log In!": this.state.loginMsg}</legend>
 
             <div className="form-group">
-              <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
+              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email address"/>
             </div>
 
             <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
+              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
 
-            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
+            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button><br/>
           </form>
         </Col>
-
-        <Col md={5} mdPull={5}>
-          <form method="" role="form">
-            <legend>{this.state.loginMsg == "" ? "Be Neighborly and Create an Account!": this.state.loginMsg}</legend>
-
-            <div className="form-group">
-              <input onChange={this.handleNameChange} value={this.state.name} type="text" className="form-control" id="username" placeholder="username"/>
-            </div>
-
-            <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="text" className="form-control" id="password" placeholder="password"/>
-            </div>
-
-            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button>
-          </form>
-          <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
-        </Col>
+          <CreateAccount/>
       </Row>
     </Grid>
   </div>

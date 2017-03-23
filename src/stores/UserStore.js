@@ -17,34 +17,52 @@ export default class UserStore {
     this.LoginUser = this.LoginUser.bind(this);
   }
 
-  LoginUser(name, password) {
-    fetch('/api/authenticate', {
+  NewUser(email, password) {
+    fetch('/user', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
+        email: email,
+        password: password
+      })
+    })
+    .then(function(){
+      alert ('User Account Created.  Please Log In');
+      // browserHistory.push('/');
+    });
+  }
+
+  LoginUser(email, password) {
+    fetch('/authenticate', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
         password: password
       })
     })
     .then(function(result) {
-      console.log(result);
       return result.json();})
     .then(loginCred => {
+      console.log(loginCred.success);
       if (loginCred.success && loginCred.token){
 
-        alert ('Login Successful!' + loginCred.id);
-        browserHistory.push('/Main');
+        alert ('Login Successful!');
+        browserHistory.push('/');
         this.loggedInUser=true;
-        this.name=name;
+        this.email=email;
         this.id = loginCred.id;
         this.token = loginCred.token;
       } else {
         alert (loginCred.message);
         this.loggedInUser=false;
-        this.name="";
+        this.email="";
       }
     });
   }

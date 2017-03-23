@@ -9,4 +9,4 @@ let ItemSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Item', ItemSchema);
+export default mongoose.model('Item', ItemSchema);

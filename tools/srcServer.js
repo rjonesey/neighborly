@@ -7,6 +7,8 @@ import config from '../webpack.config.dev';
 import morgan from 'morgan';
 import open from 'open';
 import mongoose from 'mongoose';
+import routes from '../src/routes/routes';
+
 let app = express();
 /* eslint-disable no-console */
 let router = express.Router();
@@ -22,7 +24,6 @@ let options = {
 mongoose.connect(mongooseUri, options);
 let Swapple = require('../models/itemSchema');
 let NewUser = require('../models/userSchema');
-let swplRoutes = require('../src/routes/routes');
 
 const port = 3000;
 const compiler = webpack(config);
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(require('webpack-hot-middleware')(compiler));
+app.use('/', routes);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join( __dirname, '../public/index.html'));
