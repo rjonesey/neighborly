@@ -1,10 +1,13 @@
 import express from 'express';
-let ItemSchema = ('../../models/itemSchema');
-let UserSchema = ('../../models/userSchema');
+import Item from '../../models/itemSchema';
+import User from '../../models/userSchema';
 let hash = require('password-hash');
 let jwt = require('jsonwebtoken');
 let app = express();
 let router = express.Router();
+let config = require('../../config');
+
+app.set('superSecret', config.secret);
 
 // route.use(function(req, res, next){
 //   res.setHeader('Content-Type', 'application/json');
@@ -14,7 +17,7 @@ let router = express.Router();
 router.route('/item')
   .post(function(req, res, next){
 
-    let item = new ItemSchema();
+    let item = new Item();
     item.name = req.body.name;
     item.description = req.body.description;
     item.owner = req.body.owner;
@@ -30,7 +33,7 @@ router.route('/item')
   })
   .get(function(req, res){
     console.log("itemsandshit");
-    ItemSchema.find().populate('tag').exec(function(err, items){
+    Item.find().populate('tag').exec(function(err, items){
       if(err){
         return (err);
       } else {
@@ -39,26 +42,25 @@ router.route('/item')
     });
   });
 
-// router.route('/giphys/:giphy_id')
-//   .get(function(req, res){
-//     Giphy.findById(req.params.giphy_id, function(err, giphy){
-//       if(err){
-//         console.log(err);
-//       } else {
-//         res.json(giphy);
-//       }
-//     });
-//   })
+router.route('/items')
+  .get(function(req, res){
+    Item.findById(req.params.giphy_id, function(err, giphy){
+      if(err){
+        console.log(err);
+      } else {
+        res.json(giphy);
+      }
+    });
+  });
 
 
 
 router.route('/user')
   .post(function(req, res, next) {
 
-    let user = new UserSchema();
-    user.name = req.body.name;
-    user.bio = req.body.bio;
-    user.neighborhood = req.body.neighborhood;
+    let user = new User();
+    user.email = req.body.email;
+    user.password = hash.generate(req.body.password);
 
     user.save(function(err, user, next) {
       if(err) {
@@ -71,10 +73,10 @@ router.route('/user')
   });
 
 router.post('/authenticate', function(req, res) {
-  console.log('Authenticating....', req.body.name, req.body.password);
+  console.log('Authenticating....', req.body.email, req.body.password);
         // find the user
-  UserSchema.findOne({
-    name: req.body.name
+  User.findOne({
+    email: req.body.email
   }, function(err, user) {
     console.log(user);
     if (err) throw err;

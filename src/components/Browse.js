@@ -64,10 +64,12 @@ class Browse extends React.Component {
   render() {
     return(
       <div>
+      <h1>
+        <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} />
+      </h1>
         <div>
           <Navbar inverse collapseOnSelect>
             <Navbar.Header>
-              <img src={"http://medicalboard.co.ke/images/collabo.png"} style={{width:100, marginTop: -7}} />
               <Navbar.Brand>
                 <Link to="/"/>
               </Navbar.Brand>
