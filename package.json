@@ -8,9 +8,9 @@
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools models",
     "lint:watch": "npm run lint -- --watch",
-    "test": "npm run lint && npm run testonly",
     "testonly": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "testonly:watch": "npm run test -- --watch"
+    "testonly:watch": "npm run testonly -- --watch",
+    "test": "npm run lint && npm run testonly"
   },
   "author": "Montana Code School",
   "license": "MIT",
