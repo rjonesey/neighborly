@@ -7,6 +7,7 @@ import { inject, observer } from 'mobx-react';
 // import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
+import PowerTools from './PowerTools';
 
 
 class Browse extends React.Component {
@@ -93,6 +94,7 @@ class Browse extends React.Component {
             <form method="" role="form">
               <div className="form-group">
                 <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
+                <PowerTools/>
               </div>
             </form>
           </Col>
