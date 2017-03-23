@@ -20,7 +20,7 @@ class Main extends React.Component {
       <div>
         <link rel="stylesheet" href="../../public/style.css"/>
           <h1 id="h1">
-            <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} /> Welcome to SWPL, land of the free and home of the brave{this.props.userStore.name}!
+            <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} /> Welcome to SWPL, {this.props.userStore.email}!
           </h1>
           <Navbar inverse collapseOnSelect>
             <Navbar.Header>

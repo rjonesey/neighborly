@@ -1,19 +1,19 @@
 import React from 'react';
-import {browserHistory, Link } from 'react-router';
+import { browserHistory } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { Col } from 'react-bootstrap';
 
-class CreateAccount extends React.Component {
+class Login extends React.Component {
   constructor() {
     super();
     this.state = {
       password: "",
-      admin: false,
       email: "",
       loginMsg: ""
     };
+
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleNewUser = this.handleNewUser.bind(this);
+    this.handleLoginUser = this.handleLoginUser.bind(this);
     this.handleEmailChange = this.handleEmailChange.bind(this);
   }
 
@@ -25,18 +25,17 @@ class CreateAccount extends React.Component {
     this.setState({email: e.target.value});
   }
 
-  handleNewUser(event) {
+  handleLoginUser(event) {
     event.preventDefault();
-    let user1 = {email: this.state.email, password: this.state.password};
-    this.props.userStore.NewUser(this.state.email, this.state.password);
-    this.setState({ password: "", email: ""});
+    this.props.userStore.LoginUser(this.state.email, this.state.password);
+    this.setState({email: "", password: ""});
   }
 
   render() {
     return (
-        <Col md={5} mdPull={5}>
+        <Col md={5} mdPush={5}>
           <form method="" role="form">
-            <legend>{this.state.loginMsg == "" ? "New to the Neighborhood? Create an Account!": this.state.loginMsg}</legend>
+            <legend>{this.state.loginMsg == "" ? "Please Log In!": this.state.loginMsg}</legend>
 
             <div className="form-group">
               <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email address"/>
@@ -46,17 +45,16 @@ class CreateAccount extends React.Component {
               <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
             </div>
 
-            <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Submit</button><br/>
-          </form><br/>
-          <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
+            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button><br/>
+          </form>
         </Col>
     );
   }
 }
 
-CreateAccount.propTypes = {
-  userStore:  React.PropTypes.object,
-  children: React.PropTypes.object
+Login.propTypes = {
+  LoginUser: React.PropTypes.func,
+  userStore:  React.PropTypes.object
 };
 
-export default inject("userStore")(observer(CreateAccount));
+export default inject("userStore")(observer(Login));

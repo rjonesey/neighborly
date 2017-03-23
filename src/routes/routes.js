@@ -32,7 +32,6 @@ router.route('/item')
     });
   })
   .get(function(req, res){
-    console.log("itemsandshit");
     Item.find().populate('tag').exec(function(err, items){
       if(err){
         return (err);
@@ -73,12 +72,11 @@ router.route('/user')
   });
 
 router.post('/authenticate', function(req, res) {
-  console.log('Authenticating....', req.body.email, req.body.password);
+  console.log('Authenticating....', req.body.email);
         // find the user
   User.findOne({
     email: req.body.email
   }, function(err, user) {
-    console.log(user);
     if (err) throw err;
 
     if (!user) {

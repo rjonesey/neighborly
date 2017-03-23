@@ -50,7 +50,6 @@ export default class UserStore {
     .then(function(result) {
       return result.json();})
     .then(loginCred => {
-      console.log(loginCred.success);
       if (loginCred.success && loginCred.token){
 
         alert ('Login Successful!');
