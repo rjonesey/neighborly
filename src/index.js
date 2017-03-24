@@ -16,9 +16,10 @@ import Neighbors from './components/myNeighbors';
 import Main from './components/main';
 
 let userStore = new UserStore();
+let itemStore = new ItemStore();
 
 render((
-  <Provider userStore={userStore}>
+  <Provider userStore={userStore} itemStore={itemStore}>
     <Router history={browserHistory}>
       <Route>
         <Route path="/Login" component={LoginCreateAccount}/>
@@ -30,4 +31,5 @@ render((
       </Route>
     </Router>
   </Provider>
+
 ), document.getElementById('app'));

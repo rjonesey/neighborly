@@ -20,7 +20,7 @@ class Main extends React.Component {
       <div>
         <link rel="stylesheet" href="../../public/style.css"/>
           <h1 id="h1">
-            <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} /> Welcome to SWPL, {this.props.userStore.email}!
+            <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} /> Welcome to swpl {this.props.userStore.email}!
           </h1>
           <Navbar inverse collapseOnSelect>
             <Navbar.Header>
@@ -35,6 +35,7 @@ class Main extends React.Component {
                 {/*<LinkContainer to={{pathname: '/Activity'}}><NavItem>  Activity  </NavItem></LinkContainer>*/}
                 {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
                 <LinkContainer to={{pathname: '/Login'}}><NavItem>   Be Neighborly!   </NavItem></LinkContainer>
+                <LinkContainer to={{pathname: '/Account'}}><NavItem>  Your Account!  </NavItem></LinkContainer>
               </Nav>
               <Nav pullRight className="nav-bar-right"/>
             </Navbar.Collapse>
@@ -70,4 +71,4 @@ Main.propTypes = {
   itemStore: React.PropTypes.object
 };
 
-export default inject('userStore')(observer(Main));
+export default inject('userStore', 'itemStore')(observer(Main));

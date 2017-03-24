@@ -1,9 +1,10 @@
 let mongoose = require('mongoose');
 
 let ItemSchema = new mongoose.Schema({
-  name: String,
+  brand: String,
   description: String,
-  keyword: String
+  category: String,
+  condition: String
 });
 
 export default mongoose.model('Item', ItemSchema);

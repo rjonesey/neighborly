@@ -5,12 +5,12 @@ import {browserHistory} from 'react-router';
 export default class ItemStore {
   constructor  () {
     extendObservable(this, {
-      name: "",
-      description: "",
-      keyword: ""
+      item: []
     });
+    this.newItem = this.newItem.bind(this);
   }
-  NewItem(name, description, keyword) {
+
+  newItem(item) {
     fetch('/item', {
       method: 'POST',
       headers: {
@@ -18,13 +18,12 @@ export default class ItemStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
-        description: description,
-        keyword: keyword
+        condition: item.condition,
+        description: item.description,
+        brand: item.brand,
+        category: item.category
       })
     })
-    .then(function(){
-      alert ('Item added');
-    });
+      .then(this.item.push(item));
   }
 }
