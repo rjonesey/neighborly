@@ -8,7 +8,7 @@ import CreateAccount from './CreateAccount';
 import Login from './Login';
 
 class LoginCreateAccount extends React.Component {
-  
+
   render() {
     return (
       <div>
@@ -35,9 +35,8 @@ class LoginCreateAccount extends React.Component {
         </Navbar>
         {this.props.children}
     </div>
-
-    <Grid>
-      <Row className="show-grid">
+      <Grid>
+        <Row className="show-grid">
         <Login/>
         <CreateAccount/>
       </Row>

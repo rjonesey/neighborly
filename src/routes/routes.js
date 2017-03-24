@@ -16,12 +16,10 @@ app.set('superSecret', config.secret);
 
 router.route('/item')
   .post(function(req, res, next){
-
     let item = new Item();
     item.name = req.body.name;
     item.description = req.body.description;
-    item.owner = req.body.owner;
-
+    item.keyword = req.body.keyword;
     item.save(function(err, item, next) {
       if(err) {
         return next(err);
@@ -40,14 +38,13 @@ router.route('/item')
       }
     });
   });
-
-router.route('/items')
+router.route('/item')
   .get(function(req, res){
-    Item.findById(req.params.giphy_id, function(err, giphy){
+    Item.findById(req.params.item_id, function(err, item){
       if(err){
         console.log(err);
       } else {
-        res.json(giphy);
+        res.json(item);
       }
     });
   });
