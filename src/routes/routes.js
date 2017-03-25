@@ -9,17 +9,18 @@ let config = require('../../config');
 
 app.set('superSecret', config.secret);
 
-// route.use(function(req, res, next){
-//   res.setHeader('Content-Type', 'application/json');
-//   next();
-// });
+router.use(function(req, res, next){
+  res.setHeader('Content-Type', 'application/json');
+  next();
+});
 
 router.route('/item')
   .post(function(req, res, next){
     let item = new Item();
-    item.name = req.body.name;
+    item.brand = req.body.brand;
     item.description = req.body.description;
-    item.keyword = req.body.keyword;
+    item.condition = req.body.condition;
+    item.category = req.body.category;
     item.save(function(err, item, next) {
       if(err) {
         return next(err);
@@ -30,17 +31,17 @@ router.route('/item')
     });
   })
   .get(function(req, res){
-    Item.find().populate('tag').exec(function(err, items){
+    Item.find(function(err, item){
       if(err){
         return (err);
       } else {
-        res.json(items);
+        res.json(item);
       }
     });
   });
 router.route('/item')
   .get(function(req, res){
-    Item.findById(req.params.item_id, function(err, item){
+    Item.findById(req.params.item._id, function(err, item){
       if(err){
         console.log(err);
       } else {
