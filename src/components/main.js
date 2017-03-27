@@ -12,6 +12,7 @@ import HeaderNavigation from './HeaderNavigation';
 import { bootstrapUtils } from 'react-bootstrap/lib/utils';
 
 
+
 bootstrapUtils.addStyle(Button, 'custom');
 <link rel="stylesheet" href="../../public/style.css"/>;
 

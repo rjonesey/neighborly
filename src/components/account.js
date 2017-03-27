@@ -13,7 +13,7 @@ class Account extends React.Component {
       brand: "",
       category: "",
       description: "",
-      conditon: ""
+      condition: ""
     };
 
     this.handleBrandChange = this.handleBrandChange.bind(this);
@@ -38,13 +38,13 @@ class Account extends React.Component {
   handleConditionChange(e) {
     this.setState({condition: e.target.value});
   }
+  handleUrlChange(e) {
+    this.setState({url: e.target.value});
+  }
 
   handleNewItem(event) {
     event.preventDefault();
-    this.props.itemStore.newItem(this);
-    console.log(event);
-
-
+    this.props.itemStore.newItem(this.state);
   }
 
 
@@ -79,7 +79,7 @@ class Account extends React.Component {
           <legend>Add Your Items!!</legend>
 
           <div className="form-group">
-            <input onChange={this.handleBrandChange} value={this.state.brand} type="text" className="form-control" id="brand" placeholder="brand"/>
+            <input onChange={this.handleBrandChange} value={this.state.brand}  className="form-control" id="brand" placeholder="brand"/>
           </div>
 
           <div className="form-group">
@@ -87,11 +87,14 @@ class Account extends React.Component {
           </div>
 
           <div className="form-group">
-            <input onChange={this.handleDescriptionChange} value={this.state.description} type="text" className="form-control" id="description" placeholder="description"/>
+            <input onChange={this.handleDescriptionChange} value={this.state.description} className="form-control" id="description" placeholder="description"/>
           </div>
 
           <div className="form-group">
-            <input onChange={this.handleConditionChange} value={this.state.condition} type="text" className="form-control" id="condition" placeholder="condition"/>
+            <input onChange={this.handleConditionChange} value={this.state.condition} className="form-control" id="condition" placeholder="condition"/>
+          </div>
+          <div className="form-group">
+            <input onChange={this.handleUrlChange} value={this.state.url} className="form-control" id="url" placeholder="url"/>
           </div>
 
           <button onClick={this.handleNewItem} type="submit" className="btn btn-primary">Add Your Item!</button>

@@ -5,12 +5,13 @@ import {browserHistory} from 'react-router';
 export default class ItemStore {
   constructor  () {
     extendObservable(this, {
-      item: []
+      items: []
     });
     this.newItem = this.newItem.bind(this);
   }
 
   newItem(item) {
+    console.log("before post", item);
     fetch('/item', {
       method: 'POST',
       headers: {
@@ -21,9 +22,16 @@ export default class ItemStore {
         condition: item.condition,
         description: item.description,
         brand: item.brand,
-        category: item.category
+        category: item.category,
+        url: item.url
       })
     })
-      .then(this.item.push(item));
+    .then(function(result) {
+      return result.json();})
+    .then(resultItem => {
+      this.items.push(resultItem);
+      console.log(resultItem);
+    });
   }
+
 }
