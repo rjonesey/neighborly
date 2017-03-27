@@ -22,7 +22,8 @@ export default class ItemStore {
         condition: item.condition,
         description: item.description,
         brand: item.brand,
-        category: item.category
+        category: item.category,
+        url: item.url
       })
     })
     .then(function(result) {

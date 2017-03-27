@@ -38,11 +38,13 @@ class Account extends React.Component {
   handleConditionChange(e) {
     this.setState({condition: e.target.value});
   }
+  handleUrlChange(e) {
+    this.setState({url: e.target.value});
+  }
 
   handleNewItem(event) {
     event.preventDefault();
     this.props.itemStore.newItem(this.state);
-    console.log(event);
   }
 
 
@@ -90,6 +92,9 @@ class Account extends React.Component {
 
           <div className="form-group">
             <input onChange={this.handleConditionChange} value={this.state.condition} className="form-control" id="condition" placeholder="condition"/>
+          </div>
+          <div className="form-group">
+            <input onChange={this.handleUrlChange} value={this.state.url} className="form-control" id="url" placeholder="url"/>
           </div>
 
           <button onClick={this.handleNewItem} type="submit" className="btn btn-primary">Add Your Item!</button>

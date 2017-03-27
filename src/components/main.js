@@ -6,7 +6,7 @@ import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
 import { inject, observer } from 'mobx-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
-import Browse from './Browse';
+import BrowseTwo from './BrowseTwo';
 
 
 class Main extends React.Component {
