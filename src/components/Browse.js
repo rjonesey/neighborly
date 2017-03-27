@@ -106,11 +106,8 @@ class Browse extends React.Component {
             <form method="" role="form">
               <div className="form-group">
                 <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
-<<<<<<< HEAD
                 <PowerTools/>
                 <Hobby/>
-=======
->>>>>>> 64b90e50bf50d2bec7447e179a4c63d9a2527a04
               </div>
             </form>
           </Col>
