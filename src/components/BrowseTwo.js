@@ -4,7 +4,6 @@ import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-b
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
-// import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
@@ -26,11 +25,9 @@ class BrowseTwo extends React.Component {
     this.selectedCheckboxes = new Set();
   }
 
-
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
   }
-
 
   searchCategory () {
     const categories = [
@@ -101,14 +98,13 @@ class BrowseTwo extends React.Component {
 
         <div className="text-center col-lg-3 col-md-4 col-sm-6">
           <div>
-            <ItemList listOfItems={this.props.itemStore.items}/>
+            <ItemList items={this.props.itemStore.items}/>
           </div>
         </div>
       </div>
     );
   }
  }
-
 
 BrowseTwo.propTypes = {
   children: React.PropTypes.object,
