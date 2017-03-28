@@ -16,12 +16,13 @@ router.use(function(req, res, next){
 
 router.route('/item')
   .post(function(req, res, next){
-    
+
     let item = new Item();
     item.brand = req.body.brand;
     item.description = req.body.description;
     item.condition = req.body.condition;
     item.category = req.body.category;
+
     item.save(function(err, item, next) {
       if(err) {
         return next(err);
