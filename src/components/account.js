@@ -10,22 +10,18 @@ class Account extends React.Component {
   constructor() {
     super();
     this.state = {
-      brand: "",
       category: "",
       description: "",
-      condition: ""
+      condition: "",
+      url: ""
     };
-
-    this.handleBrandChange = this.handleBrandChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
     this.handleConditionChange = this.handleConditionChange.bind(this);
+    this.handleUrlChange = this.handleUrlChange.bind(this);
     this.handleNewItem = this.handleNewItem.bind(this);
   }
 
-  handleBrandChange(e) {
-    this.setState({brand: e.target.value});
-  }
 
   handleCategoryChange(e) {
     this.setState({category: e.target.value});
@@ -78,9 +74,7 @@ class Account extends React.Component {
       <form method="" role="form">
           <legend>Add Your Items!!</legend>
 
-          <div className="form-group">
-            <input onChange={this.handleBrandChange} value={this.state.brand}  className="form-control" id="brand" placeholder="brand"/>
-          </div>
+
 
           <div className="form-group">
             <input onChange={this.handleCategoryChange} value={this.state.category} className="form-control" id="category" placeholder="category"/>

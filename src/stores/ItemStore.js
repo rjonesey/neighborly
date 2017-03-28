@@ -21,7 +21,6 @@ export default class ItemStore {
       body: JSON.stringify({
         condition: item.condition,
         description: item.description,
-        brand: item.brand,
         category: item.category,
         url: item.url
       })
@@ -30,8 +29,7 @@ export default class ItemStore {
       return result.json();})
     .then(resultItem => {
       this.items.push(resultItem);
-      console.log(resultItem);
+      console.log(this.items);
     });
   }
-
 }

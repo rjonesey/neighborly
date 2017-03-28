@@ -1,3 +1,4 @@
+
 #h1{
   font-size: 30px;
 }
@@ -39,46 +40,3 @@ body {
         background-color: #a0d468;
         color: white;
     }
-
-
-
-
-/*.navbar-page-header .nav li a {
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
-
-.navbar-nav {
-
-}*/
-
-/*.navbar-toggle {
-  background-image: url(“data:image/svg+xml;..”);
-}*/
-
-/*.navbar-default .navbar-nav>li>a {
-  color: #fff;
-}
-
-.nav>li>a {
-  position: relative;
-  display: block;
-}
-
-.headroom {
-  positon: fixed;
-  top: 0;
-  width: 100%;
-  min-height: 75pt;
-  padding-top: 22px;
-  padding-bottom: 22px;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAABtElEQ…IZOKyvt8H5f52gNEBFfwDOO1sA/UFOXDkyuPpDsFjX/AAaVQm/PXemlQAAAABJRU5ErkJggg==);
-  background-color: #30363e;
-  transition: all .3s ease-in-out;
-    box-shadow: 0 0 1px rgba(0,0,0,.15);
-    z-index: 1030;
-}
-
-.navbar-toggle {
-  z-index: 3;
-}*/
