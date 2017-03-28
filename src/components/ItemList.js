@@ -1,33 +1,34 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
 import ItemStore from '../stores/ItemStore';
+import BrowseTwo from './BrowseTwo';
+import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg } from "reactstrap";
+import { render } from 'react-dom';
 
 ItemList.propTypes = {
-  items: React.PropTypes.object,
-  ItemStore: React.PropTypes.object,
+  items: React.PropTypes.array.isRequired,
   account: React.PropTypes.object
 };
 
-function ItemList(params) {
-  let addedItems = params.items.map(function(item) {
+function ItemList(props) {
+  let addedItems = props.items.map(function(item) {
     return (
-      <li key={item._id}>
-        <img src={item.url}/>
-      </li>
+          <CardBlock key={item._id}>
+            <CardImg top width="100%" src={item.url} className="rounded"/>
+            <CardBlock>
+              <CardTitle>{item.category}</CardTitle>
+              <CardSubtitle>{item.condition}</CardSubtitle>
+              <CardText>{item.description}</CardText>
+            </CardBlock>
+          </CardBlock>
     );
   });
 
   return (
-    <div>
-      <Grid>
-        <Row>
-          {addedItems}
-        </Row>
-      </Grid>
-    </div>
+    <Card>
+      {addedItems}
+    </Card>
   );
 }
-
-
 
 export default ItemList;

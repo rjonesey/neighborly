@@ -22,6 +22,7 @@ router.route('/item')
     item.description = req.body.description;
     item.condition = req.body.condition;
     item.category = req.body.category;
+    item.url = req.body.url;
 
     item.save(function(err, item, next) {
       if(err) {

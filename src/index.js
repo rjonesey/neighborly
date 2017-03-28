@@ -1,4 +1,3 @@
-import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
@@ -15,6 +14,7 @@ import Activity from './components/activity';
 import Neighbors from './components/myNeighbors';
 import Main from './components/main';
 import BrowseTwo from './components/BrowseTwo';
+import 'bootstrap/dist/css/bootstrap.css';
 
 let userStore = new UserStore();
 let itemStore = new ItemStore();
