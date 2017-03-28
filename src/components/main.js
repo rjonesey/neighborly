@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { Card, Button, CardImg, CardTitle, CardText, CardHeader, CardColumns, CardDeck, CardSubtitle, CardBlock, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, Form, FormGroup, Label, Input, FormFeedback, FormText, AutoComplete, Search, SearchForm, SearchForminReact, absoluteWrapper, GridItems, Module, centeredWithWrapper } from 'reactstrap';
+import { Card, Button, CardImg, CardTitle, CardText, CardHeader, CardColumns, CardDeck, CardSubtitle, CardBlock, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, Form, FormGroup, Label, Input, FormFeedback, FormText, AutoComplete, Search, SearchForm, SearchForminReact, absoluteWrapper, GridItems, Module, Media } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
 import { inject, observer } from 'mobx-react';
@@ -98,7 +98,7 @@ class Main extends React.Component {
       <CardColumns>
 
        <Card block>
-        <CardImg  top width="100%" src="https://coloradowatersports.com/images/com_hikashop/upload/canoe.jpg" className="rounded" alt="Card image cap" />
+        <CardImg  top width="100%" src="https://coloradowatersports.com/images/com_hikashop/upload/canoe.jpg" rounded alt="Card image cap" />
 
           <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
             <CardTitle >Canoe</CardTitle>
@@ -408,7 +408,7 @@ class Main extends React.Component {
       </Card>
 
       <Card>
-        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
+        <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" className="rounded"/>
         <CardBlock>
           <CardTitle>Card title</CardTitle>
             <CardSubtitle>Card subtitle</CardSubtitle>
@@ -426,15 +426,41 @@ class Main extends React.Component {
             </CardColumns>
           </Jumbotron>
         </Grid>
-      </div>
+
+
+    <div>
+      <Grid>
+        <Jumbotron>
+
+          <Media>
+            <Media left href="#">
+              <img src="../images/swpl2logo.jpg" responsive/>
+            </Media>
+            <Media body>
+              <h2>
+              Kathrine Hepburn
+              </h2>
+              <h3>
+              Bozeman, MT
+              </h3>
+              <h4>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+              </h4>
+            </Media>
+          </Media>
+
+        </Jumbotron>
+      </Grid>
     </div>
+    </div>
+  </div>
 
 
 
 
 
 
-    );
+   );
 
   }
 }

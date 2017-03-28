@@ -3,6 +3,7 @@ import { Nav, NavItem, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu, 
 import { LinkContainer } from 'react-router-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Flex, Box } from 'reflexbox';
+import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Navbar extends React.Component {
 
 
       <nav className="navbar navbar-inverse navbar-fixed-top navbar-toggleable-sm">
+
         <div className="container">
 
           <div className="navbar-header">
@@ -40,17 +42,20 @@ class Navbar extends React.Component {
           </div>
 
           <div className="navbar-collapse collapse ">
+
             <ul className="nav navbar-nav flex-row justify-space-between">
-              <li className="nav-item py-md-5"><a href="#">Browse</a></li>
-              <li className="nav-item py-md-5"><a className="active" href="#">Account</a></li>
+              <li className="nav-item py-md-5"><a href="/Browse">Browse</a></li>
+              <li className="nav-item py-md-5"><a className="active" href="/">Activity</a></li>
             </ul>
+
             <ul className="nav navbar-nav flex-row justify-space-between">
-              <li className="nav-item py-md-5"><a href="#">Login</a></li>
-              <li className="nav-item py-md-5"><a href="#">Sign up</a></li>
+              <li className="nav-item py-md-5"><a href="/Login">Login</a></li>
+              <li className="nav-item py-md-5"><a href="/MyNeigbors">Be Neighborly</a></li>
             </ul>
           </div>
         </div>
       </nav>
+      {this.props.children}
     </div>
     );
   }
