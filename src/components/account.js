@@ -71,22 +71,25 @@ class Account extends React.Component {
           </Navbar>
           {this.props.children}
         </div>
-        <div>
-        <CardDeck>
-          <Card>
-            <CardImg top width="100%" src="http://cdn.playbuzz.com/cdn/cd6e17b1-162e-43cd-9f9d-ebe1c3401cb5/8189758a-afad-4250-9582-f81713f31366.jpg" alt="Card image cap" />
-            <CardBlock>
-              <CardTitle>Alex</CardTitle>
-              <CardSubtitle>Bozeman, Montana</CardSubtitle>
-              <CardText>Just a hard-working dude that has equipment Im happy to lend and hoping to borrow a few things for side projects.</CardText>
-              <Button>Edit Profile</Button>
-              <Button>Edit Items</Button>
-            </CardBlock>
-          </Card>
-        </CardDeck>
-      </div>
 
-        <br/>
+      <div>
+      <Jumbotron>
+      <CardColumns>
+        <Card block>
+          <CardImg top width="100%" src="https://www.colourbox.com/preview/4613991-funny-redhead-guy.jpg" rounded alt="Card image cap" />
+          <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
+            <CardTitle>Alex</CardTitle>
+            <CardSubtitle>Bozeman, Montana</CardSubtitle>
+            <CardText>Just a hard-working dude that has equipment Im happy to lend and hoping to borrow a few things for side projects.</CardText>
+            <Button>Edit Profile</Button>
+            <Button>Edit Items</Button>
+          </Card>
+        </Card>
+        </CardColumns>
+        </Jumbotron>
+        </div>
+
+
 
         <div>
       <form method="" role="form">
