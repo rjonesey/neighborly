@@ -72,7 +72,7 @@ class BrowseTwo extends React.Component {
               <Nav>
                 <LinkContainer to={{pathname: '/'}}><NavItem>Main</NavItem></LinkContainer>
                 <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-                <LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>
+                {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>*/}
                 <LinkContainer to={{pathname: '/Login'}}><NavItem>Be Neighborly!</NavItem></LinkContainer>
               </Nav>
               <Nav pullRight className="nav-bar-right"/>

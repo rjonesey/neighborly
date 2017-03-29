@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
-import { CardDeck } from 'reactstrap';
+import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, CardDeck } from "reactstrap";
 
 class Account extends React.Component {
   constructor() {
@@ -63,7 +63,7 @@ class Account extends React.Component {
               <Nav>
                 <LinkContainer to={{pathname: '/'}}><NavItem>Main</NavItem></LinkContainer>
                 <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-                <LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>
+                {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>*/}
                 <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account!</NavItem></LinkContainer>
               </Nav>
               <Nav pullRight className="nav-bar-right"/>
@@ -72,6 +72,7 @@ class Account extends React.Component {
           {this.props.children}
         </div>
         <CardDeck>
+        <Card>
         <div style={{marginLeft:-250}}>
           <Grid>
             <Row className="show-grid">
@@ -86,6 +87,7 @@ class Account extends React.Component {
             </Row>
           </Grid>
         </div>
+        </Card>
         </CardDeck>
 
         <br/>
