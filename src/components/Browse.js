@@ -8,7 +8,11 @@ import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
+<<<<<<< HEAD
 import Hobby from './Hobby';
+=======
+import Gardening from './Gardening';
+>>>>>>> 80808b5aa24be1a729db034b72c63aac08648024
 
 
 class Browse extends React.Component {
@@ -40,7 +44,10 @@ class Browse extends React.Component {
     formSubmitEvent.preventDefault();
 
     for (const checkbox of this.selectedCheckboxes) {
+
+
       console.log(checkbox, 'is selected.');
+
     }
   }
 
@@ -78,7 +85,7 @@ class Browse extends React.Component {
     return(
       <div>
       <h1>
-        <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} />
+        <img src="../images/swpl.jpg" style={{width:100, marginTop: -7}} />
       </h1>
         <div>
           <Navbar inverse collapseOnSelect>
@@ -106,20 +113,25 @@ class Browse extends React.Component {
             <form method="" role="form">
               <div className="form-group">
                 <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
+<<<<<<< HEAD
                 <PowerTools/>
                 <Hobby/>
+=======
+
+>>>>>>> 80808b5aa24be1a729db034b72c63aac08648024
               </div>
             </form>
           </Col>
         </div>
 
+
         <div className="container">
           <div className="row">
             <Col md={1} mdPull={2}>
               <form onSubmit={this.searchCategory}>
-                {/*<div>
+                <div>
                   {this.createCheckboxes}
-                </div>*/}
+                </div>
                 <button className="btn btn-success" smPull={2} type="warning">Power Tools</button><br/>
                   <br/>
                 <button className="btn btn-success" smPull={2} type="warning">Gardening</button><br/>

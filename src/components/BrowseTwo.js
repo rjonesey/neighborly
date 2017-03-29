@@ -219,7 +219,10 @@ class BrowseTwo extends React.Component {
               </Card>
 
               <Card block>
+
                 <CardImg top width="100%"        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbF_-1mwkdVfedXSUFKnxRhS4H6oru2Fx0ND5XHRxGD_VHrcqW" rounded alt="Card image cap" />
+
+
                 <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
                   <h2>Outdoor Canvas Party Tent</h2>
                   <h3>Good Condition</h3>
@@ -231,19 +234,14 @@ class BrowseTwo extends React.Component {
         </Grid>
       </div>
 
-
-
-
-
-              <div>
-                <Grid>
-                  <CardColumns>
-                    <Col sm={6}>
-                    <ItemList items={this.props.itemStore.items}/>
-                    </Col>
-                  </CardColumns>
-                </Grid>
-
+        <div>
+          <Grid>
+            <CardColumns>
+              <Col sm={6}>
+              <ItemList items={this.props.itemStore.items}/>
+              </Col>
+            </CardColumns>
+          </Grid>
         </div>
       </div>
     );

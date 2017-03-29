@@ -10,6 +10,10 @@ export default class ItemStore {
     this.newItem = this.newItem.bind(this);
   }
 
+  setItems(items) {
+    this.items = items;
+  }
+
   newItem(item) {
     console.log("before post", item);
     fetch('/item', {
@@ -19,6 +23,7 @@ export default class ItemStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+
         condition: item.condition,
         description: item.description,
         category: item.category,
@@ -29,7 +34,7 @@ export default class ItemStore {
       return result.json();})
     .then(resultItem => {
       this.items.push(resultItem);
-      console.log(this.items);
+      browserHistory.push('/Browse');
     });
   }
 }

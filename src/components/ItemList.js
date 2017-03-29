@@ -13,14 +13,14 @@ ItemList.propTypes = {
 function ItemList(props) {
   let addedItems = props.items.map(function(item) {
     return (
-          <CardBlock key={item._id}>
-            <CardImg top width="100%" src={item.url} className="rounded"/>
-            <CardBlock>
+          <Card block key={item._id}>
+            <CardImg top width="100%" src={item.url} rounded alt="Card image cap"/>
+            <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
               <CardTitle>{item.category}</CardTitle>
               <CardSubtitle>{item.condition}</CardSubtitle>
               <CardText>{item.description}</CardText>
-            </CardBlock>
-          </CardBlock>
+            </Card>
+          </Card>
     );
   });
 
