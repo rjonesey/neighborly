@@ -19,12 +19,18 @@ class BrowseTwo extends React.Component {
       modal: false
     };
     this.toggle = this.toggle.bind(this);
-    this.componentWillMount = this.componentWillMount.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
   }
 
-  componentWillMount ()  {
-    this.selectedCheckboxes = new Set();
+  componentDidMount() {
+    this.loadItemsFromServer();
+  }
+
+  loadItemsFromServer() {
+    fetch('/item')
+      .then(function(result) {return result.json();})
+      .then(items => this.props.itemStore.setItems(items));		
   }
 
   toggle() {
