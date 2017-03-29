@@ -32,7 +32,7 @@ class Main extends React.Component {
             <Navbar.Collapse>
               <Nav>
                 <LinkContainer to={{pathname: '/Browse'}}><NavItem>   Browse Items   </NavItem></LinkContainer>
-                {/*<LinkContainer to={{pathname: '/Activity'}}><NavItem>  Activity  </NavItem></LinkContainer>*/}
+                <LinkContainer to={{pathname: '/Activity'}}><NavItem>  Activity  </NavItem></LinkContainer>
                 {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
                 <LinkContainer to={{pathname: '/Login'}}><NavItem>   Be Neighborly!   </NavItem></LinkContainer>
                 <LinkContainer to={{pathname: '/Account'}}><NavItem>  Your Account!  </NavItem></LinkContainer>
