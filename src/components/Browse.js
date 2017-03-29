@@ -39,7 +39,7 @@ class Browse extends React.Component {
     formSubmitEvent.preventDefault();
 
     for (const checkbox of this.selectedCheckboxes) {
-      console.log(checkbox, 'is selected.');
+    //  console.log(checkbox, 'is selected.');
     }
   }
 

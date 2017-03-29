@@ -1,11 +1,11 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Image, Thumbnail, Button} from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Row, Col, Grid, Image, Thumbnail, Button, Jumbotron, Well } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, CardDeck } from "reactstrap";
+import { Card, CardBlock, CardTitle, CardDeck, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel } from "reactstrap";
 
 class Account extends React.Component {
   constructor() {
@@ -71,28 +71,24 @@ class Account extends React.Component {
           </Navbar>
           {this.props.children}
         </div>
+        <div>
         <CardDeck>
-        <Card>
-        <div style={{marginLeft:-250}}>
-          <Grid>
-            <Row className="show-grid">
-              <Col xs={6} md={3}>
-                <Thumbnail href="#" alt="171x180" src="http://cdn.playbuzz.com/cdn/cd6e17b1-162e-43cd-9f9d-ebe1c3401cb5/8189758a-afad-4250-9582-f81713f31366.jpg" circle />
-                  <h3>Alex</h3>
-                  <p>Bozeman, Montana</p>
-              </Col>
-              <Col xs={6} md={3}>
-              <h4>Just a hard-working dude that has equipment Im happy to lend and hoping to borrow a few things for side projects</h4>
-              </Col>
-            </Row>
-          </Grid>
-        </div>
-        </Card>
+          <Card>
+            <CardImg top width="100%" src="http://cdn.playbuzz.com/cdn/cd6e17b1-162e-43cd-9f9d-ebe1c3401cb5/8189758a-afad-4250-9582-f81713f31366.jpg" alt="Card image cap" />
+            <CardBlock>
+              <CardTitle>Alex</CardTitle>
+              <CardSubtitle>Bozeman, Montana</CardSubtitle>
+              <CardText>Just a hard-working dude that has equipment Im happy to lend and hoping to borrow a few things for side projects.</CardText>
+              <Button>Edit Profile</Button>
+              <Button>Edit Items</Button>
+            </CardBlock>
+          </Card>
         </CardDeck>
+      </div>
 
         <br/>
-        <div>
 
+        <div>
       <form method="" role="form">
         <Col sm={8}>
           <legend>Add Your Items!!</legend>
@@ -116,6 +112,7 @@ class Account extends React.Component {
           </form>
        </div>
     </div>
+
     );
   }
 }
