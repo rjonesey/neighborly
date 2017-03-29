@@ -38,7 +38,7 @@ class Main extends React.Component {
 
         {this.props.children}
         <div>
-          <Jumbotron style={{  backgroundColor:"transparent"}}>
+          <Jumbotron style={{ backgroundColor:"transparent"}}>
             <img style={{width:"100%"}} src="https://media.xogrp.com/images/0e8d9768-0a08-406b-8e4d-07d9cb5c1898"/>
           </Jumbotron>
         </div>
