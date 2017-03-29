@@ -1,96 +1,69 @@
-
-
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron, Media } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Grid, Col, Row } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
 import { inject, observer } from 'mobx-react';
+import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
-import Checkbox from './Checkbox';
-import PowerTools from './PowerTools';
-import Account from './account';
-import ItemList from './ItemList';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg } from "reactstrap";
-import HeaderNavigation from './HeaderNavigation';
+import BrowseTwo from './BrowseTwo';
 
 
 class Main extends React.Component {
 
-  constructor(props) {
-    super(props);
-
+  constructor() {
+    super();
   }
 
   render() {
     return(
       <div>
-        <div>
-          <HeaderNavigation/>
-          {this.props.children}
-        </div>
+        <link rel="stylesheet" href="../../public/style.css"/>
+          <h1 id="h1">
+            <img src="../images/logoSWPL.jpg" style={{width:100, marginTop: -7}} /> Welcome to swpl {this.props.userStore.email}!
+          </h1>
+          <Navbar inverse collapseOnSelect>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <Link to="/"/>
+              </Navbar.Brand>
+              <Navbar.Toggle/>
+            </Navbar.Header>
+            <Navbar.Collapse>
+              <Nav>
+                <LinkContainer to={{pathname: '/Browse'}}><NavItem>   Browse Items   </NavItem></LinkContainer>
+                {/*<LinkContainer to={{pathname: '/Activity'}}><NavItem>  Activity  </NavItem></LinkContainer>*/}
+                {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
+                <LinkContainer to={{pathname: '/Login'}}><NavItem>   Be Neighborly!   </NavItem></LinkContainer>
+                <LinkContainer to={{pathname: '/Account'}}><NavItem>  Your Account!  </NavItem></LinkContainer>
+              </Nav>
+              <Nav pullRight className="nav-bar-right"/>
+            </Navbar.Collapse>
+          </Navbar>
 
+        {this.props.children}
         <div>
           <Grid>
-            <Jumbotron>
-              <CardColumns>
-                <Card block>
-                  <CardImg top width="100%"        src="https://coloradowatersports.com/images/com_hikashop/upload/canoe.jpg" rounded alt="Card image cap" />
-                    <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
-                      <CardTitle >Canoe</CardTitle>
-                        <CardSubtitle>For lakes only</CardSubtitle>
-                        <CardText>Craft beer cronut +1, gluten-free neutra literally you probably havent      heard of them beard. Brooklyn coloring book poutine raclette tofu hashtag, la croix      sartorial deep v pok pok iceland waistcoat austin. Kale chips.</CardText>
-                    </Card>
-                  </Card>
-                </CardColumns>
-              </Jumbotron>
-            </Grid>
-
-            <div>
-          <Grid>
-            <Jumbotron>
-              <CardColumns>
-                <Card block>
-                  <CardImg top width="100%"        src="https://coloradowatersports.com/images/com_hikashop/upload/canoe.jpg" rounded alt="Card image cap" />
-                    <Card block inverse style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
-                      <CardTitle >Canoe</CardTitle>
-                        <CardSubtitle>For lakes only</CardSubtitle>
-                        <CardText>Craft beer cronut +1, gluten-free neutra literally you probably havent      heard of them beard. Brooklyn coloring book poutine raclette tofu hashtag, la croix      sartorial deep v pok pok iceland waistcoat austin. Kale chips.</CardText>
-                    </Card>
-                  </Card>
-                </CardColumns>
-              </Jumbotron>
-            </Grid>
-          </div>
+            <Row>
+              <img src={"https://coloradowatersports.com/images/com_hikashop/upload/canoe.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"http://www.homedepot.com/catalog/productImages/1000/79/79aab6e4-a7f0-43f8-ae80-739b428bfae3_1000.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://www.rei.com/media/product/875163"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://images-na.ssl-images-amazon.com/images/I/71L6KlixIXL._SL1500_.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://cloudfront.zoro.com/product/full/Z2oM8yqcpEx_.JPG"} style={{width:200, height:200, padding:10}} />
+            </Row>
+            <Row>
+              <img src={"http://d3d71ba2asa5oz.cloudfront.net/53000671/images/mst5249a.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://smhttp-ssl-17653.nexcesscdn.net/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/g/d/gdo610.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"http://www.professional-power-tool-guide.com/wp-content/uploads/2008/08/women-orbital-sander.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://images-na.ssl-images-amazon.com/images/I/81LmkUY3lLL._SL1500_.jpg"} style={{width:200, height:200, padding:10}} />
+              <img src={"https://cloudfront.zoro.com/product/full/Z0xGIvicpEx_.JPG"} style={{width:200, height:200, padding:10}} />
+            </Row>
+          </Grid>
         </div>
-
-        <div>
-          <Jumbotron>
-            <Media>
-              <Media left href="#">
-              <Media object data-src="holder.js/64x64" alt="Generic placeholder image" />
-            </Media>
-              <Media body>
-                <Media heading>
-                  Media heading
-                </Media>
-                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-               </Media>
-            </Media>
-        </Jumbotron>
-      </div>
-
-
       </div>
     );
   }
 }
-
-
-
-
-
-
 
 Main.propTypes = {
   children: React.PropTypes.object,
