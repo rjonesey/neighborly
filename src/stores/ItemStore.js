@@ -23,6 +23,7 @@ export default class ItemStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+
         condition: item.condition,
         description: item.description,
         category: item.category,
