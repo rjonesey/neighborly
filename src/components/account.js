@@ -67,10 +67,10 @@ class Account extends React.Component {
           </Navbar.Collapse>
           {this.props.children}
         </div>
-        <div>
+        <Jumbotron style={{backgroundColor:"transparent"}}>
           <Media>
             <Media left>
-              <Media style={{width:"10%"}} object src="http://img01.ibnlive.in/ibnlive/uploads/2012/12/sankagiri-rajkumar.jpg" alt="minions!!!!!!"/>
+              <Media style={{width:"100%"}} object src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSaxK-ShbagBr7eQdl9-OSyf05NUFAAUBn9n_OkH5uaTg_S8JRK" alt="minions!!!!!!"/>
             </Media>
             <Media body>
               <Media heading>
@@ -78,8 +78,11 @@ class Account extends React.Component {
               </Media>
               I made a website . . . :)
             </Media>
+            <Media body>
+              Neighborhood: Bozeman
+            </Media>
           </Media>
-        </div>
+        </Jumbotron>
 
         <br/>
 
