@@ -16,9 +16,10 @@ export default class UserStore {
       token: ""
     });
     this.LoginUser = this.LoginUser.bind(this);
+    this.NewUser = this.NewUser.bind(this);
   }
 
-  NewUser(email, password, name, neighborhood) {
+  NewUser(name, email, password, neighborhood) {
     fetch('/user', {
       method: 'POST',
       headers: {
@@ -26,16 +27,15 @@ export default class UserStore {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        name: name,
         email: email,
         password: password,
-        name: name,
         neighborhood: neighborhood
-
       })
     })
     .then(function(){
       alert ('User Account Created.  Please Log In');
-      // browserHistory.push('/');
+      browserHistory.push('/Account');
     });
   }
 
@@ -49,7 +49,6 @@ export default class UserStore {
       body: JSON.stringify({
         email: email,
         password: password,
-        name: name
       })
     })
     .then(function(result) {
@@ -57,13 +56,13 @@ export default class UserStore {
     .then(loginCred => {
       if (loginCred.success && loginCred.token){
 
-        browserHistory.push('/Account');
+        browserHistory.push('/');
         this.loggedInUser = true;
-        this.email = email;
+        this.email = loginCred.email;
+        this.name = loginCred.name;
         this.id = loginCred.id;
         this.token = loginCred.token;
       } else {
-        alert (loginCred.message);
         this.loggedInUser = false;
         this.email = "";
       }

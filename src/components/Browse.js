@@ -133,7 +133,6 @@ class Browse extends React.Component {
           </Grid>
         </div>
 
-
       <div>
         <Grid>
           <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>

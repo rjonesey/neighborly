@@ -67,8 +67,11 @@ class CreateAccount extends React.Component {
             </div>
 
             <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Submit</button><br/>
-          </form><br/>
-          <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
+
+          </form> <br/>
+
+          {/*<button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Continue with Facebook</button>*/}
+
         </Col>
     );
   }
