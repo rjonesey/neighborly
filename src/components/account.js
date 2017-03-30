@@ -74,12 +74,10 @@ class Account extends React.Component {
             </Media>
             <Media body>
               <Media heading>
-                Ricky
+                <div>
+                  <h2>{this.props.userStore.name}</h2>
+                </div>
               </Media>
-              I made a website . . . :)
-            </Media>
-            <Media body>
-              Neighborhood: Bozeman
             </Media>
           </Media>
         </Jumbotron>
