@@ -1,71 +1,49 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron, Button, Well } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
-// import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
-
+import Account from './account';
+import ItemList from './ItemList';
+import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, ButtonGroup } from "reactstrap";
 
 class Browse extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      category: ""
+      category: "",
+      modal: false,
+      cSelected: []
     };
-    this.componentWillMount = this.componentWillMount.bind(this);
-    this.toggleCheckbox = this.toggleCheckbox.bind(this);
-    this.createCheckbox = this.createCheckbox.bind(this);
-    this.createCheckboxes = this.createCheckboxes.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
+    this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
 
-  componentWillMount ()  {
-    this.selectedCheckboxes = new Set();
+  componentDidMount() {
+    this.loadItemsFromServer();
   }
 
-  toggleCheckbox (label)  {
-    if (this.selectedCheckboxes.has(label)) {
-      this.selectedCheckboxes.delete(label);
-    } else {
-      this.selectedCheckboxes.add(label);
-    }
+  loadItemsFromServer() {
+    fetch('/item')
+      .then(function(result) {return result.json();})
+      .then(items => this.props.itemStore.setItems(items));
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
   }
 
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
-
-    for (const checkbox of this.selectedCheckboxes) {
-
-
-      console.log(checkbox, 'is selected.');
-
-    }
   }
-
-  createCheckbox(label) {
-    render(
-      <Checkbox
-        label={label}
-        handleCheckboxChange={this.toggleCheckbox}
-        key={label}
-      />
-    );
-  }
-
-  createCheckboxes () {
-    const items = [
-      'Power Tools',
-      'Kitchen Appliances',
-      'Gardening',
-      'Hobby',
-      'Outdoor Gear'
-    ];
-    items.map(this.createCheckbox);
-  } //look up map function
 
   searchCategory () {
     const categories = [
@@ -76,81 +54,108 @@ class Browse extends React.Component {
     ];
   }
 
+  onCheckboxBtnClick(selected) {
+    const index = this.state.cSelected.indexOf(selected);
+    if (index < 0) {
+      this.state.cSelected.push(selected);
+    } else {
+      this.state.cSelected.splice(index, 1);
+    }
+    this.setState({ cSelected: [...this.state.cSelected] });
+  }
+
   render() {
     return(
       <div>
-      <h1>
-        <img src="../images/swpl.jpg" style={{width:100, marginTop: -7}} />
-      </h1>
+        <link rel="stylesheet" href="../../public/style.css"/>
         <div>
-          <Navbar inverse collapseOnSelect>
-            <Navbar.Header>
-              <Navbar.Brand>
-                <Link to="/"/>
-              </Navbar.Brand>
-              <Navbar.Toggle/>
-            </Navbar.Header>
-            <Navbar.Collapse>
-            <Nav tabs>
-              <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
-              <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
-              <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-              <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-              <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
-              {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
-              <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
-            </Nav>
-              <Nav pullRight className="nav-bar-right"/>
-            </Navbar.Collapse>
-          </Navbar>
+          <Navbar.Header>
+            <Navbar.Toggle/>
+          </Navbar.Header>
+          <Navbar.Collapse>
+          <Nav tabs style={{}}>
+            <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
+            <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
+            <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
+            <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
+            <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
+            {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
+            <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
+          </Nav>
+            <Nav pullRight className="nav-bar-right"/>
+          </Navbar.Collapse>
           {this.props.children}
         </div>
-        <h1>Browse the Neighborhood!</h1>
-        <div className="row">
-          <Col md={3} mdPush={1}>
-            <form method="" role="form">
-              <div className="form-group">
-                <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
+        <div>
+          <Grid>
+            <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
 
+              <div className="mx-auto">
+                <h1 className="display-4" style={{postion: 'center' }}>Browse the Hoods for the Goods!</h1>
               </div>
-            </form>
-          </Col>
+
+              <Form>
+
+                <FormGroup  style={{width: "50%"}}>
+                  <Label>SEARCH</Label>
+                  <Input state="success" placeholder="Search the Neighborhood"/>
+                  <FormFeedback/>
+                </FormGroup>
+
+                <FormGroup tag="fieldset" row>
+                  <legend className="col-form-legend col-sm-2">Limit Search</legend>
+
+                  <Col sm={10}>
+
+                    <ButtonGroup>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Power Tools")} active={this.state.cSelected.includes("Power Tools")}>Power Tools</Button>
+
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Hobby")} active={this.state.cSelected.includes("Hobby")}>Hobby</Button>
+
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Gardening")} active={this.state.cSelected.includes("Gardening")}>Gardening</Button>
+
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
+
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes(5)}>Kitchen</Button>
+                    </ButtonGroup>
+
+                  </Col>
+                </FormGroup>
+
+                <FormGroup check row className="d-flex align-items-start">
+                  <Col sm={{ size: 20, offset: 2 }}>
+                    <Button className="btn btn-success btn-lg">Search</Button>
+                   </Col>
+                </FormGroup>
+              </Form>
+
+            </Jumbotron>
+          </Grid>
         </div>
 
 
-        <div className="container">
-          <div className="row">
-            <Col md={1} mdPull={2}>
-              <form onSubmit={this.searchCategory}>
-                <div>
-                  {this.createCheckboxes}
-                </div>
-                <button className="btn btn-success" smPull={2} type="warning">Power Tools</button><br/>
-                  <br/>
-                <button className="btn btn-success" smPull={2} type="warning">Gardening</button><br/>
-                  <br/>
-                <button className="btn btn-success" smPull={2} type="warning">Kitchen</button><br/>
-                  <br/>
-                <button className="btn btn-success" smPull={2} type="warning">Outdoor</button><br/>
-                  <br/>
-                <button className="btn btn-success" smPull={2} type="warning">Hobby</button><br/>
-                  <br/>
-                <button className="btn btn-default" smPull={2} type="submit">Search</button>
-              </form>
-            </Col>
-            <PowerTools/>
-          </div>
-        </div>
+      <div>
+        <Grid>
+          <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
+            <CardColumns>
+              <ItemList items={this.props.itemStore.items}/>
+            </CardColumns>
+          </Jumbotron>
+        </Grid>
       </div>
+    </div>
     );
   }
- }
-
+}
 
 Browse.propTypes = {
   children: React.PropTypes.object,
   userStore: React.PropTypes.object,
-  itemStore: React.PropTypes.object
+  itemStore: React.PropTypes.object,
+  items: React.PropTypes.object,
+  user: React.PropTypes.object,
+  className: React.PropTypes.object,
+  buttonLabel: React.PropTypes.object
 };
 
-export default inject('userStore')(observer(Browse));
+export default inject('itemStore', 'userStore')(observer(Browse));
