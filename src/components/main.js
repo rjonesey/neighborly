@@ -9,6 +9,7 @@ import { render } from 'react-dom';
 import BrowseTwo from './BrowseTwo';
 
 
+
 class Main extends React.Component {
 
   constructor() {
@@ -18,7 +19,8 @@ class Main extends React.Component {
   render() {
     return(
       <div>
-        <link rel="stylesheet" href="../../public/style.css"/>
+
+
             <Navbar.Header>
               <Navbar.Toggle/>
             </Navbar.Header>
@@ -42,6 +44,7 @@ class Main extends React.Component {
             <img style={{width:"100%"}} src="https://media.xogrp.com/images/0e8d9768-0a08-406b-8e4d-07d9cb5c1898"/>
           </Jumbotron>
         </div>
+
       </div>
     );
   }

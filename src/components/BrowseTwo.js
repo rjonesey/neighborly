@@ -9,40 +9,36 @@ import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
 import Account from './account';
 import ItemList from './ItemList';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel } from "reactstrap";
-
-class BrowseTwo extends React.Component {
+import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, ButtonGroup } from "reactstrap";
+class Browse extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       category: "",
-      modal: false
+      modal: false,
+      cSelected: []
     };
     this.toggle = this.toggle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
+    this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
-
   componentDidMount() {
     this.loadItemsFromServer();
   }
-
   loadItemsFromServer() {
     fetch('/item')
       .then(function(result) {return result.json();})
       .then(items => this.props.itemStore.setItems(items));
   }
-
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
   }
-
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
   }
-
   searchCategory () {
     const categories = [
       'Power Tools',
@@ -51,7 +47,15 @@ class BrowseTwo extends React.Component {
       'Outdoor'
     ];
   }
-
+  onCheckboxBtnClick(selected) {
+    const index = this.state.cSelected.indexOf(selected);
+    if (index < 0) {
+      this.state.cSelected.push(selected);
+    } else {
+      this.state.cSelected.splice(index, 1);
+    }
+    this.setState({ cSelected: [...this.state.cSelected] });
+  }
   render() {
     return(
       <div>
@@ -77,84 +81,50 @@ class BrowseTwo extends React.Component {
         <div>
           <Grid>
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
-
               <div className="mx-auto">
                 <h1 className="display-4" style={{postion: 'center' }}>Browse the Hoods for the Goods!</h1>
               </div>
-
               <Form>
-
                 <FormGroup  style={{width: "50%"}}>
                   <Label>SEARCH</Label>
-                  <Input state="success" />
+                  <Input state="success" placeholder="Search the Neighborhood"/>
                   <FormFeedback/>
-                  <h3 color="muted">Search your neighbors inventory!</h3>
                 </FormGroup>
-
                 <FormGroup tag="fieldset" row>
                   <legend className="col-form-legend col-sm-2">Limit Search</legend>
-
                   <Col sm={10}>
-
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="radio" name="radio2" />{' '}
-                      Power Tools
-                      </Label>
-                    </FormGroup>
-
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="radio" name="radio3" />{' '}
-                      Gardening
-                      </Label>
-                    </FormGroup>
-
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="radio" name="radio4" />{' '}
-                      Hobby
-                      </Label>
-                    </FormGroup>
-
-                    <FormGroup check>
-                      <Label check>
-                        <Input type="radio" name="radio5" />{' '}
-                      Recreation
-                      </Label>
-                    </FormGroup>
+                    <ButtonGroup>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Power Tools")} active={this.state.cSelected.includes("Power Tools")}>Power Tools</Button>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Hobby")} active={this.state.cSelected.includes("Hobby")}>Hobby</Button>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Gardening")} active={this.state.cSelected.includes("Gardening")}>Gardening</Button>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes(5)}>Kitchen</Button>
+                    </ButtonGroup>
                   </Col>
                 </FormGroup>
-
                 <FormGroup check row className="d-flex align-items-start">
                   <Col sm={{ size: 20, offset: 2 }}>
-                    <Button className="btn btn-success btn-lg" >Search</Button>
+                    <Button className="btn btn-success btn-lg">Search</Button>
                    </Col>
                 </FormGroup>
               </Form>
-
             </Jumbotron>
           </Grid>
         </div>
-
-
-
-
-        <div>
-          <Grid>
+      <div>
+        <Grid>
+          <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
             <CardColumns>
-              <Col sm={6}>
               <ItemList items={this.props.itemStore.items}/>
-              </Col>
             </CardColumns>
-          </Grid>
-        </div>
+          </Jumbotron>
+        </Grid>
       </div>
+    </div>
     );
   }
 }
-
-BrowseTwo.propTypes = {
+Browse.propTypes = {
   children: React.PropTypes.object,
   userStore: React.PropTypes.object,
   itemStore: React.PropTypes.object,
@@ -163,5 +133,4 @@ BrowseTwo.propTypes = {
   className: React.PropTypes.object,
   buttonLabel: React.PropTypes.object
 };
-
-export default inject('itemStore', 'userStore')(observer(BrowseTwo));
+export default inject('itemStore', 'userStore')(observer(Browse));
