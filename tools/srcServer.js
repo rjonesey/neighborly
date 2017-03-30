@@ -22,11 +22,14 @@ let options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
 mongoose.connect(mongooseUri, options);
+
+// change these to import
 let Swapple = require('../models/itemSchema');
 let NewUser = require('../models/userSchema');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const compiler = webpack(config);
+const PROD = process.env.NODE_ENV === 'production';
 
 app.use(express.static('public'));
 
