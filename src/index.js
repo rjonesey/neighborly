@@ -13,7 +13,6 @@ import Browse from './components/Browse';
 import Activity from './components/activity';
 import Neighbors from './components/myNeighbors';
 import Main from './components/main';
-import BrowseTwo from './components/BrowseTwo';
 import 'bootstrap/dist/css/bootstrap.css';
 
 let userStore = new UserStore();
@@ -25,7 +24,7 @@ render((
       <Route>
         <Route path="/Login" component={LoginCreateAccount}/>
         <Route path="/" component={Main}/>
-        <Route path="/Browse" component={BrowseTwo}/>
+        <Route path="/Browse" component={Browse}/>
         <Route path="/Activity" component={Activity}/>
         <Route path="/MyNeighbors" component={Neighbors}/>
         <Route path="/Account" component={Account}/>
