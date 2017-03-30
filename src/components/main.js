@@ -6,7 +6,7 @@ import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
 import { inject, observer } from 'mobx-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { render } from 'react-dom';
-import BrowseTwo from './BrowseTwo';
+import Browse from './Browse';
 
 
 
@@ -19,30 +19,35 @@ class Main extends React.Component {
   render() {
     return(
       <div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 1910c67b6755eee17be7e18b2dbf8a4f9a03e586
             <Navbar.Header>
               <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
-              <Nav tabs style={{}}>
-                <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
-                <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
-                <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-                <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-                <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
-                {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
-                <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
-              </Nav>
+              <div>
+                <Nav tabs className="sticky-top">
+                  <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
+                  <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
+                  <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
+                  <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
+                  <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
+                  <LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>
+                  <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
+                </Nav>
+              </div>
 
               <Nav pullRight className="nav-bar-right"/>
             </Navbar.Collapse>
 
         {this.props.children}
-        <div>
-          <Jumbotron style={{ backgroundColor:"transparent"}}>
-            <img style={{width:"100%"}} src="https://media.xogrp.com/images/0e8d9768-0a08-406b-8e4d-07d9cb5c1898"/>
-          </Jumbotron>
+        <div style={{color:"grey"}}>
+          <div>
+            <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}} src="../images/home.jpg"/>
+          </div>
         </div>
 
       </div>

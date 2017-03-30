@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
 import ItemStore from '../stores/ItemStore';
-import BrowseTwo from './BrowseTwo';
+import BrowseTwo from './Browse';
 import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg } from "reactstrap";
 import { render } from 'react-dom';
 
