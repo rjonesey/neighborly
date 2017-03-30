@@ -25,9 +25,9 @@ function ItemList(props) {
   });
 
   return (
-    <Card>
+    <div>
       {addedItems}
-    </Card>
+    </div>
   );
 }
 

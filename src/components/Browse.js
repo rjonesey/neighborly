@@ -8,11 +8,7 @@ import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
-<<<<<<< HEAD
 import Hobby from './Hobby';
-=======
-import Gardening from './Gardening';
->>>>>>> 80808b5aa24be1a729db034b72c63aac08648024
 
 
 class Browse extends React.Component {
@@ -96,12 +92,15 @@ class Browse extends React.Component {
               <Navbar.Toggle/>
             </Navbar.Header>
             <Navbar.Collapse>
-              <Nav>
-                <LinkContainer to={{pathname: '/'}}><NavItem>Main</NavItem></LinkContainer>
-                {/*<LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>*/}
-                {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>My Neighbors</NavItem></LinkContainer>*/}
-                <LinkContainer to={{pathname: '/Login'}}><NavItem>Be Neighborly!</NavItem></LinkContainer>
-              </Nav>
+            <Nav tabs>
+              <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
+              <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
+              <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
+              <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
+              <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
+              {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
+              <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
+            </Nav>
               <Nav pullRight className="nav-bar-right"/>
             </Navbar.Collapse>
           </Navbar>
