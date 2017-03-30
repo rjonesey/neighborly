@@ -19,11 +19,6 @@ class Main extends React.Component {
   render() {
     return(
       <div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 1910c67b6755eee17be7e18b2dbf8a4f9a03e586
             <Navbar.Header>
               <Navbar.Toggle/>
             </Navbar.Header>

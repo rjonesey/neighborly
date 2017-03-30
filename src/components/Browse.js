@@ -10,6 +10,7 @@ import PowerTools from './PowerTools';
 import Account from './account';
 import ItemList from './ItemList';
 import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, ButtonGroup } from "reactstrap";
+
 class Browse extends React.Component {
   constructor(props) {
     super(props);
@@ -23,22 +24,27 @@ class Browse extends React.Component {
     this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
   }
+
   componentDidMount() {
     this.loadItemsFromServer();
   }
+
   loadItemsFromServer() {
     fetch('/item')
       .then(function(result) {return result.json();})
       .then(items => this.props.itemStore.setItems(items));
   }
+
   toggle() {
     this.setState({
       modal: !this.state.modal
     });
   }
+
   handleFormSubmit(formSubmitEvent) {
     formSubmitEvent.preventDefault();
   }
+
   searchCategory () {
     const categories = [
       'Power Tools',
@@ -47,6 +53,7 @@ class Browse extends React.Component {
       'Outdoor'
     ];
   }
+
   onCheckboxBtnClick(selected) {
     const index = this.state.cSelected.indexOf(selected);
     if (index < 0) {
@@ -56,6 +63,7 @@ class Browse extends React.Component {
     }
     this.setState({ cSelected: [...this.state.cSelected] });
   }
+
   render() {
     return(
       <div>
@@ -81,36 +89,51 @@ class Browse extends React.Component {
         <div>
           <Grid>
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
+
               <div className="mx-auto">
                 <h1 className="display-4" style={{postion: 'center' }}>Browse the Hoods for the Goods!</h1>
               </div>
+
               <Form>
+
                 <FormGroup  style={{width: "50%"}}>
                   <Label>SEARCH</Label>
                   <Input state="success" placeholder="Search the Neighborhood"/>
                   <FormFeedback/>
                 </FormGroup>
+
                 <FormGroup tag="fieldset" row>
                   <legend className="col-form-legend col-sm-2">Limit Search</legend>
+
                   <Col sm={10}>
+
                     <ButtonGroup>
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Power Tools")} active={this.state.cSelected.includes("Power Tools")}>Power Tools</Button>
+
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Hobby")} active={this.state.cSelected.includes("Hobby")}>Hobby</Button>
+
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Gardening")} active={this.state.cSelected.includes("Gardening")}>Gardening</Button>
+
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
+
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes(5)}>Kitchen</Button>
                     </ButtonGroup>
+
                   </Col>
                 </FormGroup>
+
                 <FormGroup check row className="d-flex align-items-start">
                   <Col sm={{ size: 20, offset: 2 }}>
                     <Button className="btn btn-success btn-lg">Search</Button>
                    </Col>
                 </FormGroup>
               </Form>
+
             </Jumbotron>
           </Grid>
         </div>
+
+
       <div>
         <Grid>
           <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
@@ -124,6 +147,7 @@ class Browse extends React.Component {
     );
   }
 }
+
 Browse.propTypes = {
   children: React.PropTypes.object,
   userStore: React.PropTypes.object,
@@ -133,4 +157,5 @@ Browse.propTypes = {
   className: React.PropTypes.object,
   buttonLabel: React.PropTypes.object
 };
+
 export default inject('itemStore', 'userStore')(observer(Browse));
