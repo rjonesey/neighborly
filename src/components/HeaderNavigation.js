@@ -2,7 +2,6 @@ import React from 'react';
 import { Nav, NavItem, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { inject, observer } from 'mobx-react';
-import { Flex, Box } from 'reflexbox';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 
 class Navbar extends React.Component {
