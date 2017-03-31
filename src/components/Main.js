@@ -18,7 +18,8 @@ class Main extends React.Component {
         {this.props.children}
         <div style={{color:"grey", paddingTop:"133px"}}>
           <div>
-            <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}} src="../images/home-min.jpg"/>
+            <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}}
+            src="../images/home-min.jpg"/>
           </div>
         </div>
 

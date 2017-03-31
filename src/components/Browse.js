@@ -124,15 +124,30 @@ class Browse extends React.Component {
                   <Col sm={10}>
 
                     <ButtonGroup>
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Power Tools")} active={this.state.cSelected.includes("Power Tools")}>Power Tools</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Power Tools")}
+                        active={this.state.cSelected.includes("Power Tools")}>Power Tools
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Hobby")} active={this.state.cSelected.includes("Hobby")}>Hobby</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Hobby")}
+                        active={this.state.cSelected.includes("Hobby")}>Hobby
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Gardening")} active={this.state.cSelected.includes("Gardening")}>Gardening</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Gardening")}
+                        active={this.state.cSelected.includes("Gardening")}>Gardening
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Recreation")}
+                        active={this.state.cSelected.includes("Recreation")}>Recreation
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes(5)}>Kitchen</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Kitchen")}
+                        active={this.state.cSelected.includes("Kitchen")}>Kitchen
+                      </Button>
                     </ButtonGroup>
 
                   </Col>

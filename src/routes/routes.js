@@ -1,11 +1,11 @@
-import express from 'express';
 import Item from '../../models/itemSchema';
 import User from '../../models/userSchema';
-let hash = require('password-hash');
-let jwt = require('jsonwebtoken');
-let app = express();
-let router = express.Router();
-let config = require('../../config');
+import hash from 'password-hash';
+import jwt from 'jsonwebtoken';
+import app from 'express';
+import config from '../../config';
+
+let router =  app.Router();
 
 app.set('superSecret', config.secret);
 
@@ -24,7 +24,7 @@ router.route('/item')
     item.category = req.body.category;
     item.url = req.body.url;
 
-    item.save(function(err, item, next) {
+    item.save(function(err, item) {
       if(err) {
         return next(err);
       }
@@ -34,9 +34,9 @@ router.route('/item')
     });
   })
   .get(function(req, res){
-    Item.find(function(err, item){
+    Item.find(function(err, item, next){
       if(err){
-        return (err);
+        next(err);
       } else {
         res.json(item);
       }
@@ -44,10 +44,10 @@ router.route('/item')
   });
 
 router.route('/item')
-  .get(function(req, res){
+  .get(function(req, res, next){
     Item.findById(req.params.item._id, function(err, item){
       if(err){
-        console.log(err);
+        next(err);
       } else {
         res.json(item);
       }
@@ -65,9 +65,9 @@ router.route('/user')
     user.neighborhood = req.body.neighborhood;
     user.password = hash.generate(req.body.password);
 
-    user.save(function(err, user, next) {
+    user.save(function(err, user) {
       if(err) {
-        return next(err);
+        next(err);
       }
       else {
         res.json(user);
@@ -75,15 +75,15 @@ router.route('/user')
     });
   });
 
-router.post('/authenticate', function(req, res) {
+router.post('/authenticate', function(req, res, next) {
   console.log('Authenticating....', req.body.email);
         // find the user
   User.findOne({
     email: req.body.email
   }, function(err, user) {
-    if (err) throw err;
-
-    if (!user) {
+    if (err) {
+      next(err);
+    } else if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (user) {
 
