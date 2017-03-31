@@ -153,7 +153,6 @@ Browse.propTypes = {
   itemStore: React.PropTypes.object,
   items: React.PropTypes.object,
   user: React.PropTypes.object,
-  className: React.PropTypes.object
 };
 
 export default inject('itemStore', 'userStore')(observer(Browse));
