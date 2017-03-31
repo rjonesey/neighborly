@@ -82,7 +82,7 @@ class Browse extends React.Component {
                   <Nav>
                   <Flex align="flex-end" justify="flex-end">
                     <Box auto col={3} p={4}>
-                      <LinkContainer to={{pathname: '/Browse'}}>
+                      <LinkContainer to={{pathname: '/'}}>
                         <NavItem className="navHome">HOME</NavItem>
                       </LinkContainer>
                      </Box>
@@ -103,11 +103,9 @@ class Browse extends React.Component {
                     </Box>
                   </Flex>
                 </Nav>
-
-
               </Navbar.Collapse>
-              </Navbar>
-              </div>
+            </Navbar>
+          </div>
 
 
 

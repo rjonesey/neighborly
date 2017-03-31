@@ -4,31 +4,12 @@
     background-position: center;
   }
 
-.navHome {
+.navHome, .navBrowse, .navActivity, .navAccount, .navLogin {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: left;
 }
-.navBrowse {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: left;
-}
-.navActivity {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right
-}
-.navAccount{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
-}
-.navLogin{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
-}
+
 
 .flexcontainer {
    display: -webkit-flex;

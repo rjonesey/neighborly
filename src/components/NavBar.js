@@ -14,7 +14,7 @@ class Navigation extends React.Component {
     return (
       <div>
           <Navbar.Header>
-            <Flex align="center" gutter={2} justify="space-between" wrap>
+            <Flex align="center" gutter={4} justify="space-between" wrap>
               <Box col={4} p={2}>
                 <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
               </Box>
