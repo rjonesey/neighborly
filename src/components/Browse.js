@@ -8,6 +8,7 @@ import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
+import Gardening from './Gardening';
 
 
 class Browse extends React.Component {
@@ -39,7 +40,10 @@ class Browse extends React.Component {
     formSubmitEvent.preventDefault();
 
     for (const checkbox of this.selectedCheckboxes) {
-    //  console.log(checkbox, 'is selected.');
+
+
+      console.log(checkbox, 'is selected.');
+
     }
   }
 
@@ -105,18 +109,20 @@ class Browse extends React.Component {
             <form method="" role="form">
               <div className="form-group">
                 <input type="text" className="form-control" id="Item" placeholder="Search for an item..."/>
+
               </div>
             </form>
           </Col>
         </div>
 
+
         <div className="container">
           <div className="row">
             <Col md={1} mdPull={2}>
               <form onSubmit={this.searchCategory}>
-                {/*<div>
+                <div>
                   {this.createCheckboxes}
-                </div>*/}
+                </div>
                 <button className="btn btn-success" smPull={2} type="warning">Power Tools</button><br/>
                   <br/>
                 <button className="btn btn-success" smPull={2} type="warning">Gardening</button><br/>
