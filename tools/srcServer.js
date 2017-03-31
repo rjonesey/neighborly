@@ -22,6 +22,8 @@ let options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
 mongoose.connect(mongooseUri, options);
+
+// change these to import
 let Swapple = require('../models/itemSchema');
 let NewUser = require('../models/userSchema');
 

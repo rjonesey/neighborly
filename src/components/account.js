@@ -5,7 +5,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
-import { Card, CardBlock, CardTitle, CardDeck, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, Media} from "reactstrap";
+import { Card, CardBlock, CardTitle, CardDeck, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback,  Modal, ModalHeader, ModalBody, ModalFooter, Media} from "reactstrap";
 import NavBar from './NavBar';
 
 class Account extends React.Component {
@@ -57,13 +57,11 @@ class Account extends React.Component {
                 <Media style={{width:"100%"}} object src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSaxK-ShbagBr7eQdl9-OSyf05NUFAAUBn9n_OkH5uaTg_S8JRK" alt="minions!!!!!!"/>
               </Media>
               <Media body>
-              <Media heading>
-                Ricky
-              </Media>
-              I made a website . . . :)
-              </Media>
-              <Media body>
-              Neighborhood: Bozeman
+                <Media heading>
+                  <div>
+                    <h2>{this.props.userStore.name}</h2>
+                  </div>
+                </Media>
               </Media>
             </Media>
           </Jumbotron>

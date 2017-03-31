@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron, Button, Well } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron, Button,  Well } from 'react-bootstrap';
 import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
@@ -12,8 +12,6 @@ import ItemList from './ItemList';
 import NavBar from './NavBar';
 import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, Modal, ModalHeader, ModalBody, ModalFooter, ButtonGroup } from "reactstrap";
 import { withReflex, Flex, Box } from 'reflexbox';
-
-
 
 class Browse extends React.Component {
   constructor(props) {
@@ -161,7 +159,6 @@ class Browse extends React.Component {
           </Grid>
         </div>
 
-
       <div>
         <Grid>
           <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
@@ -182,7 +179,11 @@ Browse.propTypes = {
   itemStore: React.PropTypes.object,
   items: React.PropTypes.object,
   user: React.PropTypes.object,
+<<<<<<< HEAD
   className: React.PropTypes.object,
+=======
+  className: React.PropTypes.object
+>>>>>>> b87a304921be38230b74a34cbd806cfaa33a2c7d
 };
 
 export default inject('itemStore', 'userStore')(observer(Browse));

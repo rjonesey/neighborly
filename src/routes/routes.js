@@ -60,7 +60,9 @@ router.route('/user')
   .post(function(req, res, next) {
 
     let user = new User();
+    user.name = req.body.name;
     user.email = req.body.email;
+    user.neighborhood = req.body.neighborhood;
     user.password = hash.generate(req.body.password);
 
     user.save(function(err, user, next) {
@@ -100,7 +102,9 @@ router.post('/authenticate', function(req, res) {
           success: true,
           message: 'Enjoy your token!',
           token: token,
-          id: user._id
+          id: user._id,
+          name: user.name,
+          email: user.email
         });
       }
 
