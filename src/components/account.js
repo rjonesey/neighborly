@@ -6,6 +6,7 @@ import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import { Card, CardBlock, CardTitle, CardDeck, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, Media} from "reactstrap";
+import NavBar from './NavBar';
 
 class Account extends React.Component {
   constructor() {
@@ -48,48 +49,31 @@ class Account extends React.Component {
   render() {
     return(
       <div>
-
-        <div>
-          <Navbar.Header>
-            <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
-          <Nav tabs collapseOnSelect>
-            <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
-            <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
-            {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
-            <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
-          </Nav>
-            <Nav pullRight className="nav-bar-right"/>
-          </Navbar.Collapse>
-          {this.props.children}
-        </div>
-        <Jumbotron style={{backgroundColor:"transparent"}}>
-          <Media>
-            <Media left>
-              <Media style={{width:"100%"}} object src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSaxK-ShbagBr7eQdl9-OSyf05NUFAAUBn9n_OkH5uaTg_S8JRK" alt="minions!!!!!!"/>
-            </Media>
-            <Media body>
+        <NavBar/>
+        {this.props.children}
+          <Jumbotron style={{backgroundColor:"transparent"}}>
+            <Media>
+              <Media left>
+                <Media style={{width:"100%"}} object src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSaxK-ShbagBr7eQdl9-OSyf05NUFAAUBn9n_OkH5uaTg_S8JRK" alt="minions!!!!!!"/>
+              </Media>
+              <Media body>
               <Media heading>
                 Ricky
               </Media>
               I made a website . . . :)
-            </Media>
-            <Media body>
+              </Media>
+              <Media body>
               Neighborhood: Bozeman
+              </Media>
             </Media>
-          </Media>
-        </Jumbotron>
+          </Jumbotron>
 
-        <br/>
+          <br/>
 
         <div>
           <Form>
             <Col sm={8}>
-              <legend>Add Your Items!!</legend>
+              <legend>Add Your Items to Loan!!</legend>
 
               <FormGroup>
                 <input onChange={this.handleCategoryChange} value={this.state.category} className="form-control" id="category" placeholder="category"/>

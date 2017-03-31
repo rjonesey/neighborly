@@ -9,7 +9,11 @@ import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
 import Account from './account';
 import ItemList from './ItemList';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, ClassName, Modal, ModalHeader, ModalBody, ModalFooter, ButtonLabel, ButtonGroup } from "reactstrap";
+import NavBar from './NavBar';
+import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, Modal, ModalHeader, ModalBody, ModalFooter, ButtonGroup } from "reactstrap";
+import { withReflex, Flex, Box } from 'reflexbox';
+
+
 
 class Browse extends React.Component {
   constructor(props) {
@@ -67,31 +71,56 @@ class Browse extends React.Component {
   render() {
     return(
       <div>
-        <link rel="stylesheet" href="../../public/style.css"/>
-        <div>
-          <Navbar.Header>
-            <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
-          <Nav tabs style={{}}>
-            <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
-            <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
-            {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
-            <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
-          </Nav>
-            <Nav pullRight className="nav-bar-right"/>
-          </Navbar.Collapse>
-          {this.props.children}
-        </div>
+        <div className="navBar navbar-fixed-top">
+           <Navbar collapseOnSelect id="nav-margin">
+            <Navbar.Header>
+            <Flex align="left" gutter={2} justify="space-between" wrap>
+              <Box col={4} p={2}>
+                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
+              </Box>
+            </Flex>
+              <Navbar.Toggle/>
+            </Navbar.Header>
+              <Navbar.Collapse>
+                  <Nav>
+                  <Flex align="flex-end" justify="flex-end">
+                    <Box auto col={3} p={4}>
+                      <LinkContainer to={{pathname: '/Browse'}}>
+                        <NavItem className="navHome">HOME</NavItem>
+                      </LinkContainer>
+                     </Box>
+                    <Box auto col={3} p={4}>
+                      <LinkContainer to={{pathname: '/Browse'}}>
+                        <NavItem className="navBrowse">BROWSE</NavItem>
+                      </LinkContainer>
+                    </Box>
+                    <Box auto col={3} p={4}>
+                      <LinkContainer to={{pathname: '/Account'}}>
+                        <NavItem className="navActivity">ACTIVITY</NavItem>
+                      </LinkContainer>
+                   </Box>
+                    <Box auto col={3} p={4}>
+                      <LinkContainer to={{pathname: '/Login'}}>
+                        <NavItem className="navAccount">ACCOUNT</NavItem>
+                          </LinkContainer>
+                    </Box>
+                  </Flex>
+                </Nav>
+
+
+              </Navbar.Collapse>
+              </Navbar>
+              </div>
+
+
+
+
         <div>
           <Grid>
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
 
               <div className="mx-auto">
-                <h1 className="display-4" style={{postion: 'center' }}>Browse the Hoods for the Goods!</h1>
+                <span className="Hoods">Browse the Hoods for the Goods!</span>
               </div>
 
               <Form>
@@ -104,7 +133,6 @@ class Browse extends React.Component {
 
                 <FormGroup tag="fieldset" row>
                   <legend className="col-form-legend col-sm-2">Limit Search</legend>
-
                   <Col sm={10}>
 
                     <ButtonGroup>
@@ -155,7 +183,6 @@ Browse.propTypes = {
   items: React.PropTypes.object,
   user: React.PropTypes.object,
   className: React.PropTypes.object,
-  buttonLabel: React.PropTypes.object
 };
 
 export default inject('itemStore', 'userStore')(observer(Browse));
