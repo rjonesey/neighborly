@@ -6,7 +6,6 @@ import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
-import PowerTools from './PowerTools';
 import Account from './account';
 import ItemList from './ItemList';
 import NavBar from './NavBar';
