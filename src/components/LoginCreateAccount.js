@@ -1,24 +1,27 @@
 import React from 'react';
-import {browserHistory, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
-import { Navbar, Nav, NavItem, Grid, Row, Col } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
+import {Grid, Row } from 'react-bootstrap';
 import CreateAccount from './CreateAccount';
 import Login from './Login';
+import NavBar from './NavBar';
 
 class LoginCreateAccount extends React.Component {
 
   render() {
     return (
       <div>
+        <div>
+          <NavBar/>
+        </div>
         {this.props.children}
-        <Grid>
-          <Row className="show-grid">
-            <Login/>
-            <CreateAccount/>
-          </Row>
-        </Grid>
+        <div style={{paddingTop:"200px"}}>
+          <Grid>
+            <Row className="show-grid">
+              <Login/>
+              <CreateAccount/>
+            </Row>
+          </Grid>
+        </div>
       </div>
     );
   }
