@@ -8,7 +8,6 @@ import { inject, observer } from 'mobx-react';
 import { render } from 'react-dom';
 import Checkbox from './Checkbox';
 import PowerTools from './PowerTools';
-import Gardening from './Gardening';
 
 
 class Browse extends React.Component {
