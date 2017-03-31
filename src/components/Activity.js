@@ -1,10 +1,5 @@
 import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
- CardSubtitle, CardBlock } from 'reactstrap';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBlock } from 'reactstrap';
 import NavBar from './NavBar';
 
 

@@ -55,7 +55,6 @@ export default class UserStore {
     .then(loginCred => {
       if (loginCred.success && loginCred.token){
 
-        alert("Login Successful")
         browserHistory.push('/');
         this.loggedInUser = true;
         this.email = loginCred.email;
@@ -63,7 +62,7 @@ export default class UserStore {
         this.id = loginCred.id;
         this.token = loginCred.token;
       } else {
-        alert("Login Failed")
+        alert("Login Failed");
         this.loggedInUser = false;
         this.email = "";
       }

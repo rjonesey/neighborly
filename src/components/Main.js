@@ -1,12 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
 import { inject, observer } from 'mobx-react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { render } from 'react-dom';
-import Browse from './Browse';
 import NavBar from './NavBar';
 
 

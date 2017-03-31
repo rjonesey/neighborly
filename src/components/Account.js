@@ -1,11 +1,7 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Image, Thumbnail, Button, Jumbotron } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Col, Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
-import { render } from 'react-dom';
-import { Card, CardBlock, CardTitle, CardDeck, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback,  Modal, ModalHeader, ModalBody, ModalFooter, Media} from "reactstrap";
+import { Form, FormGroup, Media } from "reactstrap";
 import NavBar from './NavBar';
 
 class Account extends React.Component {

@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { observer, inject } from 'mobx-react';
-import { Navbar, Nav, NavItem, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
-import {NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand} from 'react-bootstrap/lib/NavbarHeader';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { withReflex, Flex, Box } from 'reflexbox';
+import { Flex, Box } from 'reflexbox';
 
 class Navigation extends React.Component {
   constructor(props) {
