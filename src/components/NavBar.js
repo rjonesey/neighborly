@@ -1,43 +1,70 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { observer, inject } from 'mobx-react';
-import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Grid, Col, Row, Jumbotron } from 'react-bootstrap';
 import {NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand} from 'react-bootstrap/lib/NavbarHeader';
 import { LinkContainer } from 'react-router-bootstrap';
+import { withReflex, Flex, Box } from 'reflexbox';
 
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
-
-      <div className="navBar">
-        <Navbar inverse collapseOnSelect id="nav-margin">
+      <div>
           <Navbar.Header>
-            <Navbar.Brand>
-              <Link to="/" className="logolink">Life Coach</Link>
-            </Navbar.Brand>
-            <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
-              <LinkContainer to={{pathname: '/wheel'}}><NavItem><i className="fa fa-pie-chart" aria-hidden="true"></i></NavItem></LinkContainer>
-              <LinkContainer to={{pathname: '/lifegoals'}}><NavItem><i className="fa fa-heart" aria-hidden="true"></i></NavItem></LinkContainer>
-              <LinkContainer to={{pathname: '/history'}}><NavItem><i className="fa fa-database" aria-hidden="true"></i></NavItem></LinkContainer>
+            <Flex align="center" gutter={2} justify="space-between" wrap>
+              <Box col={4} p={2}>
+                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
+              </Box>
+            </Flex>
+            </Navbar.Header>
+            <Nav tabs>
+              <Flex align="flex-end" justify="flex-end">
+                <Box auto col={3} p={4}>
+                  <LinkContainer to={{pathname: '/'}}>
+                    <NavItem className="navHome">HOME</NavItem>
+                  </LinkContainer>
+                  </Box>
+                <Box auto col={3} p={4}>
+                  <LinkContainer to={{pathname: '/Browse'}}>
+                    <NavItem className="navBrowse">BROWSE</NavItem>
+                  </LinkContainer>
+                  </Box>
+                <Box auto col={3} p={4}>
+                  <LinkContainer to={{pathname: '/Activity'}}>
+                    <NavItem className="navActivity">ACTIVITY</NavItem>
+                  </LinkContainer>
+                 </Box>
+                <Box auto col={3} p={4}>
+                  <LinkContainer to={{pathname: '/Account'}}>
+                    <NavItem className="navAccount">ACCOUNT</NavItem>
+                  </LinkContainer>
+                  <LinkContainer to={{pathname: '/Login'}}>
+                    <NavItem className="navLogin">LOGIN</NavItem>
+                  </LinkContainer>
+                </Box>
+                {/*<Box auto col={4} p={4}>
+                    <Navbar.Text>
+                      <i className="fa fa-user fa-5x" aria-hidden="true"/>{this.props.userStore.firstName}!
+                    </Navbar.Text>
+                  <LinkContainer onClick={this.props.userStore.logUserOut} to={{pathname: '/Account'}}>
+                    <NavItem>
+                      <i className="fa fa-sign-out fa-5x" aria-hidden="true"/>
+                    </NavItem>
+                  </LinkContainer>
+                </Box>*/}
+              </Flex>
             </Nav>
-            <Nav pullRight className="nav-bar-right">
-              <Navbar.Text><i className="fa fa-user" aria-hidden="true"></i> Welcome, {this.props.userStore.firstName}!</Navbar.Text>
-              <LinkContainer onClick={this.props.userStore.logUserOut} to={{pathname: '/entrypage'}}><NavItem><i className="fa fa-sign-out" aria-hidden="true"></i></NavItem></LinkContainer>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+          {this.props.children}
       </div>
     );
   }
 }
+
 Navigation.propTypes = {
+  children: React.PropTypes.object,
   userStore: React.PropTypes.object,
   logUserOut: React.PropTypes.func
 };
