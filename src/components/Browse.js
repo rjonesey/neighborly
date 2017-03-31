@@ -68,51 +68,11 @@ class Browse extends React.Component {
   render() {
     return(
       <div>
-        <div className="navBar navbar-fixed-top">
-           <Navbar collapseOnSelect id="nav-margin">
-            <Navbar.Header>
-            <Flex align="left" gutter={2} justify="space-between" wrap>
-              <Box col={4} p={2}>
-                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
-              </Box>
-            </Flex>
-              <Navbar.Toggle/>
-            </Navbar.Header>
-              <Navbar.Collapse>
-                  <Nav>
-                  <Flex align="flex-end" justify="flex-end">
-                    <Box auto col={3} p={4}>
-                      <LinkContainer to={{pathname: '/Browse'}}>
-                        <NavItem className="navHome">HOME</NavItem>
-                      </LinkContainer>
-                     </Box>
-                    <Box auto col={3} p={4}>
-                      <LinkContainer to={{pathname: '/Browse'}}>
-                        <NavItem className="navBrowse">BROWSE</NavItem>
-                      </LinkContainer>
-                    </Box>
-                    <Box auto col={3} p={4}>
-                      <LinkContainer to={{pathname: '/Account'}}>
-                        <NavItem className="navActivity">ACTIVITY</NavItem>
-                      </LinkContainer>
-                   </Box>
-                    <Box auto col={3} p={4}>
-                      <LinkContainer to={{pathname: '/Login'}}>
-                        <NavItem className="navAccount">ACCOUNT</NavItem>
-                          </LinkContainer>
-                    </Box>
-                  </Flex>
-                </Nav>
-
-
-              </Navbar.Collapse>
-              </Navbar>
-              </div>
-
-
-
-
         <div>
+          <NavBar/>
+        </div>
+
+        <div style={{paddingTop:"200px"}}>
           <Grid>
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
 
@@ -158,16 +118,16 @@ class Browse extends React.Component {
           </Grid>
         </div>
 
-      <div>
-        <Grid>
-          <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
-            <CardColumns>
-              <ItemList items={this.props.itemStore.items}/>
-            </CardColumns>
-          </Jumbotron>
-        </Grid>
+        <div>
+          <Grid>
+            <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
+              <CardColumns>
+                <ItemList items={this.props.itemStore.items}/>
+              </CardColumns>
+            </Jumbotron>
+          </Grid>
+        </div>
       </div>
-    </div>
     );
   }
 }

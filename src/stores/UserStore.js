@@ -19,7 +19,7 @@ export default class UserStore {
     this.NewUser = this.NewUser.bind(this);
   }
 
-  NewUser(name, email, password, neighborhood) {
+  NewUser(email, password, name, neighborhood) {
     fetch('/user', {
       method: 'POST',
       headers: {
@@ -35,7 +35,6 @@ export default class UserStore {
     })
     .then(function(){
       alert ('User Account Created.  Please Log In');
-      browserHistory.push('/Account');
     });
   }
 
@@ -56,6 +55,7 @@ export default class UserStore {
     .then(loginCred => {
       if (loginCred.success && loginCred.token){
 
+        alert("Login Successful")
         browserHistory.push('/');
         this.loggedInUser = true;
         this.email = loginCred.email;
@@ -63,6 +63,7 @@ export default class UserStore {
         this.id = loginCred.id;
         this.token = loginCred.token;
       } else {
+        alert("Login Failed")
         this.loggedInUser = false;
         this.email = "";
       }

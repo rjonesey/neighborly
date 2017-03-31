@@ -12,7 +12,6 @@ class LoginCreateAccount extends React.Component {
   render() {
     return (
       <div>
-        <Navbar/>
         {this.props.children}
         <Grid>
           <Row className="show-grid">
