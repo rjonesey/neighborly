@@ -1,10 +1,5 @@
 import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck,
- CardSubtitle, CardBlock } from 'reactstrap';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBlock } from 'reactstrap';
 import NavBar from './NavBar';
 
 
@@ -14,6 +9,7 @@ class Activity extends React.Component {
       <div>
         <NavBar/>
         {this.props.children}
+        <div style={{paddingTop:"200px"}}>
           <CardDeck>
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
@@ -44,6 +40,7 @@ class Activity extends React.Component {
             </Card>
           </CardDeck>
         </div>
+      </div>
     );
   }
 }

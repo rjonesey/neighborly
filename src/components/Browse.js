@@ -1,16 +1,10 @@
 import React from 'react';
-import { Navbar, Nav, NavItem, Row, Col, Grid, Jumbotron, Button,  Well } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Col, Grid, Jumbotron, Button, } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
-import { render } from 'react-dom';
-import Checkbox from './Checkbox';
-import Account from './account';
 import ItemList from './ItemList';
 import NavBar from './NavBar';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg, Form, FormGroup, FormText, Input, Label, FormFeedback, Modal, ModalHeader, ModalBody, ModalFooter, ButtonGroup } from "reactstrap";
-import { withReflex, Flex, Box } from 'reflexbox';
+import { CardColumns, Form, FormGroup, Input, Label, FormFeedback, ButtonGroup } from "reactstrap";
+
 
 class Browse extends React.Component {
   constructor(props) {
@@ -46,14 +40,6 @@ class Browse extends React.Component {
     formSubmitEvent.preventDefault();
   }
 
-  searchCategory () {
-    const categories = [
-      'Power Tools',
-      'Gardening',
-      'Hobby',
-      'Outdoor'
-    ];
-  }
 
   onCheckboxBtnClick(selected) {
     const index = this.state.cSelected.indexOf(selected);
@@ -68,6 +54,7 @@ class Browse extends React.Component {
   render() {
     return(
       <div>
+<<<<<<< HEAD
         <div className="navBar navbar-fixed-top">
            <Navbar collapseOnSelect id="nav-margin">
             <Navbar.Header>
@@ -110,7 +97,13 @@ class Browse extends React.Component {
 
 
 
+=======
+>>>>>>> b61f1a25115d61a41b4a68d32bb553405f77b935
         <div>
+          <NavBar/>
+        </div>
+
+        <div style={{paddingTop:"200px"}}>
           <Grid>
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
 
@@ -156,16 +149,16 @@ class Browse extends React.Component {
           </Grid>
         </div>
 
-      <div>
-        <Grid>
-          <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
-            <CardColumns>
-              <ItemList items={this.props.itemStore.items}/>
-            </CardColumns>
-          </Jumbotron>
-        </Grid>
+        <div>
+          <Grid>
+            <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
+              <CardColumns>
+                <ItemList items={this.props.itemStore.items}/>
+              </CardColumns>
+            </Jumbotron>
+          </Grid>
+        </div>
       </div>
-    </div>
     );
   }
 }

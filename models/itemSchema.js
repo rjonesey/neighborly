@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 let ItemSchema = new mongoose.Schema({
   description: String,

@@ -1,9 +1,5 @@
 import React from 'react';
-import { Grid, Row, Col, Jumbotron } from 'react-bootstrap';
-import ItemStore from '../stores/ItemStore';
-import BrowseTwo from './Browse';
-import { Card, CardBlock, CardTitle, CardText, CardSubtitle, CardHeader, CardColumns, CardImg } from "reactstrap";
-import { render } from 'react-dom';
+import { Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,

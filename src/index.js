@@ -1,17 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, browserHistory, IndexRoute, Link} from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import UserStore from './stores/UserStore';
 import ItemStore from './stores/ItemStore';
 import { Provider } from 'mobx-react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { NavbarHeader, NavbarToggle, NavbarCollapse, NavbarBrand } from 'react-bootstrap/lib/NavbarHeader';
-import { LinkContainer } from 'react-router-bootstrap';
-import Account from './components/account';
-import LoginCreateAccount from './components/loginCreateAccount';
+import Account from './components/Account';
+import LoginCreateAccount from './components/LoginCreateAccount';
 import Browse from './components/Browse';
-import Activity from './components/activity';
-import Main from './components/main';
+import Activity from './components/Activity';
+import Main from './components/Main';
 import 'bootstrap/dist/css/bootstrap.css';
 
 let userStore = new UserStore();
