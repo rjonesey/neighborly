@@ -4,14 +4,12 @@ import webpack from 'webpack';
 import uriUtil from 'mongodb-uri';
 import path from 'path';
 import config from '../webpack.config.dev';
-import morgan from 'morgan';
 import open from 'open';
 import mongoose from 'mongoose';
 import routes from '../src/routes/routes';
 
 let app = express();
 /* eslint-disable no-console */
-let router = express.Router();
 
 mongoose.Promise = global.Promise;
 
@@ -23,12 +21,8 @@ let options = {
 };
 mongoose.connect(mongooseUri, options);
 
-// change these to import
-let Swapple = require('../models/itemSchema');
-let NewUser = require('../models/userSchema');
 
 const port = process.env.PORT || 3000;
-const compiler = webpack(config);
 const PROD = process.env.NODE_ENV === 'production';
 
 app.use(bodyParser.urlencoded({ extended: false }));
