@@ -15,7 +15,6 @@ export default class ItemStore {
   }
 
   newItem(item) {
-    console.log("before post", item);
     fetch('/item', {
       method: 'POST',
       headers: {

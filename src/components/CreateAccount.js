@@ -1,5 +1,4 @@
 import React from 'react';
-import {browserHistory, Link } from 'react-router';
 import { inject, observer } from 'mobx-react';
 import { Col } from 'react-bootstrap';
 
@@ -67,8 +66,11 @@ class CreateAccount extends React.Component {
             </div>
 
             <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Submit</button><br/>
-          </form><br/>
-          <button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Continue with Facebook</button>
+
+          </form> <br/>
+
+          {/*<button onClick={this.handleNewUser} type="submit" className="btn btn-primary">Continue with Facebook</button>*/}
+
         </Col>
     );
   }

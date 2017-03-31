@@ -1,7 +1,5 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Row, Grid, Col } from 'react-bootstrap';
-
 
 class SearchCategories extends React.Component {
 
