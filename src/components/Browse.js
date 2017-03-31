@@ -88,7 +88,7 @@ class Browse extends React.Component {
 
                       <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes(5)}>Kitchen</Button>
+                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes("Kitchen")}>Kitchen</Button>
                     </ButtonGroup>
 
                   </Col>
@@ -100,7 +100,6 @@ class Browse extends React.Component {
                    </Col>
                 </FormGroup>
               </Form>
-
             </Jumbotron>
           </Grid>
         </div>
