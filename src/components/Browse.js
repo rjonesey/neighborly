@@ -179,11 +179,6 @@ Browse.propTypes = {
   itemStore: React.PropTypes.object,
   items: React.PropTypes.object,
   user: React.PropTypes.object,
-<<<<<<< HEAD
-  className: React.PropTypes.object,
-=======
-  className: React.PropTypes.object
->>>>>>> b87a304921be38230b74a34cbd806cfaa33a2c7d
 };
 
 export default inject('itemStore', 'userStore')(observer(Browse));

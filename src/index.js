@@ -11,7 +11,6 @@ import Account from './components/account';
 import LoginCreateAccount from './components/loginCreateAccount';
 import Browse from './components/Browse';
 import Activity from './components/activity';
-import Neighbors from './components/myNeighbors';
 import Main from './components/main';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -26,7 +25,6 @@ render((
         <Route path="/" component={Main}/>
         <Route path="/Browse" component={Browse}/>
         <Route path="/Activity" component={Activity}/>
-        <Route path="/MyNeighbors" component={Neighbors}/>
         <Route path="/Account" component={Account}/>
       </Route>
     </Router>
