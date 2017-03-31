@@ -51,6 +51,7 @@ class Account extends React.Component {
       <div>
         <NavBar/>
         {this.props.children}
+        <div style={{paddingTop:"200px"}}>
           <Jumbotron style={{backgroundColor:"transparent"}}>
             <Media>
               <Media left>
@@ -65,6 +66,7 @@ class Account extends React.Component {
               </Media>
             </Media>
           </Jumbotron>
+        </div>
 
           <br/>
 

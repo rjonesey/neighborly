@@ -14,6 +14,7 @@ class Activity extends React.Component {
       <div>
         <NavBar/>
         {this.props.children}
+        <div style={{paddingTop:"200px"}}>
           <CardDeck>
             <Card>
               <CardImg top width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=256%C3%97180&w=256&h=180" alt="Card image cap" />
@@ -44,6 +45,7 @@ class Activity extends React.Component {
             </Card>
           </CardDeck>
         </div>
+      </div>
     );
   }
 }
