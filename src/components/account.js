@@ -63,7 +63,7 @@ class Account extends React.Component {
             {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
             <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
           </Nav>
-            <Nav pullRight className="nav-bar-right"/>
+            <Nav pullRight ClassName="nav-bar-right"/>
           </Navbar.Collapse>
           {this.props.children}
         </div>
@@ -90,22 +90,22 @@ class Account extends React.Component {
               <legend>Add Your Items!!</legend>
 
               <FormGroup>
-                <input onChange={this.handleCategoryChange} value={this.state.category} className="form-control" id="category" placeholder="category"/>
+                <input onChange={this.handleCategoryChange} value={this.state.category} ClassName="form-control" id="category" placeholder="category"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleDescriptionChange} value={this.state.description} className="form-control" id="description" placeholder="description"/>
+                <input onChange={this.handleDescriptionChange} value={this.state.description} ClassName="form-control" id="description" placeholder="description"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleConditionChange} value={this.state.condition} className="form-control" id="condition" placeholder="condition"/>
+                <input onChange={this.handleConditionChange} value={this.state.condition} ClassName="form-control" id="condition" placeholder="condition"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleUrlChange} value={this.state.url} className="form-control" id="url" placeholder="url"/>
+                <input onChange={this.handleUrlChange} value={this.state.url} ClassName="form-control" id="url" placeholder="url"/>
               </FormGroup>
 
-              <button onClick={this.handleNewItem} type="submit" className="btn btn-primary">Add Your Item!</button>
+              <button onClick={this.handleNewItem} type="submit" ClassName="btn btn-primary">Add Your Item!</button>
             </Col>
           </Form>
         </div>
