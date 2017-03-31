@@ -12,31 +12,15 @@ class LoginCreateAccount extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <Navbar.Header>
-            <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
-          <Nav tabs>
-            <h1 id="h1"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></h1>
-            <LinkContainer to={{pathname: '/'}}><NavItem>Home</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Browse'}}><NavItem>Browse Items</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Activity'}}><NavItem>Activity</NavItem></LinkContainer>
-            <LinkContainer to={{pathname: '/Account'}}><NavItem>Your Account</NavItem></LinkContainer>
-            {/*<LinkContainer to={{pathname: '/MyNeighbors'}}><NavItem>   My Neighbors   </NavItem></LinkContainer>*/}
-            <LinkContainer to={{pathname: '/Login'}}><NavItem>Login</NavItem></LinkContainer>
-          </Nav>
-            <Nav pullRight className="nav-bar-right"/>
-          </Navbar.Collapse>
+        <Navbar/>
         {this.props.children}
-    </div>
-      <Grid>
-        <Row className="show-grid">
-        <Login/>
-        <CreateAccount/>
-      </Row>
-    </Grid>
-  </div>
+        <Grid>
+          <Row className="show-grid">
+            <Login/>
+            <CreateAccount/>
+          </Row>
+        </Grid>
+      </div>
     );
   }
 }
