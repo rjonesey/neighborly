@@ -8,12 +8,13 @@ import express from 'express';
 let app = express();
 let router =  express.Router();
 
-app.set('superSecret', config.secret);
 
 router.use(function(req, res, next){
   res.setHeader('Content-Type', 'application/json');
   next();
 });
+
+app.set('superSecret', config.secret);
 
 router.route('/item')
   .post(function(req, res, next){
@@ -34,8 +35,8 @@ router.route('/item')
       }
     });
   })
-  .get(function(req, res){
-    Item.find(function(err, item, next){
+  .get(function(req, res, next){
+    Item.find(function(err, item){
       if(err){
         next(err);
       } else {
@@ -105,7 +106,8 @@ router.post('/authenticate', function(req, res, next) {
           token: token,
           id: user._id,
           name: user.name,
-          email: user.email
+          email: user.email,
+          neighborhood: user.neighborhood
         });
       }
 
