@@ -2,7 +2,8 @@ import React from 'react';
 import { Col, Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Form, FormGroup, Media } from "reactstrap";
-import NavBar from './NavBar';
+import Navigation from './Navigation';
+import { Flex, Box  } from 'reflexbox';
 
 class Account extends React.Component {
   constructor() {
@@ -45,22 +46,27 @@ class Account extends React.Component {
   render() {
     return(
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
           <Jumbotron style={{backgroundColor:"transparent"}}>
-            <Media>
-              <Media left>
-                <Media style={{width:"100%"}} object src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSaxK-ShbagBr7eQdl9-OSyf05NUFAAUBn9n_OkH5uaTg_S8JRK" alt="minions!!!!!!"/>
-              </Media>
-              <Media body>
-                <Media heading>
-                  <div>
-                    <h2>{this.props.userStore.name}</h2>
-                  </div>
+            <Flex align="left">
+              <Box>
+                <Media>
+                  <Media left>
+                    <Media style={{width:"35%"}} object src="https://pbs.twimg.com/profile_images/449359188641071104/DlT5LtJI.jpeg" alt="minions!!!!!!"/>
+                  </Media>
+                  <Media body>
+                    <Media heading>
+                      <div>
+                        <h2>Name: {this.props.userStore.name}</h2>
+                      </div>
+                    </Media>
+                    <h3>Neighborhood: {this.props.userStore.neighborhood}</h3>
+                  </Media>
                 </Media>
-              </Media>
-            </Media>
+              </Box>
+            </Flex>
           </Jumbotron>
         </div>
 
