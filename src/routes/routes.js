@@ -2,13 +2,11 @@ import Item from '../../models/itemSchema';
 import User from '../../models/userSchema';
 import hash from 'password-hash';
 import jwt from 'jsonwebtoken';
-import express from 'express';
 import config from '../../config';
+import express from 'express';
 
 let app = express();
 let router =  express.Router();
-
-
 
 
 router.use(function(req, res, next){
