@@ -55,7 +55,7 @@ class Browse extends React.Component {
       foundItems: this.convertToShowItems(this.state.category, data.data)}));
   }
 
-  convertToShowItems(category, foundItems) {
+  convertToShowItems() {
     return this.foundItems.map(items => ({
       category: items.category,
     }));
