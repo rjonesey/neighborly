@@ -2,10 +2,12 @@ import Item from '../../models/itemSchema';
 import User from '../../models/userSchema';
 import hash from 'password-hash';
 import jwt from 'jsonwebtoken';
-import app from 'express';
 import config from '../../config';
+import express from 'express';
 
-let router =  app.Router();
+let app = express();
+
+let router =  express.Router();
 
 app.set('superSecret', config.secret);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Form, FormGroup, Media } from "reactstrap";
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 class Account extends React.Component {
   constructor() {
@@ -45,7 +45,7 @@ class Account extends React.Component {
   render() {
     return(
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
           <Jumbotron style={{backgroundColor:"transparent"}}>
@@ -88,13 +88,11 @@ class Account extends React.Component {
 
               <FormGroup>
                 <input onChange={this.handleUrlChange} value={this.state.url}
-                  className="form-control"
-                id="url" placeholder="url"/>
+                className="form-control" id="url" placeholder="url"/>
               </FormGroup>
 
               <button onClick={this.handleNewItem} type="submit"
-                className="btn btn-primary">Add Your Item!
-              </button>
+              className="btn btn-primary">Add Your Item!</button>
             </Col>
           </Form>
         </div>
