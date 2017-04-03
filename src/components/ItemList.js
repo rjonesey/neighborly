@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
+import { Button, Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,
@@ -16,6 +16,7 @@ function ItemList(props) {
               <CardTitle>{item.category}</CardTitle>
               <CardSubtitle>{item.condition}</CardSubtitle>
               <CardText>{item.description}</CardText>
+              <Button>Request</Button>
             </Card>
           </Card>
 

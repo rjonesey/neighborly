@@ -39,7 +39,7 @@ class CreateAccount extends React.Component {
   handleNewUser(event) {
     event.preventDefault();
     this.props.userStore.NewUser(this.state.email, this.state.password, this.state.name,
-    this.state.neighborhood);
+      this.state.neighborhood);
     this.setState({ password: "", email: "", name: "", neighborhood: ""});
   }
 
@@ -47,25 +47,22 @@ class CreateAccount extends React.Component {
     return (
         <Col md={5} mdPull={5}>
           <form method="" role="form">
-            <legend>
-              {this.state.loginMsg == "" ? "New to the Neighborhood? Create an Account!":
-               this.state.loginMsg}
-            </legend>
+            <legend>{this.state.loginMsg == "" ? "New to the Neighborhood? Create an Account!":
+            this.state.loginMsg}</legend>
 
             <div className="form-group">
-              <input onChange=
-                {this.handleNameChange} value={this.state.name}
-                type="text" className="form-control" id="name" placeholder="name"/>
+              <input onChange={this.handleNameChange} value={this.state.name} type="text"
+              className="form-control" id="name" placeholder="name"/>
             </div>
 
             <div className="form-group">
               <input onChange={this.handleNeighborhoodChange} value={this.state.neighborhood}
-               type="text" className="form-control" id="neighborhood" placeholder="neighborhood"/>
+              type="text" className="form-control" id="neighborhood" placeholder="neighborhood"/>
             </div>
 
             <div className="form-group">
-              <input onChange={this.handleEmailChange} value={this.state.email}
-              type="text" className="form-control" id="email" placeholder="email address"/>
+              <input onChange={this.handleEmailChange} value={this.state.email} type="text"
+              className="form-control" id="email" placeholder="email address"/>
             </div>
 
             <div className="form-group">
@@ -77,7 +74,13 @@ class CreateAccount extends React.Component {
               onClick={this.handleNewUser} type="submit" className="btn btn-primary">Submit
             </button><br/>
 
-          </form> <br/>
+          </form><br/>
+
+          {/*<button
+            onClick={this.handleNewUser} type="submit"
+            className="btn btn-primary">Continue withFacebook
+          </button>*/}
+
         </Col>
     );
   }
