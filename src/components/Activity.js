@@ -1,13 +1,14 @@
 import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBlock } from 'reactstrap';
-import NavBar from './NavBar';
+import { Card, Button, CardImg, CardTitle, CardText,
+  CardDeck, CardSubtitle, CardBlock } from 'reactstrap';
+import Navigation from './Navigation';
 
 
 class Activity extends React.Component {
   render() {
     return (
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
           <CardDeck>
@@ -16,7 +17,7 @@ class Activity extends React.Component {
               <CardBlock>
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+                <CardText>Something goes here.</CardText>
                 <Button>Button</Button>
               </CardBlock>
             </Card>
@@ -25,7 +26,7 @@ class Activity extends React.Component {
               <CardBlock>
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>This card has supporting text below as a natural lead-in to additional content.</CardText>
+                <CardText>Something goes here.</CardText>
                 <Button>Button</Button>
                 </CardBlock>
             </Card>
@@ -34,7 +35,7 @@ class Activity extends React.Component {
               <CardBlock>
                 <CardTitle>Card title</CardTitle>
                 <CardSubtitle>Card subtitle</CardSubtitle>
-                <CardText>This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</CardText>
+                <CardText>Something goes here.</CardText>
                 <Button>Button</Button>
               </CardBlock>
             </Card>

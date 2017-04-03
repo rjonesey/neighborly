@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Form, FormGroup, Media } from "reactstrap";
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 class Account extends React.Component {
   constructor() {
@@ -45,7 +45,7 @@ class Account extends React.Component {
   render() {
     return(
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
           <Jumbotron style={{backgroundColor:"transparent"}}>
@@ -72,22 +72,29 @@ class Account extends React.Component {
               <legend>Add Your Items to Loan!!</legend>
 
               <FormGroup>
-                <input onChange={this.handleCategoryChange} value={this.state.category} className="form-control" id="category" placeholder="category"/>
+                <input onChange={this.handleCategoryChange} value={this.state.category}
+                className="form-control" id="category" placeholder="category"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleDescriptionChange} value={this.state.description} className="form-control" id="description" placeholder="description"/>
+                <input onChange={this.handleDescriptionChange} value={this.state.description}
+                className="form-control" id="description" placeholder="description"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleConditionChange} value={this.state.condition} className="form-control" id="condition" placeholder="condition"/>
+                <input onChange={this.handleConditionChange} value={this.state.condition}
+                className="form-control" id="condition" placeholder="condition"/>
               </FormGroup>
 
               <FormGroup>
-                <input onChange={this.handleUrlChange} value={this.state.url} className="form-control" id="url" placeholder="url"/>
+                <input onChange={this.handleUrlChange} value={this.state.url}
+                  className="form-control"
+                id="url" placeholder="url"/>
               </FormGroup>
 
-              <button onClick={this.handleNewItem} type="submit" className="btn btn-primary">Add Your Item!</button>
+              <button onClick={this.handleNewItem} type="submit"
+                className="btn btn-primary">Add Your Item!
+              </button>
             </Col>
           </Form>
         </div>

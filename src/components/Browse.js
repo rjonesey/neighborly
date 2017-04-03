@@ -2,10 +2,8 @@ import React from 'react';
 import { Col, Grid, Jumbotron, Button } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import ItemList from './ItemList';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 import { CardColumns, Form, FormGroup, Input, Label, FormFeedback, ButtonGroup } from "reactstrap";
-
-
 
 class Browse extends React.Component {
   constructor(props) {
@@ -13,12 +11,14 @@ class Browse extends React.Component {
     this.state = {
       category: "",
       modal: false,
-      cSelected: []
+      cSelected: [],
+      foundItems: []
     };
     this.toggle = this.toggle.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
     this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
+    this.convertToShowItems = this.convertToShowItems.bind(this);
   }
 
   componentDidMount() {
@@ -37,11 +37,6 @@ class Browse extends React.Component {
     });
   }
 
-  handleFormSubmit(formSubmitEvent) {
-    formSubmitEvent.preventDefault();
-  }
-
-
   onCheckboxBtnClick(selected) {
     const index = this.state.cSelected.indexOf(selected);
     if (index < 0) {
@@ -52,11 +47,25 @@ class Browse extends React.Component {
     this.setState({ cSelected: [...this.state.cSelected] });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    fetch(`/item`)
+    .then(function(result) {return result.json();})
+    .then(data => this.setState({
+      foundItems: this.convertToShowItems(this.state.category, data.data)}));
+  }
+
+  convertToShowItems(category, foundItems) {
+    return this.foundItems.map(items => ({
+      category: items.category,
+    }));
+  }
+
   render() {
     return(
       <div>
         <div>
-          <NavBar/>
+          <Navigation/>
         </div>
 
         <div style={{paddingTop:"200px"}}>
@@ -80,15 +89,32 @@ class Browse extends React.Component {
                   <Col sm={10}>
 
                     <ButtonGroup>
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Power Tools")} active={this.state.cSelected.includes("Power Tools")}>Power Tools</Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Hobby")} active={this.state.cSelected.includes("Hobby")}>Hobby</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Power Tools")}
+                        active={this.state.cSelected.includes("Power Tools")}>Power Tools
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Gardening")} active={this.state.cSelected.includes("Gardening")}>Gardening</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Hobby")}
+                        active={this.state.cSelected.includes("Hobby")}>Hobby
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Recreation")} active={this.state.cSelected.includes("Recreation")}>Recreation</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Gardening")}
+                        active={this.state.cSelected.includes("Gardening")}>Gardening
+                      </Button>
 
-                      <Button color="primary" onClick={() => this.onCheckboxBtnClick("Kitchen")} active={this.state.cSelected.includes("Kitchen")}>Kitchen</Button>
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Recreation")}
+                        active={this.state.cSelected.includes("Recreation")}>Recreation
+                      </Button>
+
+                      <Button color="primary" onClick={() =>
+                        this.onCheckboxBtnClick("Kitchen")}
+                        active={this.state.cSelected.includes("Kitchen")}>Kitchen
+                      </Button>
+
                     </ButtonGroup>
 
                   </Col>
@@ -96,7 +122,8 @@ class Browse extends React.Component {
 
                 <FormGroup check row className="d-flex align-items-start">
                   <Col sm={{ size: 20, offset: 2 }}>
-                    <Button className="btn btn-success btn-lg">Search</Button>
+                    <Button onClick={this.handleSubmit} className="btn btn-success btn-lg">Search
+                    </Button>
                    </Col>
                 </FormGroup>
               </Form>
@@ -109,6 +136,7 @@ class Browse extends React.Component {
             <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
               <CardColumns>
                 <ItemList items={this.props.itemStore.items}/>
+                <foundItems/>
               </CardColumns>
             </Jumbotron>
           </Grid>
