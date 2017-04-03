@@ -37,14 +37,17 @@ class Login extends React.Component {
             <legend>{this.state.loginMsg == "" ? "Please Log In!": this.state.loginMsg}</legend>
 
             <div className="form-group">
-              <input onChange={this.handleEmailChange} value={this.state.email} type="text" className="form-control" id="email" placeholder="email address"/>
+              <input onChange={this.handleEmailChange} value={this.state.email}
+              type="text" className="form-control" id="email" placeholder="email address"/>
             </div>
 
             <div className="form-group">
-              <input onChange={this.handlePasswordChange} value={this.state.password}type="password" className="form-control" id="password" placeholder="password"/>
+              <input onChange={this.handlePasswordChange} value={this.state.password}
+              type="password" className="form-control" id="password" placeholder="password"/>
             </div>
 
-            <button onClick={this.handleLoginUser} type="submit" className="btn btn-primary">Submit</button><br/>
+            <button onClick={this.handleLoginUser}
+              type="submit" className="btn btn-primary">Submit</button><br/>
           </form>
         </Col>
     );
