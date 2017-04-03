@@ -2,7 +2,7 @@ import React from 'react';
 import { Col, Grid, Jumbotron, Button, } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import ItemList from './ItemList';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 import { CardColumns, Form, FormGroup, Input, Label, FormFeedback, ButtonGroup } from "reactstrap";
 
 
@@ -55,7 +55,7 @@ class Browse extends React.Component {
     return(
       <div>
         <div>
-          <NavBar/>
+          <Navigation/>
         </div>
 
         <div style={{paddingTop:"200px"}}>

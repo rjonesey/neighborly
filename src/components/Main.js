@@ -1,7 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import 'bootstrap/dist/css/bootstrap.css';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 
 
@@ -14,7 +14,7 @@ class Main extends React.Component {
   render() {
     return(
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{color:"grey", paddingTop:"133px"}}>
           <div>
