@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, Button, CardImg, CardTitle, CardText,
   CardDeck, CardSubtitle, CardBlock } from 'reactstrap';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 
 class Activity extends React.Component {
   render() {
     return (
       <div>
-        <NavBar/>
+        <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
           <CardDeck>

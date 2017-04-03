@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 import {Grid, Row } from 'react-bootstrap';
 import CreateAccount from './CreateAccount';
 import Login from './Login';
-import NavBar from './NavBar';
+import Navigation from './Navigation';
 
 class LoginCreateAccount extends React.Component {
 
@@ -11,7 +11,7 @@ class LoginCreateAccount extends React.Component {
     return (
       <div>
         <div>
-          <NavBar/>
+          <Navigation/>
         </div>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>

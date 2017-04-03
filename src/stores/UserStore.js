@@ -59,6 +59,7 @@ export default class UserStore {
         this.loggedInUser = true;
         this.email = loginCred.email;
         this.name = loginCred.name;
+        this.neighborhood = loginCred.neighborhood;
         this.id = loginCred.id;
         this.token = loginCred.token;
       } else {
