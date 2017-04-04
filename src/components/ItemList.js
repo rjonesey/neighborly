@@ -5,7 +5,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,
-  account: React.PropTypes.object
+  account: React.PropTypes.object,
+  filteredtext: React.PropTypes.string
 };
 
 function ItemList(props) {

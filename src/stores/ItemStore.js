@@ -5,13 +5,16 @@ import {browserHistory} from 'react-router';
 export default class ItemStore {
   constructor  () {
     extendObservable(this, {
-      items: []
+      items: [],
+      filteredItems: []
     });
     this.newItem = this.newItem.bind(this);
+    this.setItems = this.setItems.bind(this);
   }
 
   setItems(items) {
     this.items = items;
+    this.filteredItems = items;
   }
 
   newItem(item) {
@@ -33,6 +36,7 @@ export default class ItemStore {
       return result.json();})
     .then(resultItem => {
       this.items.push(resultItem);
+      this.filteredItems.push(resultItem);
       browserHistory.push('/Browse');
     });
   }

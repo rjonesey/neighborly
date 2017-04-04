@@ -5,6 +5,7 @@ import ItemList from './ItemList';
 import Navigation from './Navigation';
 import { CardColumns, Form, FormGroup, Input, Label, FormFeedback, ButtonGroup } from "reactstrap";
 
+
 class Browse extends React.Component {
   constructor(props) {
     super(props);
@@ -12,13 +13,14 @@ class Browse extends React.Component {
       category: "",
       modal: false,
       cSelected: [],
-      foundItems: []
+      filterText: '',
+      filtered: this.props.itemStore
     };
     this.toggle = this.toggle.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.loadItemsFromServer = this.loadItemsFromServer.bind(this);
-    this.onCheckboxBtnClick = this.onCheckboxBtnClick.bind(this);
-    this.convertToShowItems = this.convertToShowItems.bind(this);
+    this.searchItems = this.searchItems.bind(this);
+    this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
+    this.handleFilterTextInputChange = this.handleFilterTextInputChange.bind(this);
   }
 
   componentDidMount() {
@@ -47,19 +49,29 @@ class Browse extends React.Component {
     this.setState({ cSelected: [...this.state.cSelected] });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    fetch(`/item`)
-    .then(function(result) {return result.json();})
-    .then(data => this.setState({
-      foundItems: this.convertToShowItems(this.state.category, data.data)}));
+
+  searchItems() {
+    this.props.itemStore.filteredItems=[];
+    this.props.itemStore.items.forEach((item) => {
+      if (item.category.indexOf(this.state.filterText) !== -1 ||
+        item.description.indexOf(this.state.filterText) !== -1  ) {
+        this.props.itemStore.filteredItems.push(item);
+      } else {
+        return;
+      }
+    });
   }
 
-  convertToShowItems() {
-    return this.foundItems.map(items => ({
-      category: items.category,
-    }));
+  handleFilterTextInput(filterText) {
+    this.setState({
+      filterText: filterText
+    });
   }
+
+  handleFilterTextInputChange(e) {
+    this.setState({filterText: e.target.value});
+  }
+
 
   render() {
     return(
@@ -77,10 +89,11 @@ class Browse extends React.Component {
               </div>
 
               <Form>
-
                 <FormGroup  style={{width: "50%"}}>
                   <Label>SEARCH</Label>
-                  <Input state="success" placeholder="Search the Neighborhood"/>
+                  <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
+                    placeholder="Search the Neighborhood"
+                    value={this.state.filterText} />
                   <FormFeedback/>
                 </FormGroup>
 
@@ -122,7 +135,7 @@ class Browse extends React.Component {
 
                 <FormGroup check row className="d-flex align-items-start">
                   <Col sm={{ size: 20, offset: 2 }}>
-                    <Button onClick={this.handleSubmit} className="btn btn-success btn-lg">Search
+                    <Button onClick={this.searchItems} className="btn btn-success btn-lg">Search
                     </Button>
                    </Col>
                 </FormGroup>
@@ -135,8 +148,7 @@ class Browse extends React.Component {
           <Grid>
             <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
               <CardColumns>
-                <ItemList items={this.props.itemStore.items}/>
-                <foundItems/>
+                <ItemList items={this.state.filtered.filteredItems}/>
               </CardColumns>
             </Jumbotron>
           </Grid>
@@ -149,7 +161,10 @@ class Browse extends React.Component {
 Browse.propTypes = {
   userStore: React.PropTypes.object,
   itemStore: React.PropTypes.object,
-  user: React.PropTypes.object
+  items: React.PropTypes.object,
+  filteredItems: React.PropTypes.object,
+  user: React.PropTypes.object,
+  filtered: React.PropTypes.array
 };
 
 export default inject('itemStore', 'userStore')(observer(Browse));
