@@ -4,10 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _express = require('express');
-
-var _express2 = _interopRequireDefault(_express);
-
 var _itemSchema = require('../../models/itemSchema');
 
 var _itemSchema2 = _interopRequireDefault(_itemSchema);
@@ -16,20 +12,33 @@ var _userSchema = require('../../models/userSchema');
 
 var _userSchema2 = _interopRequireDefault(_userSchema);
 
+var _passwordHash = require('password-hash');
+
+var _passwordHash2 = _interopRequireDefault(_passwordHash);
+
+var _jsonwebtoken = require('jsonwebtoken');
+
+var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
+
+var _config = require('../../config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var _express = require('express');
+
+var _express2 = _interopRequireDefault(_express);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var hash = require('password-hash');
-var jwt = require('jsonwebtoken');
 var app = (0, _express2.default)();
 var router = _express2.default.Router();
-var config = require('../../config');
-
-app.set('superSecret', config.secret);
 
 router.use(function (req, res, next) {
   res.setHeader('Content-Type', 'application/json');
   next();
 });
+
+app.set('superSecret', _config2.default.secret);
 
 router.route('/item').post(function (req, res, next) {
 
@@ -40,27 +49,27 @@ router.route('/item').post(function (req, res, next) {
   item.category = req.body.category;
   item.url = req.body.url;
 
-  item.save(function (err, item, next) {
+  item.save(function (err, item) {
     if (err) {
       return next(err);
     } else {
       res.json(item);
     }
   });
-}).get(function (req, res) {
+}).get(function (req, res, next) {
   _itemSchema2.default.find(function (err, item) {
     if (err) {
-      return err;
+      next(err);
     } else {
       res.json(item);
     }
   });
 });
 
-router.route('/item').get(function (req, res) {
+router.route('/item').get(function (req, res, next) {
   _itemSchema2.default.findById(req.params.item._id, function (err, item) {
     if (err) {
-      console.log(err);
+      next(err);
     } else {
       res.json(item);
     }
@@ -70,38 +79,40 @@ router.route('/item').get(function (req, res) {
 router.route('/user').post(function (req, res, next) {
 
   var user = new _userSchema2.default();
+  user.name = req.body.name;
   user.email = req.body.email;
-  user.password = hash.generate(req.body.password);
+  user.neighborhood = req.body.neighborhood;
+  user.password = _passwordHash2.default.generate(req.body.password);
 
-  user.save(function (err, user, next) {
+  user.save(function (err, user) {
     if (err) {
-      return next(err);
+      next(err);
     } else {
       res.json(user);
     }
   });
 });
 
-router.post('/authenticate', function (req, res) {
+router.post('/authenticate', function (req, res, next) {
   console.log('Authenticating....', req.body.email);
   // find the user
   _userSchema2.default.findOne({
     email: req.body.email
   }, function (err, user) {
-    if (err) throw err;
-
-    if (!user) {
+    if (err) {
+      next(err);
+    } else if (!user) {
       res.json({ success: false, message: 'Authentication failed. User not found.' });
     } else if (user) {
 
       // check if password matches
-      if (!hash.verify(req.body.password, user.password)) {
+      if (!_passwordHash2.default.verify(req.body.password, user.password)) {
         res.json({ success: false, message: 'Authentication failed. Wrong password.' });
       } else {
 
         // if user is found and password is right
         // create a token
-        var token = jwt.sign(user, app.get('superSecret'), {
+        var token = _jsonwebtoken2.default.sign(user, app.get('superSecret'), {
           expiresIn: 86400 // expires in 24 hours
         });
 
@@ -109,7 +120,10 @@ router.post('/authenticate', function (req, res) {
           success: true,
           message: 'Enjoy your token!',
           token: token,
-          id: user._id
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          neighborhood: user.neighborhood
         });
       }
     }
@@ -125,7 +139,7 @@ router.use(function (req, res, next) {
   if (token) {
 
     // verifies secret and checks exp
-    jwt.verify(token, app.get('superSecret'), function (err, decoded) {
+    _jsonwebtoken2.default.verify(token, app.get('superSecret'), function (err, decoded) {
       if (err) {
         return res.json({ success: false, message: 'Failed to authenticate token.' });
       } else {
