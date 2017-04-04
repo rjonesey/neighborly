@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
+import { Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
+import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,
@@ -17,7 +19,9 @@ function ItemList(props) {
           <CardTitle>{item.category}</CardTitle>
           <CardSubtitle>{item.condition}</CardSubtitle>
           <CardText>{item.description}</CardText>
-          <Button>Request</Button>
+          <LinkContainer to={{pathname: '/Requested'}}>
+            <Button>Request</Button>
+          </LinkContainer>
         </Card>
       </Card>
     );

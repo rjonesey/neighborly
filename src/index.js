@@ -9,6 +9,7 @@ import LoginCreateAccount from './components/LoginCreateAccount';
 import Browse from './components/Browse';
 import Activity from './components/Activity';
 import Main from './components/Main';
+import ItemRequested from './components/ItemRequested';
 import 'bootstrap/dist/css/bootstrap.css';
 
 let userStore = new UserStore();
@@ -23,6 +24,7 @@ render((
         <Route path="/Browse" component={Browse}/>
         <Route path="/Activity" component={Activity}/>
         <Route path="/Account" component={Account}/>
+        <Route path="/Requested" component={ItemRequested}/>
       </Route>
     </Router>
   </Provider>
