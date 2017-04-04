@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import ItemList from './ItemList';
 import Navigation from './Navigation';
 import { CardColumns, Form, FormGroup, Input, Label, FormFeedback, ButtonGroup } from "reactstrap";
-import Search from 'react-search';
+
 
 class Browse extends React.Component {
   constructor(props) {
