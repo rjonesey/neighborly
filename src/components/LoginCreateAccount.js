@@ -30,7 +30,8 @@ class LoginCreateAccount extends React.Component {
 LoginCreateAccount.propTypes = {
   LoginUser: React.PropTypes.func,
   userStore:  React.PropTypes.object,
-  children: React.PropTypes.object
+  children: React.PropTypes.object,
+  itemStore: React.PropTypes.object
 };
 
-export default inject("userStore")(observer(LoginCreateAccount));
+export default inject('userStore', 'itemStore')(observer(LoginCreateAccount));

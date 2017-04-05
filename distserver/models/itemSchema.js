@@ -14,7 +14,11 @@ var ItemSchema = new _mongoose2.default.Schema({
   description: String,
   category: String,
   condition: String,
-  url: String
+  url: String,
+  owner: {
+    type: _mongoose2.default.Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
 exports.default = _mongoose2.default.model('Item', ItemSchema);

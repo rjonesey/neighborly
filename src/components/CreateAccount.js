@@ -11,7 +11,8 @@ class CreateAccount extends React.Component {
       email: "",
       loginMsg: "",
       neighborhood: "",
-      name: ""
+      name: "",
+      owner: ""
     };
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleNewUser = this.handleNewUser.bind(this);
@@ -39,8 +40,8 @@ class CreateAccount extends React.Component {
   handleNewUser(event) {
     event.preventDefault();
     this.props.userStore.NewUser(this.state.email, this.state.password, this.state.name,
-      this.state.neighborhood);
-    this.setState({ password: "", email: "", name: "", neighborhood: ""});
+      this.state.neighborhood, this.state.owner);
+    this.setState({ password: "", email: "", name: "", neighborhood: "", owner: ""});
   }
 
   render() {
@@ -76,7 +77,7 @@ class CreateAccount extends React.Component {
 
           </form><br/>
 
-        
+
 
         </Col>
     );
@@ -85,7 +86,6 @@ class CreateAccount extends React.Component {
 
 CreateAccount.propTypes = {
   userStore:  React.PropTypes.object,
-  children: React.PropTypes.object
 };
 
 export default inject("userStore")(observer(CreateAccount));

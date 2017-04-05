@@ -20,7 +20,7 @@ router.route('/item')
   .post(function(req, res, next){
 
     let item = new Item();
-    item.brand = req.body.brand;
+    item.owner = req.body.owner;
     item.description = req.body.description;
     item.condition = req.body.condition;
     item.category = req.body.category;
@@ -36,7 +36,7 @@ router.route('/item')
     });
   })
   .get(function(req, res, next){
-    Item.find(function(err, item){
+    Item.find().populate('owner').exec(function(err, item){
       if(err){
         next(err);
       } else {
