@@ -43,7 +43,7 @@ app.set('superSecret', _config2.default.secret);
 router.route('/item').post(function (req, res, next) {
 
   var item = new _itemSchema2.default();
-  item.brand = req.body.brand;
+  item.owner = req.body.owner;
   item.description = req.body.description;
   item.condition = req.body.condition;
   item.category = req.body.category;
@@ -57,7 +57,7 @@ router.route('/item').post(function (req, res, next) {
     }
   });
 }).get(function (req, res, next) {
-  _itemSchema2.default.find(function (err, item) {
+  _itemSchema2.default.find().populate('owner').exec(function (err, item) {
     if (err) {
       next(err);
     } else {

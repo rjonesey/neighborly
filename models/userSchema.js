@@ -5,6 +5,7 @@ let UserSchema = new mongoose.Schema({
   password: String,
   name: String,
   neighborhood: String
+
 });
 
 export default mongoose.model('User', UserSchema);
