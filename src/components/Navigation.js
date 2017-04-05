@@ -13,42 +13,38 @@ class Navigation extends React.Component {
       <div className="navBar navbar-fixed-top">
         <Navbar collapseOnSelect id="nav-margin">
           <Navbar.Header>
-            <Flex align="flex-start" gutter={2} justify="space-between" wrap>
-              <Box col={4} p={2}>
-                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
-              </Box>
-            </Flex>
+              <div id="logo"><img src="../images/swpl-logo.png" /></div>
             <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <Flex align="flex-end" justify="flex-end">
+              <Flex>
 
-                <Box auto col={3} p={3}>
+                <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/'}}>
                     <NavItem className="navHome">HOME</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Browse'}}>
                     <NavItem className="navBrowse">BROWSE</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Activity'}}>
                     <NavItem className="navActivity">ACTIVITY</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Account'}}>
                     <NavItem className="navAccount">ACCOUNT</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Login'}}>
                     <NavItem className="navLogin">LOGIN</NavItem>
                   </LinkContainer>
