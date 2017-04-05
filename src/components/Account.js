@@ -3,7 +3,7 @@ import { Col, Jumbotron } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Form, FormGroup, Media } from "reactstrap";
 import Navigation from './Navigation';
-import { Flex, Box  } from 'reflexbox';
+import { Flex, Box } from 'reflexbox';
 
 class Account extends React.Component {
   constructor() {
@@ -12,7 +12,8 @@ class Account extends React.Component {
       category: "",
       description: "",
       condition: "",
-      url: ""
+      url: "",
+      owner: ""
     };
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
@@ -38,7 +39,9 @@ class Account extends React.Component {
 
   handleNewItem(event) {
     event.preventDefault();
-    this.props.itemStore.newItem(this.state);
+    let item = this.state;
+    item.owner = this.props.userStore.id;
+    this.props.itemStore.newItem(item);
   }
 
 
@@ -113,7 +116,8 @@ Account.propTypes = {
   children: React.PropTypes.object,
   newItem: React.PropTypes.func,
   itemStore: React.PropTypes.object,
-  userStore: React.PropTypes.object
+  userStore: React.PropTypes.object,
+  user: React.PropTypes.object
 };
 
 export default inject ('itemStore', 'userStore')(observer(Account));

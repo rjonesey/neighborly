@@ -1,7 +1,6 @@
 import { extendObservable } from 'mobx';
 import {browserHistory} from 'react-router';
 
-
 export default class ItemStore {
   constructor  () {
     extendObservable(this, {
@@ -29,7 +28,8 @@ export default class ItemStore {
         condition: item.condition,
         description: item.description,
         category: item.category,
-        url: item.url
+        url: item.url,
+        owner: item.owner
       })
     })
     .then(function(result) {
