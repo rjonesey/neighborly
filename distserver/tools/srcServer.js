@@ -24,10 +24,6 @@ var _webpackConfig = require('../webpack.config.dev');
 
 var _webpackConfig2 = _interopRequireDefault(_webpackConfig);
 
-var _morgan = require('morgan');
-
-var _morgan2 = _interopRequireDefault(_morgan);
-
 var _open = require('open');
 
 var _open2 = _interopRequireDefault(_open);
@@ -44,7 +40,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 /* eslint-disable no-console */
-var router = _express2.default.Router();
 
 _mongoose2.default.Promise = global.Promise;
 
@@ -55,11 +50,8 @@ var options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
 };
 _mongoose2.default.connect(mongooseUri, options);
-var Swapple = require('../models/itemSchema');
-var NewUser = require('../models/userSchema');
 
 var port = process.env.PORT || 3000;
-var compiler = (0, _webpack2.default)(_webpackConfig2.default);
 var PROD = process.env.NODE_ENV === 'production';
 
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
@@ -70,12 +62,12 @@ if (PROD) {
   app.use('/', _express2.default.static('dist'));
 } else {
   // When not in production, enable hot reloading
-  var _compiler = (0, _webpack2.default)(_webpackConfig2.default);
-  app.use(require('webpack-dev-middleware')(_compiler, {
+  var compiler = (0, _webpack2.default)(_webpackConfig2.default);
+  app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: _webpackConfig2.default.output.publicPath
   }));
-  app.use(require('webpack-hot-middleware')(_compiler));
+  app.use(require('webpack-hot-middleware')(compiler));
 }
 
 app.use('/', _routes2.default);
