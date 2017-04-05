@@ -13,15 +13,9 @@ class Navigation extends React.Component {
       <div className="navBar navbar-fixed-top">
         <Navbar collapseOnSelect id="nav-margin">
           <Navbar.Header>
-<<<<<<< HEAD
-            <Flex align="center" gutter={2} justify="space-between" wrap>
-              <Box col={4} p={2}>
-                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
-=======
             <Flex align="left" gutter={6} justify="space-between" wrap>
               <Box col={4} pr={6}>
                 <span id="logo"><img src="../images/swpl.jpg" /></span>
->>>>>>> a5c51d800b7bddd622b12138bb4fc495792aa3d7
               </Box>
             </Flex>
 
