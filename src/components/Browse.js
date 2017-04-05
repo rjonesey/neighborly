@@ -85,14 +85,14 @@ class Browse extends React.Component {
             <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
 
               <div className="mx-auto">
-                <span className="Hoods">Browse the Hoods for the Goods!</span>
+                <span className="Hoods">Browse Available Items</span>
               </div>
 
               <Form>
                 <FormGroup  style={{width: "50%"}}>
                   <Label>SEARCH</Label>
                   <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
-                    placeholder="Search the Neighborhood"
+                    placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
                     value={this.state.filterText} />
                   <FormFeedback/>
                 </FormGroup>
@@ -123,7 +123,6 @@ class Browse extends React.Component {
 }
 
 Browse.propTypes = {
-  children: React.PropTypes.object,
   userStore: React.PropTypes.object,
   itemStore: React.PropTypes.object,
   items: React.PropTypes.object,

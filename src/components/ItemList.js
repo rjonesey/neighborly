@@ -1,6 +1,8 @@
 import React from 'react';
-import { Button, Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
 import { inject, observer } from 'mobx-react';
+import { Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
+import { Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,
@@ -23,6 +25,9 @@ function ItemList(props) {
           <CardText>{item.description}</CardText>
           <CardText>{addedBy}</CardText>
           <Button>Request</Button>
+          <LinkContainer to={{pathname: '/Requested'}}>
+            <Button>Request</Button>
+          </LinkContainer>
         </Card>
       </Card>
     );

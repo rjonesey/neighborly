@@ -86,7 +86,6 @@ class CreateAccount extends React.Component {
 
 CreateAccount.propTypes = {
   userStore:  React.PropTypes.object,
-  children: React.PropTypes.object
 };
 
 export default inject("userStore")(observer(CreateAccount));
