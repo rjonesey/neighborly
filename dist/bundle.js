@@ -69260,11 +69260,6 @@ function ItemList(props) {
           addedBy
         ),
         _react2.default.createElement(
-          _reactBootstrap.Button,
-          null,
-          'Request'
-        ),
-        _react2.default.createElement(
           _reactRouterBootstrap.LinkContainer,
           { to: { pathname: '/Requested' } },
           _react2.default.createElement(
