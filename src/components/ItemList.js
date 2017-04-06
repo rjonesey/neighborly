@@ -24,9 +24,9 @@ function ItemList(props) {
           <CardSubtitle>{item.condition}</CardSubtitle>
           <CardText>{item.description}</CardText>
           <CardText>{addedBy}</CardText>
-          <Button>Request</Button>
+
           <LinkContainer to={{pathname: '/Requested'}}>
-            <Button>Request</Button>
+            <Button>Request from {addedBy}</Button>
           </LinkContainer>
         </Card>
       </Card>
