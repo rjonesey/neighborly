@@ -19,7 +19,7 @@ class Main extends React.Component {
         <div style={{color:"grey", paddingTop:"133px"}}>
           <div>
             <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}}
-            src="http://www.eralandmark.com/files/imagecache/slideshow_large/large_images/4_1.jpg"/>
+            src="http://spacegrant.montana.edu/mhsppc/Bozeman_Montana.jpg"/>
           </div>
         </div>
 
