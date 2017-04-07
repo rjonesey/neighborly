@@ -75,7 +75,18 @@ router.route('/user')
         res.json(user);
       }
     });
+  })
+  .get(function(req, res, next){
+    User.find().exec(function(err, user){
+      if(err){
+        next(err);
+      } else {
+        res.json({name: user.name, id: user._id, neighborhood: user.neighborhood});
+      }
+    });
   });
+
+
 
 router.post('/authenticate', function(req, res, next) {
   console.log('Authenticating....', req.body.email);

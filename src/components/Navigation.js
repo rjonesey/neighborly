@@ -36,8 +36,8 @@ class Navigation extends React.Component {
                 </Box>
 
                 <Box col={3} p={3}>
-                  <LinkContainer to={{pathname: '/Activity'}}>
-                    <NavItem className="navActivity">ACTIVITY</NavItem>
+                  <LinkContainer to={{pathname: '/Neighbors'}}>
+                    <NavItem className="navNeighbors">NAY</NavItem>
                   </LinkContainer>
                 </Box>
 
