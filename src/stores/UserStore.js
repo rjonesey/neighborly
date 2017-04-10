@@ -19,6 +19,11 @@ export default class UserStore {
     });
     this.LoginUser = this.LoginUser.bind(this);
     this.NewUser = this.NewUser.bind(this);
+    this.setUsers = this.setUsers.bind(this);
+  }
+
+  setUsers(users) {
+    this.users = users;
   }
 
   NewUser(email, password, name, neighborhood) {
@@ -57,7 +62,7 @@ export default class UserStore {
     .then(loginCred => {
       if (loginCred.success && loginCred.token){
 
-        browserHistory.push('/');
+        browserHistory.push('/Account');
         this.loggedInUser = true;
         this.email = loginCred.email;
         this.name = loginCred.name;
