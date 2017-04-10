@@ -1,10 +1,10 @@
 import React from 'react';
-import { Col, Grid, Jumbotron, Button } from 'react-bootstrap';
+import { Grid, Jumbotron, Button } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import ItemList from './ItemList';
 import Navigation from './Navigation';
 import { CardColumns, Form, FormGroup, Input, Label, FormFeedback } from "reactstrap";
-
+import { Flex } from 'reflexbox';
 
 class Browse extends React.Component {
   constructor(props) {
@@ -82,27 +82,31 @@ class Browse extends React.Component {
 
         <div style={{paddingTop:"200px"}}>
           <Grid>
-            <Jumbotron style={{ backgroundColor: '#F0F1F5', boxPack: "center" }}>
-
-              <div className="mx-auto">
-                <span className="Hoods">Browse Available Items</span>
+            <Jumbotron id="jumbotronSearch">
+              <div>
+                <Flex align="center" justify="center">
+                  <span id="browseSpan">Browse Available Items</span>
+                  </Flex>
               </div>
 
               <Form>
-                <FormGroup  style={{width: "50%"}}>
-                  <Label>SEARCH</Label>
+                <Flex align="center" justify="center">
+                <FormGroup  style={{width: "65%"}}>
+                  <Label id="Search">SEARCH</Label>
                   <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
                     placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
                     value={this.state.filterText} />
                   <FormFeedback/>
                 </FormGroup>
+                </Flex>
 
-                <FormGroup check row className="d-flex align-items-start">
-                  <Col sm={{ size: 20, offset: 2 }}>
-                    <Button onClick={this.searchItems} className="btn btn-success btn-lg">Search
+                <div>
+                  <Flex align="start" justify="center">
+                    <Button onClick={this.searchItems}
+                     className="btn btn-primary btn-lg" id="searchBtn">Search
                     </Button>
-                   </Col>
-                </FormGroup>
+                  </Flex>
+                </div>
               </Form>
             </Jumbotron>
           </Grid>
@@ -110,7 +114,7 @@ class Browse extends React.Component {
 
         <div>
           <Grid>
-            <Jumbotron style={{ backgroundColor: '#D1D5D8' }}>
+            <Jumbotron style={{ backgroundColor: 'transparent' }}>
               <CardColumns>
                 <ItemList items={this.state.filtered.filteredItems}/>
               </CardColumns>
