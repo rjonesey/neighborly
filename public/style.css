@@ -14,11 +14,7 @@
   font-size: 20px;
   float: left;
 }
-.navActivity {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
-}
+
 .navAccount{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -29,10 +25,22 @@
   font-size: 20px;
   float: right;
 }
+.navNeighbors{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  float: right;
+}
 
 .flexcontainer {
    display: -webkit-flex;
    display: flex;
    -webkit-flex-direction: row;
    flex-direction: row;
+}
+
+#app {
+  background-color: black;
+}
+.collage {
+  margin-left: 15%;
 }
