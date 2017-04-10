@@ -7,7 +7,7 @@ import { Provider } from 'mobx-react';
 import Account from './components/Account';
 import Login from './components/Login';
 import Browse from './components/Browse';
-import Activity from './components/Activity';
+import Neighbors from './components/Neighbors';
 import Main from './components/Main';
 import NewUser from './components/NewUser';
 import ItemRequested from './components/ItemRequested';
@@ -24,7 +24,7 @@ render((
         <Route path="/Login" component={Login}/>
         <Route path="/NewUser" component={NewUser}/>
         <Route path="/Browse" component={Browse}/>
-        <Route path="/Activity" component={Activity}/>
+        <Route path="/Neighbors" component={Neighbors}/>
         <Route path="/Account" component={Account}/>
         <Route path="/Requested" component={ItemRequested}/>
       </Route>

@@ -1,4 +1,6 @@
-
+#main {
+  background-color: black;
+}
 
 #nav-margin {
   background-color: transparent;
@@ -22,31 +24,35 @@
   padding-right: 20px;
 }
 
-.navHome {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-size: 20px;
-  float: left;
+#navHome {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
 }
-.navBrowse {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: left;
+#navBrowse {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
 }
-.navActivity {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navAccount{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
-.navAccount{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navLogin{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
-.navLogin{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navNeighbors{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
 
 .flexcontainer {
@@ -56,6 +62,7 @@
    flex-direction: row;
 }
 
+<<<<<<< HEAD
 #jumbotronSearch, #loginJumbo, #signUpJumbo {
   border-radius: 25px;
   background-color: #F0F1F5;
@@ -141,4 +148,8 @@
   color: #333;
   font-family: 'Raleway' sans-serif;
   font-weight: 500;
+}
+
+.collage {
+  margin-left: 15%;
 }
