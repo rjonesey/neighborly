@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Card,  CardImg , Button} from "reactstrap";
+import { Card,  CardImg } from "reactstrap";
 import '../../public/style.css';
 
 ItemList.propTypes = {
