@@ -62,11 +62,9 @@
    flex-direction: row;
 }
 
-<<<<<<< HEAD
 #jumbotronSearch, #loginJumbo, #signUpJumbo {
   border-radius: 25px;
   background-color: #F0F1F5;
-  max-width: 80%;
 }
 
 #browseSpan {
