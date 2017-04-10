@@ -80,7 +80,7 @@ class Browse extends React.Component {
           <Navigation/>
         </div>
 
-        <div style={{paddingTop:"200px"}}>
+        <div>
           <Grid>
             <Flex align="center" justify="center">
               <Jumbotron id="jumbotronSearch">
