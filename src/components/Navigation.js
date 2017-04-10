@@ -7,51 +7,58 @@ import { Flex, Box } from 'reflexbox';
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
+
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
   render() {
     return (
-      <div className="navBar navbar-fixed-top">
+      <div className="navBar navbar-fixed-top" id="navBarDiv">
         <Navbar collapseOnSelect id="nav-margin">
-          <Navbar.Header>
-            <Flex align="flex-start" gutter={2} justify="space-between" wrap>
-              <Box col={4} p={2}>
-                <span id="logo"><img src="../images/swpl.jpg" style={{marginTop: -7}} /></span>
+          <Navbar.Header id="navBarHeader">
+            <Flex align="left">
+              <Box>
+                <span id="logo"><img src="../images/swpl.jpg"/></span>
               </Box>
-            </Flex>
 
             <Navbar.Toggle/>
-          </Navbar.Header>
-          <Navbar.Collapse>
+            <Navbar.Collapse id="nav">
 
             <Nav>
+              <Flex align="flex-start" justify="flex-end" nowrap>
 
-              <Flex align="flex-end" justify="flex-end">
-
-                <Box auto col={3} p={3}>
+                <Box auto col={2} p={2}>
                   <LinkContainer to={{pathname: '/'}}>
                     <NavItem className="navHome">HOME</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box auto col={2} p={2}>
                   <LinkContainer to={{pathname: '/Browse'}}>
                     <NavItem className="navBrowse">BROWSE</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box auto col={2} p={2}>
                   <LinkContainer to={{pathname: '/Activity'}}>
                     <NavItem className="navActivity">ACTIVITY</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box auto col={2} p={2}>
                   <LinkContainer to={{pathname: '/Account'}}>
                     <NavItem className="navAccount">ACCOUNT</NavItem>
                   </LinkContainer>
                 </Box>
 
-                <Box auto col={3} p={3}>
+                <Box auto col={2} p={2}>
                   <LinkContainer to={{pathname: '/Login'}}>
                     <NavItem className="navLogin">LOGIN</NavItem>
                   </LinkContainer>
@@ -60,8 +67,12 @@ class Navigation extends React.Component {
               </Flex>
             </Nav>
           </Navbar.Collapse>
+          </Flex>
+          </Navbar.Header>
         </Navbar>
       </div>
+
+
     );
   }
 }

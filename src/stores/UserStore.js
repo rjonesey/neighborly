@@ -13,6 +13,8 @@ export default class UserStore {
       email: "",
       loginMsg: "",
       loggedInUser: false,
+      failedLogin: false,
+      newUser: false,
       token: ""
     });
     this.LoginUser = this.LoginUser.bind(this);
@@ -65,8 +67,48 @@ export default class UserStore {
       } else {
         alert("Login Failed");
         this.loggedInUser = false;
+        this.newUser = false;
         this.email = "";
       }
     });
   }
+  facebookLoginUser(response) {
+    const self = this;
+    fetch('facebook/usercheck', {
+      method: 'POST',
+
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: response.name
+      })
+    }).then(function(result){
+      return result.json();
+    }).then(function(result) {
+      if(result.userfound) {
+        self.LoginUser(response.name, response.id);
+      } else {
+        this.newUser = true;
+        fetch('/api/user', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: response.name,
+            password: response.id,
+            email: response.name
+          })
+        })
+          .then(function(){
+            self.LoginUser(response.name, response.id);
+          });
+      }
+    });
+  }
+
+
 }
