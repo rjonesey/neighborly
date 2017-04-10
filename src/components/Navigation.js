@@ -3,7 +3,6 @@ import { observer, inject } from 'mobx-react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Flex, Box } from 'reflexbox';
-
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
@@ -13,46 +12,37 @@ class Navigation extends React.Component {
       <div className="navBar navbar-fixed-top">
         <Navbar collapseOnSelect id="nav-margin">
           <Navbar.Header>
-
-              <div id="logo"><img src="../images/swpl-logo.png" /></div>
-
+            <div id="logo"><img src="../images/swpl-logo.png" /></div>
             <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
-
             <Nav>
               <Flex>
-
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/'}}>
                     <NavItem id="navHome">HOME</NavItem>
                   </LinkContainer>
                 </Box>
-
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Browse'}}>
                     <NavItem id="navBrowse">BROWSE</NavItem>
                   </LinkContainer>
                 </Box>
-
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Neighbors'}}>
                     <NavItem id="navNeighbors">NEIGHBORS</NavItem>
                   </LinkContainer>
                 </Box>
-
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Account'}}>
                     <NavItem id="navAccount">ACCOUNT</NavItem>
                   </LinkContainer>
                 </Box>
-
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Login'}}>
                     <NavItem id="navLogin">LOGIN</NavItem>
                   </LinkContainer>
                 </Box>
-
               </Flex>
             </Nav>
           </Navbar.Collapse>
@@ -61,9 +51,7 @@ class Navigation extends React.Component {
     );
   }
 }
-
 Navigation.propTypes = {
   logUserOut: React.PropTypes.func
 };
-
 export default inject("userStore")(observer(Navigation));

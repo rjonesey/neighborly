@@ -1,8 +1,7 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-import { Card,  CardTitle, CardText, CardSubtitle, CardImg } from "reactstrap";
-import { Button } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Card,  CardImg , Button} from "reactstrap";
+import '../../public/style.css';
 
 ItemList.propTypes = {
   items: React.PropTypes.array.isRequired,
@@ -16,17 +15,17 @@ function ItemList(props) {
   let addedItems = props.items.map(function(item) {
     let addedBy = (item && item.owner ? (item.owner.name) : "");
     return (
-      <Card block key={item._id}>
-        <CardImg top width="100%" src={item.url} rounded alt="Card image cap"/>
-        <Card block inverse
-          style={{ backgroundColor: '#333', borderColor: '#333', width: '100%'}}>
-          <CardTitle>{item.category}</CardTitle>
-          <CardSubtitle>{item.condition}</CardSubtitle>
-          <CardText>{item.description}</CardText>
-          <CardText>{addedBy}</CardText>
-          <LinkContainer to={{pathname: '/Requested'}}>
-            <Button>Request from {addedBy}</Button>
-          </LinkContainer>
+      <Card block key={item._id} id="outerCard">
+        <CardImg top width="100%" src={item.url} id="cardImg"/>
+        <Card id="innerCard" >
+          <h2 id="cardTitle">{item.description}</h2>
+          <h4 id="cardSubtitle">{item.category}</h4>
+          <h4 id="cardText">Condition: {item.condition}</h4>
+          <div id="itemOwner">{addedBy}
+          <Button>
+            <i className="fa fa-envelope fa-2x" id="faMail"/>
+          </Button>
+          </div>
         </Card>
       </Card>
     );
