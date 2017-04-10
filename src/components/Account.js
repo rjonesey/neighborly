@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Jumbotron } from 'react-bootstrap';
+import { Col, Jumbotron, Grid } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
 import { Form, FormGroup, Media } from "reactstrap";
 import Navigation from './Navigation';
@@ -51,6 +51,7 @@ class Account extends React.Component {
         <Navigation/>
         {this.props.children}
         <div style={{paddingTop:"200px"}}>
+        <Grid>
           <Jumbotron style={{backgroundColor:"transparent"}}>
             <Flex align="left">
               <Box>
@@ -69,6 +70,7 @@ class Account extends React.Component {
               </Box>
             </Flex>
           </Jumbotron>
+          </Grid>
         </div>
 
           <br/>

@@ -11,6 +11,13 @@
  color: black;
 }
 
+#navNeighbors {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
 #navBrowse {
  font-family: ‘Roboto’, sans-serif;
  font-size: 20px;
@@ -33,11 +40,30 @@
  color: black;
 }
 
-#navNeighbors{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
+#main {
+  background-color: black;
+}
+
+#nav-margin {
+  background-color: transparent;
+  height: 100px;
+}
+
+#navBarHeader {
+  background-color: ;
+}
+
+#nav {
+  background-color: ;
+}
+
+#loginForm {
+  font-size: 2.0vw;
+}
+
+#signUpForm {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .flexcontainer {
@@ -47,6 +73,98 @@
   flex-direction: row;
 }
 
+#jumbotronSearch, #signUpJumbo {
+  border-radius: 25px;
+  max-width: 80%;
+}
+
+#loginJumbo {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 25px;
+  max-width: 80%;
+}
+
+#browseSpan {
+    font-family: 'Bitter', sans-serif;
+    font-size: 4.0vw;
+  }
+
+#spanLogin, #spanSignUp {
+  font-family: 'Bitter', sans-serif;
+  font-size: 3.0vw;
+}
+
+#Search {
+    font-size: 2.5.0vw;
+  }
+
+#outerCard {
+  background-color: transparent;
+  text: #141823 ;
+  line spacing: -0.15px;
+  line-height: 16px;
+  border: none;
+}
+
+#cardImg {
+  border-radius: 25px;
+  padding-bottom: 10px;
+}
+
+#innerCard {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+}
+
+#cardTitle {
+  margin-left: 20px;
+  color: #141823;
+  font-weight: 500;
+  font-family: 'Bitter';
+  font-size: 30px;
+}
+
+#cardSubtitle {
+  margin-left: 15px;
+  padding-top: 5px;
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+#cardText {
+  margin-left: 15px;
+  color: #333;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+#itemOwner {
+  margin-left: 15px;
+  color: #333;
+  font-size: 15px;
+  font-family: 'Raleway' sans-serif;
+  font-weight: 200;
+  height: 40px
+}
+
+.fa {
+  float: right;
+  border-radius: 25px;
+}
+
+#faMail {
+  color: #333;
+}
+
+#newUserLink {
+  font-size: 15px;
+  color: #333;
+  font-family: 'Raleway' sans-serif;
+  font-weight: 500;
+}
+
 .collage {
  margin-left: 15%;
 }
@@ -54,3 +172,12 @@
 #main {
   background-color: black;
 }
+
+#mainLogo {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*<img style={{width:"70vw", height:"80vh", overflow:"hidden" }}
+src="../images/blackcollage.jpg"/>*/
