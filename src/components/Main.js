@@ -17,7 +17,7 @@ class Main extends React.Component {
         <Navigation/>
         {this.props.children}
         <div style={{color:"grey", paddingTop:"133px"}}>
-          <div>
+          <div id="main">
             <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}}
             src="http://spacegrant.montana.edu/mhsppc/Bozeman_Montana.jpg"/>
           </div>

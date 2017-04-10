@@ -45,3 +45,7 @@
    -webkit-flex-direction: row;
    flex-direction: row;
 }
+
+#main {
+  background-color: black;
+}
