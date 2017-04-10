@@ -79,43 +79,45 @@ class NewUser extends React.Component {
     return (
       <div style={{paddingTop: "200px"}}>
         <Grid>
-          <Jumbotron id="signUpJumbo">
-            <Flex align="center" justify="center">
-              <Form id="signUpForm">
-                <span id="spanSignUp">Sign Up Here!</span>
+          <Flex align="center" justify="center">
+            <Jumbotron id="signUpJumbo">
+              <Flex align="center" justify="center">
+                <Form id="signUpForm">
+                  <span id="spanSignUp">Sign Up Here!</span>
 
-                <FormGroup>
-                  <Label>Name</Label>
-                  <Input onChange={this.handleNameChange}  value={this.state.name} type="text"
-                  Name="form-control" id="name" placeholder="name" size="lg"/>
-                </FormGroup>
+                  <FormGroup>
+                    <Label>Name</Label>
+                    <Input onChange={this.handleNameChange}  value={this.state.name} type="text"
+                    Name="form-control" id="name" placeholder="name" size="lg"/>
+                  </FormGroup>
 
-                <FormGroup>
-                  <Label>Neighborhood</Label>
-                  <Input onChange={this.handleNeighborhoodChange} value={this.state.neighborhood}
-                  type="text" Name="form-control" id="neighborhood" placeholder="neighborhood"/>
-                </FormGroup>
+                  <FormGroup>
+                    <Label>Neighborhood</Label>
+                    <Input onChange={this.handleNeighborhoodChange} value={this.state.neighborhood}
+                    type="text" Name="form-control" id="neighborhood" placeholder="neighborhood"/>
+                  </FormGroup>
 
-                <FormGroup controlId="formInlinePassword">
-                 <Label>Password</Label>
-                  <Input onChange={this.handlePasswordChange}
-                  type="password" placeholder="password" />
-                </FormGroup>
+                  <FormGroup controlId="formInlinePassword">
+                   <Label>Password</Label>
+                    <Input onChange={this.handlePasswordChange}
+                    type="password" placeholder="password" />
+                  </FormGroup>
 
-                <FormGroup controlId="formInlineEmail">
-                  <Label>Email</Label>
-                  <Input onChange={this.handleEmailChange}
-                  type="text" placeholder="email" />
-                </FormGroup>
+                  <FormGroup controlId="formInlineEmail">
+                    <Label>Email</Label>
+                    <Input onChange={this.handleEmailChange}
+                    type="text" placeholder="email" />
+                  </FormGroup>
 
-                <div>
-                  <Link to ="/Main" ><Button
-                  onClick={this.handleNewUser} onTouchTap={this.handleNewUser}
-                  type="submit" className="btn btn-success">Enter</Button></Link>
-                </div>
-              </Form>
-            </Flex>
-          </Jumbotron>
+                  <div>
+                    <Link to ="/Main" ><Button
+                    onClick={this.handleNewUser} onTouchTap={this.handleNewUser}
+                    type="submit" className="btn btn-success">Enter</Button></Link>
+                  </div>
+                </Form>
+              </Flex>
+            </Jumbotron>
+          </Flex>
         </Grid>
       </div>
     );
