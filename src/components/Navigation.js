@@ -25,31 +25,31 @@ class Navigation extends React.Component {
 
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/'}}>
-                    <NavItem className="navHome">HOME</NavItem>
+                    <NavItem id="navHome">HOME</NavItem>
                   </LinkContainer>
                 </Box>
 
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Browse'}}>
-                    <NavItem className="navBrowse">BROWSE</NavItem>
+                    <NavItem id="navBrowse">BROWSE</NavItem>
                   </LinkContainer>
                 </Box>
 
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Neighbors'}}>
-                    <NavItem className="navNeighbors">NEIGHBORS</NavItem>
+                    <NavItem id="navNeighbors">NEIGHBORS</NavItem>
                   </LinkContainer>
                 </Box>
 
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Account'}}>
-                    <NavItem className="navAccount">ACCOUNT</NavItem>
+                    <NavItem id="navAccount">ACCOUNT</NavItem>
                   </LinkContainer>
                 </Box>
 
                 <Box col={3} p={3}>
                   <LinkContainer to={{pathname: '/Login'}}>
-                    <NavItem className="navLogin">LOGIN</NavItem>
+                    <NavItem id="navLogin">LOGIN</NavItem>
                   </LinkContainer>
                 </Box>
 

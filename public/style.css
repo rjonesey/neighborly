@@ -4,37 +4,39 @@
     background-position: center;
   }
 
-.navHome {
+#navHome {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: left;
+  color: black;
 }
 
-.navNeighbors {
+#navNeighbors {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: left;
+  color: black;
 }
 
-.navBrowse {
+#navBrowse {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: left;
+  color: black;
 }
-.navActivity {
+
+#navAccount{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: right;
+  color: black;
 }
-.navAccount{
+
+#navLogin{
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   float: right;
-}
-.navLogin{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+  color: black;
 }
 
 .flexcontainer {
