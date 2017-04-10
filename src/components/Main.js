@@ -14,7 +14,7 @@ class Main extends React.Component {
       <div>
         <Navigation/>
         {this.props.children}
-        <div style={{color:"grey", paddingTop:"133px"}}>
+        <div id="main" style={{color:"grey", paddingTop:"133px"}}>
           <div className="collage">
             <img style={{width:"70vw", height:"80vh", overflow:"hidden" }}
             src="../images/blackcollage.jpg"/>

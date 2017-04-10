@@ -1,46 +1,47 @@
 .Hoods {
-    font-family: 'Roboto', sans-serif;
-    font-size: 60px;
-    background-position: center;
-  }
-
-.navHome {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: left;
+   font-family: ‘Roboto’, sans-serif;
+   font-size: 60px;
+   background-position: center;
+ }
+#navHome {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
 }
-.navBrowse {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: left;
+#navBrowse {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
 }
-
-.navAccount{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navAccount{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
-.navLogin{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navLogin{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
-.navNeighbors{
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  float: right;
+#navNeighbors{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
 }
-
 .flexcontainer {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
-}
-
-#app {
-  background-color: black;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 }
 .collage {
-  margin-left: 15%;
+ margin-left: 15%;
+}
+#main {
+  background-color: black;
 }
