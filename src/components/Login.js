@@ -6,7 +6,7 @@ import FacebookLogin from 'react-facebook-login';
 import '../../public/style.css';
 import { Link } from 'react-router';
 import { Flex, Box } from 'reflexbox';
-
+import Navigation from './Navigation';
 
 class Login extends React.Component {
   constructor() {
@@ -121,7 +121,6 @@ class Login extends React.Component {
           </Jumbotron>
           </Flex>
         </Grid>
-
       </div>
     );
   }

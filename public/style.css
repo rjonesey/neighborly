@@ -1,3 +1,45 @@
+.Hoods {
+   font-family: ‘Roboto’, sans-serif;
+   font-size: 60px;
+   background-position: center;
+ }
+
+#navHome {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+#navNeighbors {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+#navBrowse {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+
+#navAccount{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
+}
+
+#navLogin{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
+}
+
 #main {
   background-color: black;
 }
@@ -24,47 +66,24 @@
   padding-right: 20px;
 }
 
-#navHome {
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: left;
- color: black;
-}
-#navBrowse {
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: left;
- color: black;
-}
-#navAccount{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
-#navLogin{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
-#navNeighbors{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
-
 .flexcontainer {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 }
 
-#jumbotronSearch, #loginJumbo, #signUpJumbo {
+#jumbotronSearch, #signUpJumbo {
   border-radius: 25px;
-  background-color: #F0F1F5;
+  max-width: 80%;
+}
+
+
+#loginJumbo {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 25px;
+  max-width: 80%;
+
 }
 
 #browseSpan {
@@ -149,5 +168,18 @@
 }
 
 .collage {
-  margin-left: 15%;
+ margin-left: 15%;
 }
+
+#main {
+  background-color: black;
+}
+
+#mainLogo {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*<img style={{width:"70vw", height:"80vh", overflow:"hidden" }}
+src="../images/blackcollage.jpg"/>*/

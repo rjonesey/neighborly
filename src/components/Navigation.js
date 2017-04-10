@@ -12,7 +12,9 @@ class Navigation extends React.Component {
       <div className="navBar navbar-fixed-top">
         <Navbar collapseOnSelect id="nav-margin">
           <Navbar.Header>
-            <div id="logo"><img src="../images/swpl-logo.png" /></div>
+            <div id="logo">
+              <img src="../images/swpl-logo.png" />
+            </div>
             <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>

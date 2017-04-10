@@ -11,16 +11,9 @@ class Main extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="mainLogo">
         <Navigation/>
         {this.props.children}
-        <div style={{color:"grey", paddingTop:"133px"}}>
-          <div className="collage">
-            <img style={{width:"70vw", height:"80vh", overflow:"hidden" }}
-            src="../images/blackcollage.jpg"/>
-          </div>
-        </div>
-
       </div>
     );
   }
