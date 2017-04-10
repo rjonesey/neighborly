@@ -3,8 +3,6 @@ import { inject, observer } from 'mobx-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from './Navigation';
 
-
-
 class Main extends React.Component {
 
   constructor() {
@@ -16,10 +14,10 @@ class Main extends React.Component {
       <div>
         <Navigation/>
         {this.props.children}
-        <div style={{color:"grey", paddingTop:"133px"}}>
-          <div id="main">
-            <img style={{width:"100vw", height:"83.5vh", overflow:"hidden"}}
-            src="http://spacegrant.montana.edu/mhsppc/Bozeman_Montana.jpg"/>
+        <div id="main"style={{color:"grey", paddingTop:"133px"}}>
+          <div className="collage">
+            <img style={{width:"70vw", height:"80vh", overflow:"hidden" }}
+            src="../images/blackcollage.jpg"/>
           </div>
         </div>
 
