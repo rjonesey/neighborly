@@ -80,38 +80,39 @@ class Browse extends React.Component {
         <div>
           <Navigation/>
         </div>
-
-        <div id="bigBrowse" style={{paddingTop:"200px"}} img src="../images/map.jpg">
+        <div>
           <Grid>
-            <Jumbotron id="jumbotronSearch">
-              <div>
-                <Flex align="center" justify="center">
-                  <span id="browseSpan">Browse Available Items</span>
-                  </Flex>
-              </div>
-
-              <Form>
-                <Flex align="center" justify="center">
-                  <FormGroup  style={{width: "70%"}}>
-                    <Label id="Search">SEARCH</Label>
-                    <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
-                      placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
-                      value={this.state.filterText} />
-                  <FormFeedback/>
-                </FormGroup>
-              </Flex>
-              <Flex align="center" justify="center">
-
-                  <div>
-                    <Flex align="start" justify="center">
-                      <Button onClick={this.searchItems}
-                       className="btn btn-primary btn-lg" id="searchBtn">Search
-                      </Button>
+            <Flex align="center" justify="center">
+              <Jumbotron id="jumbotronSearch">
+                <div>
+                  <Flex align="center" justify="center">
+                    <span id="browseSpan">Browse Available Items</span>
                     </Flex>
-                  </div>
+                </div>
+
+                <Form>
+                  <Flex align="center" justify="center">
+                    <FormGroup  style={{width: "70%"}}>
+                      <Label id="Search">SEARCH</Label>
+                      <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
+                        placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
+                        value={this.state.filterText} />
+                    <FormFeedback/>
+                  </FormGroup>
+                </Flex>
+                <Flex align="center" justify="center">
+
+                    <div>
+                      <Flex align="start" justify="center">
+                        <Button onClick={this.searchItems}
+                         className="btn btn-primary btn-lg" id="searchBtn">Search
+                        </Button>
+                      </Flex>
+                    </div>
+              </Flex>
+              </Form>
+              </Jumbotron>
             </Flex>
-            </Form>
-            </Jumbotron>
           </Grid>
         </div>
 
