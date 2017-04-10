@@ -80,35 +80,37 @@ class Browse extends React.Component {
           <Navigation/>
         </div>
 
-        <div style={{paddingTop:"200px"}}>
+        <div>
           <Grid>
-            <Jumbotron id="jumbotronSearch">
-              <div>
-                <Flex align="center" justify="center">
-                  <span id="browseSpan">Browse Available Items</span>
-                  </Flex>
-              </div>
-
-              <Form>
-                <Flex align="center" justify="center">
-                <FormGroup  style={{width: "65%"}}>
-                  <Label id="Search">SEARCH</Label>
-                  <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
-                    placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
-                    value={this.state.filterText} />
-                  <FormFeedback/>
-                </FormGroup>
-                </Flex>
-
+            <Flex align="center" justify="center">
+              <Jumbotron id="jumbotronSearch">
                 <div>
-                  <Flex align="start" justify="center">
-                    <Button onClick={this.searchItems}
-                     className="btn btn-primary btn-lg" id="searchBtn">Search
-                    </Button>
-                  </Flex>
+                  <Flex align="center" justify="center">
+                    <span id="browseSpan">Browse Available Items</span>
+                    </Flex>
                 </div>
-              </Form>
-            </Jumbotron>
+
+                <Form>
+                  <Flex align="center" justify="center">
+                  <FormGroup  style={{width: "65%"}}>
+                    <Label id="Search">SEARCH</Label>
+                    <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
+                      placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
+                      value={this.state.filterText} />
+                    <FormFeedback/>
+                  </FormGroup>
+                  </Flex>
+
+                  <div>
+                    <Flex align="start" justify="center">
+                      <Button onClick={this.searchItems}
+                       className="btn btn-primary btn-lg" id="searchBtn">Search
+                      </Button>
+                    </Flex>
+                  </div>
+                </Form>
+              </Jumbotron>
+            </Flex>
           </Grid>
         </div>
 
