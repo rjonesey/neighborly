@@ -92,23 +92,25 @@ class Browse extends React.Component {
 
               <Form>
                 <Flex align="center" justify="center">
-                <FormGroup  style={{width: "70%"}}>
-                  <Label id="Search">SEARCH</Label>
-                  <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
-                    placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
-                    value={this.state.filterText} />
+                  <FormGroup  style={{width: "70%"}}>
+                    <Label id="Search">SEARCH</Label>
+                    <Input onChange={this.handleFilterTextInputChange} type="text" state="success"
+                      placeholder="Power Tools, Gardening, Hobby, Recreation, Kitchen"
+                      value={this.state.filterText} />
                   <FormFeedback/>
                 </FormGroup>
-                </Flex>
+              </Flex>
+              <Flex align="center" justify="center">
 
-                <div>
-                  <Flex align="start" justify="center">
-                    <Button onClick={this.searchItems}
-                     className="btn btn-primary btn-lg" id="searchBtn">Search
-                    </Button>
-                  </Flex>
-                </div>
-              </Form>
+                  <div>
+                    <Flex align="start" justify="center">
+                      <Button onClick={this.searchItems}
+                       className="btn btn-primary btn-lg" id="searchBtn">Search
+                      </Button>
+                    </Flex>
+                  </div>
+            </Flex>
+            </Form>
             </Jumbotron>
           </Grid>
         </div>

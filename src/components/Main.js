@@ -11,7 +11,7 @@ class Main extends React.Component {
 
   render() {
     return(
-      <div>
+      <div id="mainLogo">
         <Navigation/>
         {this.props.children}
         <div id="main" style={{color:"grey", paddingTop:"133px"}}>
@@ -20,7 +20,6 @@ class Main extends React.Component {
             src="../images/blackcollage.jpg"/>
           </div>
         </div>
-
       </div>
     );
   }

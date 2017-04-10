@@ -4,6 +4,65 @@
    background-position: center;
  }
 
+
+#main {
+  background-color: black;
+}
+
+#nav-margin {
+  background-color: transparent;
+  height: 100px;
+}
+
+#navBarHeader {
+  background-color: ;
+}
+
+#nav {
+  background-color: ;
+}
+
+#loginForm {
+  font-size: 2.0vw;
+}
+
+
+#navHome {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+#navNeighbors {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+#navBrowse {
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: left;
+ color: black;
+}
+
+
+#navAccount{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
+}
+
+#navLogin{
+ font-family: ‘Roboto’, sans-serif;
+ font-size: 20px;
+ float: right;
+ color: black;
+}
+
 #main {
   background-color: black;
 }
@@ -29,37 +88,6 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-
-#navHome {
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: left;
- color: black;
-}
-#navBrowse {
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: left;
- color: black;
-}
-#navAccount{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
-#navLogin{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
-#navNeighbors{
- font-family: ‘Roboto’, sans-serif;
- font-size: 20px;
- float: right;
- color: black;
-}
 .flexcontainer {
   display: -webkit-flex;
   display: flex;
@@ -68,15 +96,25 @@
 }
 
 .flexcontainer {
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   flex-direction: row;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
 }
 
-#jumbotronSearch, #loginJumbo, #signUpJumbo {
+#jumbotronSearch, #signUpJumbo {
   border-radius: 25px;
-  background-color: #F0F1F5;
+  max-width: 80%;
+}
+
+
+#jumbotronSearch, #signUpJumbo {
+}
+
+
+#loginJumbo {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 25px;
   max-width: 80%;
 }
 
@@ -165,6 +203,13 @@
 .collage {
  margin-left: 15%;
 }
+
 #main {
   background-color: black;
+}
+
+#mainLogo {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
