@@ -21,13 +21,13 @@ render((
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
         <IndexRoute component={Login}/>
+      </Route>
         <Route path="/Login" component={Login}/>
         <Route path="/NewUser" component={NewUser}/>
         <Route path="/Browse" component={Browse}/>
         <Route path="/Neighbors" component={Neighbors}/>
         <Route path="/Account" component={Account}/>
         <Route path="/Requested" component={ItemRequested}/>
-      </Route>
     </Router>
   </Provider>
 

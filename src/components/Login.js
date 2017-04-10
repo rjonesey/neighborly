@@ -71,8 +71,10 @@ class Login extends React.Component {
 
   render() {
     return (
+
       <div style={{paddingTop:"200px"}}>
         <Grid>
+          <Flex align="center" justify="center">
           <Jumbotron id="loginJumbo">
             <Flex align="center" justify="center">
               <Form id="loginForm">
@@ -117,7 +119,9 @@ class Login extends React.Component {
               textButton = "Login with Facebook"/>
             </div>
           </Jumbotron>
+          </Flex>
         </Grid>
+
       </div>
     );
   }
