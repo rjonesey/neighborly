@@ -55,9 +55,9 @@ class CreateAccount extends React.Component {
 
   handleNewUser(event) {
     event.preventDefault();
-    this.props.userStore.NewUser(this.state.email, this.state.password, this.state.name,
-      this.state.neighborhood, this.state.owner, this.state.bio, this.state.profile);
-    this.setState({ password: "", email: "", name: "", neighborhood: "", owner: "", profile: "", bio: ""});
+    this.props.userStore.NewUser(this.state.name, this.state.email, this.state.password,
+      this.state.neighborhood, this.state.bio, this.state.profile);
+    this.setState({ password: "", email: "", name: "", neighborhood: "", profile: "", bio: ""});
   }
 
   render() {

@@ -69281,9 +69281,10 @@ var Browse = function (_React$Component) {
     }
   }, {
     key: 'searchItems',
-    value: function searchItems() {
+    value: function searchItems(event) {
       var _this3 = this;
 
+      event.preventDefault();
       this.props.itemStore.filteredItems = [];
       this.props.itemStore.items.forEach(function (item) {
         if (item.category.indexOf(_this3.state.filterText) !== -1 || item.description.indexOf(_this3.state.filterText) !== -1) {
@@ -69343,7 +69344,7 @@ var Browse = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   _reactstrap.Form,
-                  null,
+                  { onSubmit: this.searchItems },
                   _react2.default.createElement(
                     _reflexbox.Flex,
                     { align: 'center', justify: 'center' },
@@ -69369,8 +69370,8 @@ var Browse = function (_React$Component) {
                       { align: 'start', justify: 'center' },
                       _react2.default.createElement(
                         _reactBootstrap.Button,
-                        { onClick: this.searchItems,
-                          className: 'btn btn-primary btn-lg', id: 'searchBtn' },
+                        { onSubmit: this.searchItems,
+                          type: 'submit', className: 'btn btn-primary btn-lg', id: 'searchBtn' },
                         'Search'
                       )
                     )
@@ -69517,8 +69518,8 @@ var CreateAccount = function (_React$Component) {
     key: 'handleNewUser',
     value: function handleNewUser(event) {
       event.preventDefault();
-      this.props.userStore.NewUser(this.state.email, this.state.password, this.state.name, this.state.neighborhood, this.state.owner, this.state.bio, this.state.profile);
-      this.setState({ password: "", email: "", name: "", neighborhood: "", owner: "", profile: "", bio: "" });
+      this.props.userStore.NewUser(this.state.name, this.state.email, this.state.password, this.state.neighborhood, this.state.bio, this.state.profile);
+      this.setState({ password: "", email: "", name: "", neighborhood: "", profile: "", bio: "" });
     }
   }, {
     key: 'render',
@@ -70051,7 +70052,7 @@ function NeighborsList(props) {
     return _react2.default.createElement(
       _reactstrap.Card,
       { block: true, key: user._id },
-      _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQvYsLi4rTkCeFnOwk70fQfecW6g1mBRKgE4hNPsc3QdFCQmaJoH-8xVuQ", rounded: true, alt: 'Card image cap' }),
+      _react2.default.createElement(_reactstrap.CardImg, { top: true, width: '100%', src: user.profile, rounded: true, alt: 'Card image cap' }),
       _react2.default.createElement(
         _reactstrap.Card,
         { block: true, inverse: true,
@@ -70201,7 +70202,7 @@ var UserStore = function () {
     }
   }, {
     key: 'NewUser',
-    value: function NewUser(email, password, name, neighborhood, profile, bio) {
+    value: function NewUser(name, email, password, neighborhood, bio, profile) {
       fetch('/user', {
         method: 'POST',
         headers: {
@@ -70326,7 +70327,7 @@ exports = module.exports = __webpack_require__(171)(undefined);
 
 
 // module
-exports.push([module.i, ".Hoods {\n   font-family: ‘Roboto’, sans-serif;\n   font-size: 60px;\n   background-position: center;\n }\n\n\n#main {\n  background-color: black;\n}\n\n#nav-margin {\n  background-color: transparent;\n  height: 100px;\n}\n\n#navBarHeader {\n  background-color: ;\n}\n\n#nav {\n  background-color: ;\n}\n\n#loginForm {\n  font-size: 2.0vw;\n}\n\n\n#navHome {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n#navNeighbors {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n#navBrowse {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n\n#navAccount{\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: right;\n color: black;\n}\n\n#navLogin{\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: right;\n color: black;\n}\n\n#main {\n  background-color: black;\n}\n\n#nav-margin {\n  background-color: transparent;\n}\n\n#navBarHeader {\n  background-color: ;\n}\n\n#nav {\n  background-color: ;\n}\n\n#loginForm {\n  font-size: 1.0vw;\n}\n\n#signUpForm {\n  font-size: 1.0vw;\n}\n\n.flexcontainer {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row;\n  flex-direction: row;\n}\n\n.flexcontainer {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row;\n  flex-direction: row;\n}\n\n#jumbotronSearch {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n}\n\n#signUpJumbo {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n  margin-top: 22.5%;\n}\n\n#loginJumbo {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n  margin-top: 5.7%;\n}\n\n#browseSpan {\n    font-family: 'Bitter', sans-serif;\n    font-size: 4.0vw;\n  }\n\n\n#spanLogin, #spanSignUp {\n  font-family: 'Bitter', sans-serif;\n  font-size: 3.0vw;\n}\n\n#Search {\n    font-size: 2.5.0vw;\n  }\n\n#outerCard {\n  background-color: rgba(116, 240, 150, 0.5);\n  text: #141823 ;\n  line spacing: -0.15px;\n  line-height: 16px;\n  border: none;\n}\n\n#cardImg {\n  border-radius: 25px;\n  padding-bottom: 10px;\n  width: 300px;\n  height: 300px;\n}\n\n#innerCard {\n  background-color: transparent;\n  width: 100%;\n  border: none;\n}\n\n#cardTitle {\n  margin-left: 20px;\n  color: #141823;\n  font-family: 'Bitter';\n  font-size: 20px;\n}\n\n#cardSubtitle {\n  margin-left: 15px;\n  padding-top: 5px;\n  color: #333;\n  font-family: 'Raleway', sans-serif;\n  font-weight: 400;\n}\n\n#cardText {\n  margin-left: 15px;\n  color: #333;\n  font-family: 'Raleway', sans-serif;\n  font-weight: 400;\n}\n\n#itemOwner {\n  margin-left: 15px;\n  color: #333;\n  font-size: 15px;\n  font-family: 'Raleway' sans-serif;\n  font-weight: 200;\n  height: 40px\n}\n\n.fa {\n  float: right;\n  border-radius: 25px;\n}\n\n#faMail {\n  color: #333;\n}\n\n#newUserLink {\n  font-size: 15px;\n  color: #333;\n  font-family: 'Raleway' sans-serif;\n  font-weight: 500;\n}\n\n#logo {\n  width: 100%;\n  margin-left: -40%;\n}\n\n#logoDiv {\n  width: 50%;\n}\n\n#loginDiv {\n  margin-top: 15%;\n}\n\n#mainLogo, #createAccountMainLogo {\n  width: 100vw;\n  overflow: hidden;\n}\n\n#mainImg, #createAccountMainImage {\n  width: 100%;\n  margin-top: -43%;\n}\n\n#imgPlease, #createAccountImgPlease {\n  width: 100%;\n  overflow: hidden;\n}\n\n#createAccountLogoDiv {\n  width: 50%;\n}\n\n#createAccountLoginDiv {\n  width: 100vw;\n  overflow: hidden;\n}\n\n#browseJumboDiv {\n  padding-top: 5%;\n}\n\n#accountPapa {\n  margin-top: 6.8%;\n  height: 87.5vh;\n}\n\n#userInfo {\n  width: 15%;\n  height: 20%;\n  border: black solid 2px;\n  position: absolute;\n  margin-left: 3%;\n  margin-top: 17%;\n}\n\n#userImage {\n  border: solid black 2px;\n  height: 20%;\n  width: 15%;\n  position: absolute;\n  margin-left: 3%;\n  margin-top: 5%;\n}\n\n#submitItemForm {\n  width: 45%;\n  margin-left: 40%;\n  margin-top: 12%;\n  position: absolute;\n\n}\n\n#accountCard {\n  margin-top: 20%;\n  margin-left: -5%;\n  position: absolute;\n}\n\n#createAccountForm {\n  width: 50%;\n  height: 50%;\n  margin-top: 20%;\n  margin-left: 25%;\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n}\n", ""]);
+exports.push([module.i, ".Hoods {\n   font-family: ‘Roboto’, sans-serif;\n   font-size: 60px;\n   background-position: center;\n }\n\n\n#main {\n  background-color: black;\n}\n\n#nav-margin {\n  background-color: transparent;\n  height: 100px;\n}\n\n#navBarHeader {\n  background-color: ;\n}\n\n#nav {\n  background-color: ;\n}\n\n#loginForm {\n  font-size: 2.0vw;\n}\n\n\n#navHome {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n#navNeighbors {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n#navBrowse {\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: left;\n color: black;\n}\n\n\n#navAccount{\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: right;\n color: black;\n}\n\n#navLogin{\n font-family: ‘Roboto’, sans-serif;\n font-size: 20px;\n float: right;\n color: black;\n}\n\n#main {\n  background-color: black;\n}\n\n#nav-margin {\n  background-color: transparent;\n}\n\n#navBarHeader {\n  background-color: ;\n}\n\n#nav {\n  background-color: ;\n}\n\n#loginForm {\n  font-size: 1.0vw;\n}\n\n#signUpForm {\n  font-size: 1.0vw;\n}\n\n.flexcontainer {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row;\n  flex-direction: row;\n}\n\n.flexcontainer {\n  display: -webkit-flex;\n  display: flex;\n  -webkit-flex-direction: row;\n  flex-direction: row;\n}\n\n#jumbotronSearch {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n}\n\n#signUpJumbo {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n  margin-top: 22.5%;\n}\n\n#loginJumbo {\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n  max-width: 80%;\n  margin-top: 5.7%;\n}\n\n#browseSpan {\n    font-family: 'Bitter', sans-serif;\n    font-size: 3.0vw;\n  }\n\n\n#spanLogin, #spanSignUp {\n  font-family: 'Bitter', sans-serif;\n  font-size: 3.0vw;\n}\n\n#Search {\n    font-size: 2.5.0vw;\n  }\n\n#outerCard {\n  background-color: rgba(116, 240, 150, 0.5);\n  text: #141823 ;\n  line spacing: -0.15px;\n  line-height: 16px;\n  border: none;\n}\n\n#cardImg {\n  border-radius: 25px;\n  padding-bottom: 10px;\n  width: 300px;\n  height: 300px;\n}\n\n#innerCard {\n  background-color: transparent;\n  width: 100%;\n  border: none;\n}\n\n#cardTitle {\n  margin-left: 20px;\n  color: #141823;\n  font-family: 'Bitter';\n  font-size: 20px;\n}\n\n#cardSubtitle {\n  margin-left: 15px;\n  padding-top: 5px;\n  color: #333;\n  font-family: 'Raleway', sans-serif;\n  font-weight: 400;\n}\n\n#cardText {\n  margin-left: 15px;\n  color: #333;\n  font-family: 'Raleway', sans-serif;\n  font-weight: 400;\n}\n\n#itemOwner {\n  margin-left: 15px;\n  color: #333;\n  font-size: 15px;\n  font-family: 'Raleway' sans-serif;\n  font-weight: 200;\n  height: 40px\n}\n\n.fa {\n  float: right;\n  border-radius: 25px;\n}\n\n#faMail {\n  color: #333;\n}\n\n#newUserLink {\n  font-size: 15px;\n  color: #333;\n  font-family: 'Raleway' sans-serif;\n  font-weight: 500;\n}\n\n#logo {\n  width: 100%;\n  margin-left: -40%;\n}\n\n#logoDiv {\n  width: 50%;\n}\n\n#loginDiv {\n  margin-top: 15%;\n}\n\n#mainLogo, #createAccountMainLogo {\n  width: 100vw;\n  overflow: hidden;\n}\n\n#mainImg, #createAccountMainImage {\n  width: 100%;\n  margin-top: -43%;\n}\n\n#imgPlease, #createAccountImgPlease {\n  width: 100%;\n  overflow: hidden;\n}\n\n#createAccountLogoDiv {\n  width: 50%;\n}\n\n#createAccountLoginDiv {\n  width: 100vw;\n  overflow: hidden;\n}\n\n#browseJumboDiv {\n  padding-top: 5%;\n}\n\n#accountPapa {\n  margin-top: 6.8%;\n  height: 87.5vh;\n}\n\n#userInfo {\n  width: 15%;\n  height: 20%;\n  border: black solid 2px;\n  position: absolute;\n  margin-left: 3%;\n  margin-top: 17%;\n}\n\n#userImage {\n  border: solid black 2px;\n  height: 20%;\n  width: 15%;\n  position: absolute;\n  margin-left: 3%;\n  margin-top: 5%;\n}\n\n#submitItemForm {\n  width: 45%;\n  margin-left: 40%;\n  margin-top: 12%;\n  position: absolute;\n\n}\n\n#accountCard {\n  margin-top: 20%;\n  margin-left: -5%;\n  position: absolute;\n}\n\n#createAccountForm {\n  width: 50%;\n  height: 50%;\n  margin-top: 20%;\n  margin-left: 25%;\n  background-color: rgba(179, 231, 193, 0.6);\n  border-radius: 25px;\n}\n", ""]);
 
 // exports
 

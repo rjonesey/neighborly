@@ -28,7 +28,7 @@ export default class UserStore {
     this.users = users;
   }
 
-  NewUser(email, password, name, neighborhood, profile, bio) {
+  NewUser(name, email, password, neighborhood, bio, profile) {
     fetch('/user', {
       method: 'POST',
       headers: {
