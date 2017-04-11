@@ -15,7 +15,9 @@ export default class UserStore {
       loggedInUser: false,
       failedLogin: false,
       newUser: false,
-      token: ""
+      token: "",
+      profile: "",
+      bio: ""
     });
     this.LoginUser = this.LoginUser.bind(this);
     this.NewUser = this.NewUser.bind(this);
@@ -26,7 +28,7 @@ export default class UserStore {
     this.users = users;
   }
 
-  NewUser(email, password, name, neighborhood) {
+  NewUser(name, email, password, neighborhood, bio, profile) {
     fetch('/user', {
       method: 'POST',
       headers: {
@@ -37,11 +39,14 @@ export default class UserStore {
         name: name,
         email: email,
         password: password,
-        neighborhood: neighborhood
+        neighborhood: neighborhood,
+        bio: bio,
+        profile: profile
       })
     })
     .then(function(){
       alert ('User Account Created.  Please Log In');
+      browserHistory.push('/');
     });
   }
 
@@ -69,6 +74,8 @@ export default class UserStore {
         this.neighborhood = loginCred.neighborhood;
         this.id = loginCred.id;
         this.token = loginCred.token;
+        this.bio = loginCred.bio;
+        this.profile = loginCred.profile;
       } else {
         alert("Login Failed");
         this.loggedInUser = false;
