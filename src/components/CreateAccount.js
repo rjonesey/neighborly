@@ -1,7 +1,6 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 import { Jumbotron, Grid, Form, FormGroup, Button } from 'react-bootstrap';
-import { Link } from 'react-router';
 import Navigation from './Navigation';
 import { Flex } from 'reflexbox';
 import { Input, Label } from 'reactstrap';

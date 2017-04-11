@@ -91,8 +91,7 @@ router.route('/user')
 
 
 router.post('/authenticate', function(req, res, next) {
-  console.log('Authenticating....', req.body.email);
-        // find the user
+          // find the user
   User.findOne({
     email: req.body.email
   }, function(err, user) {

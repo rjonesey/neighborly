@@ -20,7 +20,6 @@ class Neighbors extends React.Component {
     fetch('/user')
       .then(function(result) {return result.json();})
       .then(users => {
-        console.log(users);
         this.setState({users:users});
       }
     );

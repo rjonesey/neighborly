@@ -95,8 +95,6 @@ class Login extends React.Component {
                   </Form>
                 </Flex>
                 <br/>
-                <div style={{textAlign: "center"}}>
-                </div>
               </Jumbotron>
             </Flex>
           </Grid>

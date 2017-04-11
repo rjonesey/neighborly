@@ -1,11 +1,9 @@
 import React from 'react';
 import { Jumbotron, Grid,  } from 'react-bootstrap';
 import { inject, observer } from 'mobx-react';
-import { Card, CardImg, CardText, CardBlock,
-  CardTitle, CardSubtitle, Button, Form, FormGroup } from "reactstrap";
+import { Card, CardImg, Form, FormGroup } from "reactstrap";
 import { Flex } from 'reflexbox';
 import Navigation from './Navigation';
-import { Link } from 'react-router';
 
 class Account extends React.Component {
   constructor() {
@@ -105,7 +103,7 @@ class Account extends React.Component {
                     <button onClick={this.handleNewItem} type="submit"
                       className="btn btn-primary">Add Your Item!
                     </button>
-                    
+
                 </Form>
               </Flex>
             </Jumbotron>
