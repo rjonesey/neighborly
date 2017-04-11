@@ -69988,7 +69988,7 @@ var Neighbors = function (_React$Component) {
         ),
         _react2.default.createElement(
           'div',
-          null,
+          { style: { paddingTop: "200px" } },
           _react2.default.createElement(
             _reactBootstrap.Grid,
             null,
