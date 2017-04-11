@@ -9,7 +9,7 @@ import Login from './components/Login';
 import Browse from './components/Browse';
 import Neighbors from './components/Neighbors';
 import Main from './components/Main';
-import NewUser from './components/NewUser';
+import CreateAccount from './components/CreateAccount';
 import ItemRequested from './components/ItemRequested';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -21,7 +21,7 @@ render((
     <Router history={browserHistory}>
       <Route path="/" component={Main}/>
         <Route path="/Login" component={Login}/>
-        <Route path="/NewUser" component={NewUser}/>
+        <Route path="/NewUser" component={CreateAccount}/>
         <Route path="/Browse" component={Browse}/>
         <Route path="/Neighbors" component={Neighbors}/>
         <Route path="/Account" component={Account}/>
