@@ -101,7 +101,7 @@ class Account extends React.Component {
                     </FormGroup>
 
                     <button onClick={this.handleNewItem} type="submit"
-                      className="btn btn-pr`imary">Add Your Item!
+                      className="btn btn-primary">Add Your Item!
                     </button>
 
                 </Form>
