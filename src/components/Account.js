@@ -73,7 +73,7 @@ class Account extends React.Component {
                       <span id="spanLogin">{this.state.loginMsg == "" ?
                        "Please Sign In!":
                       this.state.loginMsg}</span>
-                    <legend>Add Your Items to Lend</legend>
+                    <legend>Add Your Items to Lend!</legend>
 
                     <FormGroup>
                       <input onChange={this.handleCategoryChange} value={this.state.category}
@@ -101,7 +101,7 @@ class Account extends React.Component {
                     </FormGroup>
 
                     <button onClick={this.handleNewItem} type="submit"
-                      className="btn btn-primary">Add Your Item!
+                      className="btn btn-pr`imary">Add Your Item!
                     </button>
 
                 </Form>
